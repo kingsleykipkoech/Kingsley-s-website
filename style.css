@@ -1,0 +1,287 @@
+/* Base Styles */
+body {
+    font-family: 'times new roman', serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 80px; /* Space for sticky footer */
+    background: linear-gradient(135deg, #2d87b4 0%, #232526 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+h1 {
+    color: #ffb347;
+    text-align: center;
+    font-size: clamp(2em, 5vw, 3em);
+    margin-top: 2.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    animation: pop 1.2s;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+img, .profile-pic {
+    display: block;
+    margin: 32px auto 16px auto;
+    max-width: 96%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(42,122,226,0.10);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+img:hover, .profile-pic:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px #2a7ae244;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2a7ae2;
+    margin: 32px auto 16px auto;
+}
+
+p {
+    color: #bdbdbd;
+    line-height: 1.7;
+    padding: 0 24px;
+    font-size: 1em;
+    background: rgba(30,30,30,0.7);
+    border-radius: 10px;
+    margin: 18px auto;
+    max-width: 800px;
+}
+
+.section-box {
+    background: rgba(35,37,38,0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(42,122,226,0.10);
+    margin: 36px auto;
+    padding: 32px;
+    max-width: 700px;
+    border: 1.5px solid #ffb347;
+    animation: cardIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes cardIn {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+table {
+    margin: 24px auto;
+    border-collapse: collapse;
+    width: 90%;
+    background: #232526;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #2a7ae2;
+}
+th, td {
+    padding: 16px 22px;
+    border: 1px solid #2a7ae2;
+    text-align: left;
+    color: #fff;
+}
+th {
+    background: #2a7ae2;
+    color: #ffb347;
+    font-size: 1.1em;
+}
+
+ul {
+    background: rgba(35, 43, 54, 0.85);
+    padding: 16px 32px;
+    border-radius: 12px;
+    margin: 24px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 8px #2a7ae2;
+}
+
+a {
+    color: #72dd0d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #ffb347;
+    text-decoration: underline;
+}
+
+/* Navigation */
+nav {
+    background: linear-gradient(90deg, #181a1b 0%, #2a7ae2 100%);
+    padding: 16px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(42,122,226,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+nav a {
+    color: #ffb347;
+    margin: 0 22px;
+    text-decoration: none;
+    font-size: 1.15em;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: #72dd0d;
+}
+.hamburger {
+    display: none;
+    font-size: 2em;
+    color: #ffb347;
+    cursor: pointer;
+    margin-right: 18px;
+    vertical-align: middle;
+}
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #232526;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        z-index: 20;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    nav a {
+        margin: 18px 0;
+        font-size: 1.2em;
+    }
+    .hamburger {
+        display: inline-block;
+        position: absolute;
+        left: 18px;
+        top: 18px;
+    }
+}
+
+/* Buttons */
+button, .animated-btn {
+    background: linear-gradient(90deg, #72dd0d 0%, #2a7ae2 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 28px auto;
+    display: block;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(114,221,13,0.10);
+    font-weight: 600;
+    letter-spacing: 1px;
+    outline: none;
+}
+button:hover, .animated-btn:hover {
+    background: linear-gradient(90deg, #2a7ae2 0%, #72dd0d 100%);
+    transform: scale(1.07);
+    box-shadow: 0 6px 24px #72dd0d33;
+}
+button:focus, .animated-btn:focus {
+    outline: 2px solid #ffb347;
+    outline-offset: 2px;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 350px;
+    box-shadow: 0 4px 24px #0003;
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.5em;
+    color: #2a7ae2;
+    cursor: pointer;
+}
+.hidden-section {
+    display: none !important;
+}
+
+/* Find Me Online Dropdown Styles */
+.social-links-dropdown {
+    background: #222;
+    border: 1px solid #2a7ae2;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+    box-shadow: 0 2px 8px #0002;
+    min-width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    position: static;
+    display: inline-block;
+    text-align: left;
+}
+.social-links-dropdown.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.social-links-dropdown a {
+    color: #ffb347;
+    display: block;
+    margin: 8px 0;
+    font-size: 1.08em;
+    transition: color 0.2s;
+}
+.social-links-dropdown a:hover {
+    color: #72dd0d;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #2a7ae2 0%, #181a1b 100%);
+    color: #ffb347;
+    text-align: center;
+    padding: 16px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 -2px 8px #2a7ae244;
+}

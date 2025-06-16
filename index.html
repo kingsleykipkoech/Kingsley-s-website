@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingsley Koech | Web Developer & Mentor</title>
+    <meta name="description" content="Kingsley's first HTML project: portfolio, skills, contact, and gallery.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hidden-section { 
+            display: none !important;
+        }
+        .social-links-dropdown {
+            background: #222;
+            border: 1px solid #2a7ae2;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 8px;
+            box-shadow: 0 2px 8px #0002;
+            min-width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            position: static;
+            display: inline-block;
+        }
+        .social-links-dropdown.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .profile-pic {
+            display: block;
+            margin: 30px auto 10px auto;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid #2a7ae2;
+        }
+        nav {
+            position: relative;
+        }
+        .animated-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background: #2a7ae2;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .animated-btn:hover {
+            transform: scale(1.08) rotate(-2deg);
+            background: #ffb347;
+            color: #222;
+            box-shadow: 0 8px 24px #ffb34744;
+        }
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 350px;
+            box-shadow: 0 4px 24px #0003;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.5em;
+            color: #2a7ae2;
+            cursor: pointer;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            background-image: url('back1.jpeg');
+            background-repeat: repeat;
+            background-size: auto;
+            background-position: center;
+            /* You can keep your existing background gradient if you want, or remove it */
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal Popup -->
+    <div id="customModal" class="modal hidden-section">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+            <h2>Hello, Kingsley!</h2>
+            <p>Thank you for exploring my portfolio. Let's connect and build something amazing together!</p>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+        <span class="hamburger" id="hamburger" tabindex="0" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+    </nav>
+
+    <!-- Profile Picture -->
+    <img src="me.jpeg" alt="Kingsley Koech profile photo" class="profile-pic">
+
+    <!-- Main Heading -->
+    <h1 style="text-align:center;">Kingsley Koech</h1>
+    <h2 style="text-align:center; font-weight:normal;">Web Developer & Community Mentor</h2>
+
+    <!-- About Section -->
+    <section class="section-box" id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+        <p>
+            Welcome to my official website! I am Kingsley Koech, a passionate web developer and mentor dedicated to empowering underserved communities through technology, education, and mentorship. My mission is to create opportunities, inspire growth, and contribute to sustainable development in my country and beyond.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-box hidden-section" id="skills" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">My Skills</h2>
+        <ul>
+            <li>Learn HTML</li>
+            <li>Practice CSS</li>
+            <li>Explore JavaScript</li>
+            <li>Build Projects</li>
+            <li>Contribute to Open Source</li>
+            <li>Join Developer Communities</li>
+            <li>Stay Updated with Trends</li>
+            <li>Network with Professionals</li>
+            <li>Seek Mentorship</li>
+            <li>Share Knowledge</li>
+            <li>Keep Learning</li>
+            <li>Have Fun!</li>
+        </ul>
+        <table>
+            <tr>
+                <th>Skill</th>
+                <th>Level</th>
+                <th>Experience</th>
+            </tr>
+            <tr>
+                <td>HTML</td>
+                <td>Beginner</td>
+                <td>1 month</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>Beginner</td>
+                <td>1 month</td>
+            </tr>
+        </table>
+        <h3>Skill Progress</h3>
+        <p>My current skill levels in HTML and CSS:</p>
+        <div style="max-width:400px;margin:auto;">
+            <label for="html-progress">HTML</label>
+            <progress id="html-progress" value="50" max="100"></progress>
+            <span>50%</span>
+            <br>
+            <label for="js-progress">JavaScript</label>
+            <progress id="js-progress" value="30" max="100"></progress>
+            <span>30%</span>
+            <br>
+            <label for="css-progress">CSS</label>
+            <progress id="css-progress" value="20" max="100"></progress>
+            <span>20%</span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-box hidden-section" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <p>Email: <a href="mailto:kingsleykoech@gmail.com">kingsleykoech@gmail.com</a></p>
+        <p>Phone: <a href="tel:+254701498294">+254 701498294</a></p>
+        <p>I wish to collaborate!</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-box hidden-section" id="gallery" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading">Gallery</h2>
+        <img src="x.jpeg" alt="A description of my photo" width="300">
+        <img src="nature.jpeg" alt="A description of my photo" width="300">
+        <img src="lamine.jpeg" alt="A description of my photo" width="300">
+        <p>Here are some of my favorite photos:</p>
+    </section>
+
+    <!-- Animated Button Example -->
+    <button class="animated-btn" aria-label="Click for a surprise">Click Me!</button>
+
+    <!-- Find Me Online Button and Dropdown at the bottom -->
+    <div style="text-align:center; margin: 40px 0;">
+        <button id="findMeBtn" class="animated-btn" type="button">
+            <i class="fas fa-share-alt"></i> Find Me Online
+        </button>
+        <div id="social-links" class="social-links-dropdown" aria-label="Social Links" style="margin: 0 auto;">
+            <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a><br>
+            <a href="https://github.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a><br>
+            <a href="https://linkedin.com/in/mureikingsley" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a><br>
+            <a href="https://instagram.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a><br>
+            <a href="https://facebook.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a><br>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align:center; margin-top:40px;">
+        <p>&copy; <span id="year"></span> Kingsley Koech. All rights reserved.</p>
+    </footer>
+    <script>
+        // Auto-update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
