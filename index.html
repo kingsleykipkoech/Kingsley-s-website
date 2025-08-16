@@ -9,8 +9,8 @@
     <meta name="description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
     <meta name="keywords" content="Kingsley Kipkoech, Aspiring cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
     <meta name="author" content="Kingsley Koech">
-    <meta property="og:title" content="Kingsley Kipkoech | Aspiring Cybersecurity & Software Engineer">
-    <meta property="og:description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
+    <meta property="og:title" content="Kingsley Koech | Cybersecurity & Software Engineer">
+    <meta property="og:description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
     <meta property="og:image" content="https://murray-1.github.io/My--website/me.jpeg"> <!-- Ensure this path is correct on your live site -->
     <meta property="og:url" content="https://murray-1.github.io/My--website/">
     <meta name="twitter:card" content="summary_large_image">
@@ -18,23 +18,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- No inline styles needed here as they are moved to style.css -->
 </head>
-<body id="top"> <!-- id="top" for reliable Home navigation -->
-    <!-- Modal Popup (kept as per previous version, but consider if needed) -->
-    <div id="customModal" class="modal hidden-section" aria-modal="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-        <div class="modal-content">
-            <span id="closeModal" class="close-btn" role="button" aria-label="Close dialog">&times;</span>
-            <h2 id="modalTitle">Hello, Kingsley!</h2>
-            <p id="modalDescription">Thank you for exploring my portfolio. Let's connect and build something amazing together!</p>
-        </div>
-    </div>
-    
+<body id="top">
+  
     <!-- Navigation -->
     <nav aria-label="Main Navigation">
         <span class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
         <div class="nav-links" id="navLinks">
+            <!-- Href attributes point to section IDs for scrolling -->
             <a href="#top">Home</a>
             <a href="#elevator-pitch">My Pitch</a>
             <a href="#about">About Me</a>
@@ -44,16 +35,16 @@
         </div>
     </nav>
 
-    <!-- Main Content Area - using <main> for semantic structure -->
+    <!-- Main Content Area Container for all pages -->
     <main>
-        <!-- Profile Picture & Main Heading (part of the header/hero area) -->
-        <header class="hero-section" role="banner">
+        <!-- Profile Picture & Main Heading (Home Page Section) -->
+        <header class="hero-section" id="home-section" role="banner">
             <img src="me.jpeg" onerror="this.src='https://placehold.co/150x150/000/FFF?text=Your+Photo';" alt="Kingsley Koech profile photo" class="profile-pic">
             <h1 class="site-title">Kingsley Kipkoech</h1>
             <h2 class="site-subtitle">Aspiring Cybersecurity & Software Engineer</h2>
         </header>
 
-        <!-- Elevator Pitch Section - Now a Placeholder -->
+        <!-- Elevator Pitch Section - Now a Placeholder Page -->
         <section class="section-box elevator-pitch-section" id="elevator-pitch" aria-labelledby="pitch-heading">
             <h2 id="pitch-heading">Innovating for a Secure Digital Future</h2>
             <p>
@@ -66,7 +57,7 @@
             <a href="#portfolio" class="cta-button">Explore My Work</a>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section - Now a Page -->
         <section class="section-box" id="about" aria-labelledby="about-heading">
             <h2 id="about-heading">About Me</h2>
             <p>
@@ -74,7 +65,7 @@
             </p>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills Section - Now a Page -->
         <section class="section-box" id="skills" aria-labelledby="skills-heading">
             <h2 id="skills-heading">My Skills</h2>
             <div class="skills-list-grid">
@@ -84,7 +75,8 @@
                 <div class="skill-item">
                     <i class="fas fa-paint-brush" aria-hidden="true"></i> <span>CSS</span>
                 </div>
-                <div class="fab fa-linux" aria-hidden="true"></i> <span>Linux-based CLI</span>
+                <div class="skill-item">
+                    <i class="fab fa-linux" aria-hidden="true"></i> <span>Linux-based CLI</span>
                 </div>
                 <div class="skill-item">
                     <i class="fas fa-file-excel" aria-hidden="true"></i> <span>MS Office Tools</span>
@@ -99,10 +91,9 @@
                     <i class="fas fa-users" aria-hidden="true"></i> <span>Teamwork</span>
                 </div>
             </div>
-            <!-- You can re-add your skill progress bars and table here if desired -->
         </section>
 
-        <!-- Portfolio Section - Now with Individual Projects and Team Projects -->
+        <!-- Portfolio Section - Now a Page -->
         <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
             <h2 id="portfolio-heading">My Projects</h2>
             <div class="projects-grid">
@@ -157,7 +148,7 @@
             </div>
         </section>
         
-        <!-- Contact Section -->
+        <!-- Contact Section - Now a Page -->
         <section class="section-box" id="contact" aria-labelledby="contact-heading">
             <h2 id="contact-heading">Contact Me</h2>
             <p>Email: <a href="mailto:kingsleykoech@gmail.com" aria-label="Email Kingsley Koech at kingsleykoech@gmail.com">kingsleykoech@gmail.com</a></p>
@@ -183,21 +174,21 @@
         // Auto-update copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Hamburger menu logic (simplified and kept for basic functionality)
+        // Hamburger menu logic
         const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        const navLinksContainer = document.getElementById('navLinks');
 
-        if (hamburger && navLinks) {
+        if (hamburger && navLinksContainer) {
             hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-                const isExpanded = navLinks.classList.contains('show');
+                navLinksContainer.classList.toggle('show');
+                const isExpanded = navLinksContainer.classList.contains('show');
                 hamburger.setAttribute('aria-expanded', isExpanded);
             });
             // Close nav when a link is clicked (for better mobile UX)
-            navLinks.querySelectorAll('a').forEach(link => {
+            navLinksContainer.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
+                    if (navLinksContainer.classList.contains('show')) {
+                        navLinksContainer.classList.remove('show');
                         hamburger.setAttribute('aria-expanded', false);
                     }
                 });

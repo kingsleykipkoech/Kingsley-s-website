@@ -14,7 +14,7 @@ body {
     font-weight: normal; /* Adjusted to normal, bold can be applied to specific elements */
 }
 
-/* Ensure smooth scrolling to sections and offset for sticky nav */
+/* Enable smooth scrolling and offset for sticky nav */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Adjust this value if your nav height changes */
@@ -106,8 +106,9 @@ p {
 }
 /* Ensure the first section (hero/header) isn't forced to 100vh if it doesn't fit the design */
 header.hero-section {
-    min-height: auto; /* Override 100vh if it's not desired for the very top */
+    min-height: 100vh; /* Keep 100vh for home section too */
     padding-top: 50px; /* Add some padding if needed */
+    justify-content: center; /* Center vertically for a proper hero section */
 }
 
 
@@ -203,6 +204,12 @@ nav a:hover {
     color: #72dd0d;
     transform: translateY(-2px); /* Subtle lift on hover */
 }
+/* Active nav link style (if you want to highlight current section) */
+nav a.active-nav-link {
+    color: #72dd0d; /* Highlight active link */
+    text-decoration: underline;
+}
+
 .hamburger {
     display: none;
     font-size: 2em;
@@ -622,11 +629,11 @@ nav a:hover {
     max-width: 900px;
     border: 1.5px solid #ffb347;
     text-align: center; /* Center content within the section */
+    min-height: 100vh; /* Make this section also take up full viewport height */
     display: flex; /* Ensure flexbox for vertical alignment within sections */
     flex-direction: column; /* Stack contents vertically */
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
-    min-height: 100vh; /* Make this section also take up full viewport height */
 }
 
 .team-project-description {
@@ -703,6 +710,17 @@ footer p {
     nav .nav-links a {
         margin: 5px 15px;
     }
+    /* Section min-height and padding for smaller screens (still using scroll) */
+    .section-box {
+        min-height: auto; /* Allow height to adjust on smaller screens if content is short */
+        padding-top: 80px; /* Add padding for sticky nav on small screens */
+    }
+    header.hero-section {
+        min-height: auto; /* Allow height to adjust on smaller screens */
+        padding-top: 80px; /* Add padding for sticky nav on small screens */
+    }
+
+
     .profile-pic {
         width: 100px;
         height: 100px;
@@ -717,9 +735,6 @@ footer p {
     .section-box {
         margin: 25px auto;
         padding: 25px;
-        min-height: auto; /* Allow height to adjust on smaller screens if content is short */
-        justify-content: flex-start; /* Align content to top on smaller screens */
-        padding-top: 80px; /* Add padding for sticky nav on small screens */
     }
     .elevator-pitch-section {
         padding: 40px 20px;
@@ -757,7 +772,6 @@ footer p {
         padding: 25px;
         margin: 30px auto;
         min-height: auto; /* Allow height to adjust on smaller screens */
-        justify-content: flex-start; /* Align content to top on smaller screens */
         padding-top: 80px; /* Add padding for sticky nav on small screens */
     }
     .team-projects-heading {
