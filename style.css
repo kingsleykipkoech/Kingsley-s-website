@@ -378,7 +378,7 @@ nav a:hover {
 
 /* Specific background images for each project */
 .ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg'); /* <<< Verify your image filename! */
+    background-image: url('network_manager_fix.jpg'); /* <<< Verify your image filename! */
 }
 .community-project-card .project-image-background {
     background-image: url('edu.jpg'); /* Ensure 'edu.jpg' is the exact filename on GitHub */
@@ -387,12 +387,16 @@ nav a:hover {
 
 /* Style the back side (now the primary visible content area) */
 .flip-card-back {
-    background-color: rgba(59, 62, 65, 0.9); /* Slightly transparent background for description over image */
+    background-color: #3b3e41; /* Made fully opaque to hide front content */
     color: #fff;
     transform: none; /* No rotation */
-    z-index: 2; /* Ensure it's on top of the front face */
+    z-index: 3; /* Ensure it's on top of the front face and its title */
+    display: flex;
+    flex-direction: column;
     justify-content: flex-end; /* ALIGN ALL CONTENT TO THE BOTTOM */
+    align-items: center; /* Center content horizontally if it's smaller than the container */
     padding: 20px; /* Adjusted padding */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 .flip-card-back p {
     font-size: 0.95em;
