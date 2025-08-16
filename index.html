@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley Koech | Cybersecurity & Software Engineer</title>
-    <meta name="description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
+    <title>Kingsley Koech | Web Developer & Mentor</title>
+    <meta name="description" content="Kingsley's first HTML project: portfolio, skills, contact, and gallery.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -12,7 +12,7 @@
         html {
             scroll-behavior: smooth;
         }
-        .hidden-section {
+        .hidden-section { 
             display: none !important;
         }
         .social-links-dropdown {
@@ -93,221 +93,11 @@
         body {
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
-            background-image: url('back1.jpeg'); /* Make sure 'back1.jpeg' is in your GitHub repo */
+            background-image: url('back1.jpeg');
             background-repeat: repeat;
             background-size: auto;
             background-position: center;
-        }
-        /* --- Styles for Project Cards --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            justify-content: center;
-            padding: 0 20px; /* Added padding for smaller screens */
-        }
-        .project-card {
-            background: #333;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            text-align: left;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-        }
-        .project-card h3 {
-            color: #64FFDA; /* Accent color for titles */
-            font-size: 1.4em;
-            margin-top: 0;
-        }
-        .project-card p {
-            font-size: 0.95em;
-            color: #ddd;
-        }
-        .project-card .technologies span {
-            display: inline-block;
-            background: #2a7ae2; /* Match your existing blue */
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-        .project-card a {
-            color: #ffb347; /* Match your existing hover orange */
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-        }
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-        /* --- Styles for Skills List --- */
-        .skills-list-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            padding: 0 20px;
-        }
-        .skill-item {
-            background: #333;
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-        .skill-item i {
-            color: #64FFDA; /* Accent color */
-            font-size: 1.2em;
-        }
-        .skill-item span {
-            color: #fff;
-            font-weight: normal; /* Override bold from body style */
-        }
-        /* --- Elevator Pitch Section --- */
-        .elevator-pitch-section {
-            text-align: center;
-            padding: 50px 20px;
-            background: #1a1a1a; /* Darker background for contrast */
-            margin: 40px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            max-width: 900px; /* Constrain width */
-        }
-        .elevator-pitch-section h2 {
-            color: #ffb347; /* Orange accent */
-            font-size: 2.2em;
-            margin-bottom: 15px;
-        }
-        .elevator-pitch-section p {
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            font-size: 1.1em;
-            color: #eee;
-        }
-        .elevator-pitch-section .video-placeholder {
-            width: 100%;
-            max-width: 560px; /* Standard video width */
-            margin: 30px auto 0 auto;
-            background: #000;
-            aspect-ratio: 16 / 9; /* Standard video aspect ratio */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 1.5em;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden; /* Hide any overflow */
-        }
-        .elevator-pitch-section .video-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.7;
-        }
-        .elevator-pitch-section .video-placeholder button {
-            background: rgba(0,0,0,0.7);
-            color: #fff;
-            border: 2px solid #fff;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            font-size: 2.5em;
-            cursor: pointer;
-            z-index: 10;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .elevator-pitch-section .video-placeholder button:hover {
-            background: rgba(0,0,0,0.9);
-            transform: scale(1.1);
-        }
-        /* --- Footer Socials --- */
-        .footer-social-links {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .footer-social-links a {
-            color: #2a7ae2; /* Your primary blue */
-            font-size: 2em;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        .footer-social-links a:hover {
-            color: #ffb347; /* Your primary orange */
-        }
-        /* Responsive Adjustments (from previous code, ensures good mobile view) */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 15px 5%;
-            }
-            nav .nav-links {
-                margin-top: 15px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav .nav-links a {
-                margin: 5px 15px;
-            }
-            .hero-title {
-                font-size: 2.5em;
-            }
-            .hero-mission {
-                font-size: 1.2em;
-            }
-            .section-heading {
-                font-size: 2em;
-            }
-            .about-content {
-                flex-direction: column;
-            }
-            .profile-pic {
-                margin-bottom: 20px;
-            }
-            .skills-list-grid, .projects-grid {
-                grid-template-columns: 1fr; /* Stack columns on small screens */
-            }
-            .skill-card h3 {
-                font-size: 1.4em;
-            }
-            .skill-card ul li {
-                font-size: 0.9em;
-            }
-            .elevator-pitch-section h2 {
-                font-size: 1.8em;
-            }
-            .elevator-pitch-section p {
-                font-size: 1em;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2em;
-            }
-            .hero-mission {
-                font-size: 1em;
-            }
-            .cta-button {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-            .section-heading {
-                font-size: 1.8em;
-            }
+            /* You can keep your existing background gradient if you want, or remove it */
         }
     </style>
 </head>
@@ -324,34 +114,19 @@
     <nav aria-label="Main Navigation">
         <span class="hamburger" id="hamburger" tabindex="0" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
         <div class="nav-links" id="navLinks">
-            <a href="#elevator-pitch">My Pitch</a>
-            <a href="#about">About Me</a>
+            <a href="#about">Home</a>
             <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
+            <a href="#gallery">Gallery</a>
         </div>
     </nav>
 
-    <!-- Profile Picture & Main Heading -->
-    <header style="text-align:center; padding-top: 20px;">
-        <img src="me.jpeg" onerror="this.src='https://placehold.co/150x150/000/FFF?text=Your+Photo';" alt="Kingsley Koech profile photo" class="profile-pic">
-        <h1 style="text-align:center;">Kingsley Koech</h1>
-        <h2 style="text-align:center; font-weight:normal; margin-bottom: 30px;">Cybersecurity & Software Engineer</h2>
-    </header>
+    <!-- Profile Picture -->
+    <img src="me.jpeg" alt="Kingsley Koech profile photo" class="profile-pic">
 
-    <!-- Elevator Pitch Section -->
-    <section class="section-box elevator-pitch-section" id="elevator-pitch" aria-labelledby="pitch-heading">
-        <h2 id="pitch-heading">Innovating for a Secure Digital Future</h2>
-        <p>
-            To leverage my passion for cybersecurity, software development, and Linux to architect and secure robust technology infrastructure solutions, empowering organizations to thrive in a resilient digital world.
-        </p>
-        <div class="video-placeholder">
-            <!-- Placeholder for your pitch video -->
-            <img src="https://placehold.co/560x315/333/64FFDA?text=Your+Pitch+Video+Here" alt="Placeholder for pitch video">
-            <button class="play-button" aria-label="Play video">►</button>
-        </div>
-        <a href="#portfolio" class="animated-btn" style="margin-top: 40px;">Explore My Work</a>
-    </section>
+    <!-- Main Heading -->
+    <h1 style="text-align:center;">Kingsley Koech</h1>
+    <h2 style="text-align:center; font-weight:normal;">Web Developer & Community Mentor</h2>
 
     <!-- About Section -->
     <section class="section-box" id="about" aria-labelledby="about-heading">
@@ -364,111 +139,64 @@
     <!-- Skills Section -->
     <section class="section-box" id="skills" aria-labelledby="skills-heading">
         <h2 id="skills-heading">My Skills</h2>
-        <div class="skills-list-grid">
-            <div class="skill-item">
-                <i class="fas fa-desktop"></i> <span>HTML</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-paint-brush"></i> <span>CSS</span>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-linux"></i> <span>Linux-based CLI</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-file-excel"></i> <span>MS Office Tools</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-lightbulb"></i> <span>Empathetic Reasoning</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-question"></i> <span>Problem Solving</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-users"></i> <span>Teamwork</span>
-            </div>
-        </div>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Linux-based CLI</li>
+            <li>ms Office tools</li>
+            <li>Empathetic reasoning</li>
+            <li>Problem solving</li>
+            <li>Teamwork</li>
+        </ul>
     </section>
-
-    <!-- Portfolio Section -->
-    <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
-        <h2 id="portfolio-heading">My Projects</h2>
-        <div class="projects-grid">
-            <article class="project-card">
-                <h3>Secure Linux Hardening Script</h3>
-                <p>An automated Bash script that applies essential security best practices to a new Linux server, ensuring a strong foundation against common threats. This project reduced manual configuration time by 75%.</p>
-                <div class="technologies"><span>Bash</span><span>Linux</span><span>Security Automation</span></div>
-                <a href="https://github.com/kingsleykoech/your-linux-script-repo" target="_blank" rel="noopener" class="project-link">View Project <i class="fab fa-github"></i></a>
-            </article>
-            <article class="project-card">
-                <h3>Infrastructure as Code with Terraform</h3>
-                <p>A modular Terraform project that provisions a highly available and secure web server infrastructure on AWS, demonstrating expertise in repeatable, secure cloud deployments.</p>
-                <div class="technologies"><span>Terraform</span><span>AWS</span><span>IaC</span><span>Cloud Security</span></div>
-                <a href="https://github.com/kingsleykoech/your-terraform-repo" target="_blank" rel="noopener" class="project-link">View Project <i class="fab fa-github"></i></a>
-            </article>
-            <article class="project-card">
-                <h3>Python Vulnerability Scanner</h3>
-                <p>A lightweight Python tool that scans websites for common vulnerabilities like SQL injection and XSS, providing an accessible solution for small businesses to identify risks early.</p>
-                <div class="technologies"><span>Python</span><span>Web Security</span><span>Vulnerability Analysis</span></div>
-                <a href="https://github.com/kingsleykoech/your-python-scanner-repo" target="_blank" rel="noopener" class="project-link">View Project <i class="fab fa-github"></i></a>
-            </article>
-        </div>
-    </section>
+   <!-- Portfolio Section -->
+<section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
+    <h2 id="portfolio-heading">My Projects</h2>
+    <div class="projects-grid">
+        <article class="project-card">
+            <h3>Secure Linux Hardening Script</h3>
+            <p>An automated Bash script that applies essential security best practices to a new Linux server, ensuring a strong foundation against common threats. This project reduced manual configuration time by 75%.</p>
+            <div class="technologies"><span>Bash</span><span>Linux</span><span>Security Automation</span></div>
+            <a href="https://github.com/kingsleykoech/your-linux-script-repo" target="_blank" rel="noopener" class="project-link">View Project <i class="fab fa-github"></i></a>
+        </article>
+        <article class="project-card">
+            <h3>Infrastructure as Code with Terraform</h3>
+            <p>A modular Terraform project that provisions a highly available and secure web server infrastructure on AWS, demonstrating expertise in repeatable, secure cloud deployments.</p>
+            <div class="technologies"><span>Terraform</span><span>AWS</span><span>IaC</span><span>Cloud Security</span></div>
+            <a href="https://github.com/kingsleykoech/your-terraform-repo" target="_blank" rel="noopener" class="project-link">View Project <i class="fab fa-github"></i></a>
+        </article>
+        <article class="project-card">
+            <h3>Python Vulnerability Scanner</h3>
+            <p>A lightweight Python tool that scans websites for common vulnerabilities like SQL injection and XSS, providing an accessible solution for small businesses to identify risks early.</p>
+            <div class="technologies"><span>Python</span><span>Web Security</span><span>Vulnerability Analysis</span></div>
+            <a href="https://github.com/kingsleykoech/your-python-scanner-repo" target="_blank" rel="noopener" class="project-link">View Project <i class="fab fa-github"></i></a>
+        </article>
+    </div>
+</section>
     
-    <!-- Contact Section -->
+       <!-- Contact Section -->
     <section class="section-box" id="contact" aria-labelledby="contact-heading">
         <h2 id="contact-heading">Contact Me</h2>
         <p>Email: <a href="mailto:kingsleykoech@gmail.com">kingsleykoech@gmail.com</a></p>
         <p>Phone: <a href="tel:+254701498294">+254 701498294</a></p>
         <p>I wish to collaborate!</p>
-        <!-- Re-adding social links here as part of contact, removing dropdown functionality -->
-        <div class="footer-social-links" style="margin-top: 20px;">
-            <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener" aria-label="Twitter Profile" style="color: #2a7ae2; font-size: 2em; margin: 0 10px; transition: color 0.3s ease;"><i class="fab fa-twitter"></i></a>
-            <a href="https://github.com/kingsleykoech" target="_blank" rel="noopener" aria-label="GitHub Profile" style="color: #2a7ae2; font-size: 2em; margin: 0 10px; transition: color 0.3s ease;"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/mureikingsley" target="_blank" rel="noopener" aria-label="LinkedIn Profile" style="color: #2a7ae2; font-size: 2em; margin: 0 10px; transition: color 0.3s ease;"><i class="fab fa-linkedin"></i></a>
-            <a href="https://instagram.com/kingsleykoech" target="_blank" rel="noopener" aria-label="Instagram Profile" style="color: #2a7ae2; font-size: 2em; margin: 0 10px; transition: color 0.3s ease;"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/kingsleykoech" target="_blank" rel="noopener" aria-label="Facebook Profile" style="color: #2a7ae2; font-size: 2em; margin: 0 10px; transition: color 0.3s ease;"><i class="fab fa-facebook"></i></a>
-        </div>
     </section>
 
-    <!-- Animated Button Example (Optional, as contact links are already prominent) -->
+    <!-- Animated Button Example -->
     <button class="animated-btn" aria-label="Click for a surprise">Click Me!</button>
 
-    <!-- Footer -->
-    <footer style="text-align:center; margin-top:40px; padding: 20px; background: #1a1a1a; color: #ccc;">
-        <p>&copy; <span id="year"></span> Kingsley Koech. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Auto-update copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Optional: Implement modal logic if you plan to use it (currently hidden)
-        // const customModal = document.getElementById('customModal');
-        // const closeModalBtn = document.getElementById('closeModal');
-        // const animatedBtn = document.querySelector('.animated-btn');
-
-        // animatedBtn.addEventListener('click', () => {
-        //     customModal.classList.remove('hidden-section');
-        // });
-
-        // closeModalBtn.addEventListener('click', () => {
-        //     customModal.classList.add('hidden-section');
-        // });
-
-        // customModal.addEventListener('click', (event) => {
-        //     if (event.target === customModal) {
-        //         customModal.classList.add('hidden-section');
-        //     }
-        // });
-
-        // Original hamburger menu logic (ensure script.js handles it or move here)
-        // const hamburger = document.getElementById('hamburger');
-        // const navLinks = document.getElementById('navLinks');
-
-        // hamburger.addEventListener('click', () => {
-        //     navLinks.classList.toggle('show'); // assuming 'show' class makes it visible
-        // });
-    </script>
-    <script src="script.js"></script>
-</body>
+    <!-- Find Me Online Button and Dropdown at the bottom -->
+    <div style="text-align:center; margin: 40px 0;">
+        <button id="findMeBtn" class="animated-btn" type="button">
+            <i class="fas fa-share-alt"></i> Find Me Online
+        </button>
+        <div id="social-links" class="social-links-dropdown" aria-label="Social Links" style="margin: 0 auto;">
+            <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a><br>
+            <a href="https://github.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a><br>
+            <a href="https://linkedin.com/in/mureikingsley" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a><br>
+            <a href="https://instagram.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a><br>
+            <a href="https://facebook.com/kingsleykoech" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a><br>
+        </div>
+    </div>
+  </body>
 </html>
