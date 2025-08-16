@@ -386,7 +386,7 @@ nav a:hover {
 } */
 
 .ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg');
+    background-image: url('network_manager_fix.jpg'); /* <<< Update this to your ACTUAL Network Manager project image filename (e.g., 'ubuntu_network.webp') */
 }
 
 .community-project-card .project-image-background {
@@ -399,7 +399,10 @@ nav a:hover {
     background-color: #3b3e41;
     color: #fff;
     transform: rotateY(180deg);
-    justify-content: center;
+    display: flex; /* Ensure flexbox is applied */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally if it's smaller than the container */
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -412,7 +415,7 @@ nav a:hover {
     background: none;
     border-radius: 0;
     max-width: 100%;
-    flex-grow: 1;
+    flex-grow: 0; /* Changed from 1 to 0 to prevent excessive stretching */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -432,7 +435,7 @@ nav a:hover {
 
 
 .flip-card-back .technologies {
-    margin-top: auto;
+    margin-top: auto; /* Pushes this element to the bottom */
     margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
@@ -454,7 +457,7 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    margin-top: auto;
+    margin-top: auto; /* Pushes this element to the bottom */
 }
 .flip-card-back .project-link:hover {
     text-decoration: underline;
