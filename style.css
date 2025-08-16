@@ -386,7 +386,7 @@ nav a:hover {
 } */
 
 .ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg');}
+    background-image: url('net.jpg'); }
 
 .community-project-card .project-image-background {
     background-image: url('edu.jpg'); /* Ensure 'edu.jpg' is the exact filename on GitHub */
@@ -402,22 +402,24 @@ nav a:hover {
     flex-direction: column; /* Stack children vertically */
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally if it's smaller than the container */
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px 20px; /* Adjust padding for better content spacing */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 .flip-card-back p {
     font-size: 0.95em;
     color: #ccc;
     text-align: center;
-    margin-bottom: 20px;
-    padding: 0 10px;
+    /* Removed margin-bottom and padding from here, as flex properties will handle spacing */
+    /* margin-bottom: 20px; */
+    /* padding: 0 10px; */
     background: none;
     border-radius: 0;
     max-width: 100%;
-    flex-grow: 1; /* Changed from 0 to 1 to allow it to take available space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-grow: 1; /* Allow it to take available space */
+    display: flex; /* Make paragraph content a flex container too */
+    align-items: center; /* Center text vertically within the paragraph's space */
+    justify-content: center; /* Center text horizontally within the paragraph's space */
+    margin: auto; /* This is key to centering the paragraph within its flex parent */
 }
 .ubuntu-site-card .flip-card-back a { /* Targeting the specific unlinked text */
     color: #ccc; /* Set a default color to appear as regular text */
@@ -435,7 +437,7 @@ nav a:hover {
 
 .flip-card-back .technologies {
     margin-top: auto; /* Pushes this element to the bottom */
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Add some space below technologies */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
