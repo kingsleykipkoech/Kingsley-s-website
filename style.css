@@ -14,6 +14,13 @@ body {
     font-weight: normal; /* Adjusted to normal, bold can be applied to specific elements */
 }
 
+/* Ensure smooth scrolling to sections and offset for sticky nav */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust this value if your nav height changes */
+}
+
+
 /* Headings */
 h1, h2, h3 {
     color: #ffb347; /* Primary accent color for headings */
@@ -90,7 +97,19 @@ p {
     max-width: 900px; /* Increased max-width for better content display */
     border: 1.5px solid #ffb347;
     animation: cardIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+    min-height: 100vh; /* Make sections take up full viewport height */
+    display: flex; /* Use flexbox for vertical alignment within sections */
+    flex-direction: column; /* Stack contents vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Ensure text alignment for block content */
 }
+/* Ensure the first section (hero/header) isn't forced to 100vh if it doesn't fit the design */
+header.hero-section {
+    min-height: auto; /* Override 100vh if it's not desired for the very top */
+    padding-top: 50px; /* Add some padding if needed */
+}
+
 
 @keyframes cardIn {
     0% {
@@ -301,7 +320,7 @@ nav a:hover {
 }
 
 /* The static card container */
-.flip-card { /* Renamed conceptually, but the class remains 'flip-card' for HTML compatibility */
+.flip-card { /* Class remains 'flip-card' for HTML compatibility, but no longer flips */
     background-color: transparent;
     width: 300px;
     height: 400px;
@@ -309,18 +328,18 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     margin: auto;
-    /* Removed perspective as there's no flip */
+    position: relative; /* Ensure children are positioned relative to this */
+    overflow: hidden; /* Important to contain content within rounded corners */
 }
 
-/* This container now just holds the front and back for stacking */
+/* No inner transform needed for static card */
 .flip-card-inner {
-    position: relative;
+    position: relative; /* For stacking children */
     width: 100%;
     height: 100%;
-    text-align: center;
-    /* Removed transition and transform-style to stop flipping */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    /* Removed transition and transform-style to stop flipping */
 }
 
 /* No hover flip effect */
@@ -328,27 +347,21 @@ nav a:hover {
     transform: none; /* Explicitly ensure no transform on hover */
 }
 
-/* Both faces are now positioned for display */
-.flip-card-front, .flip-card-back {
+/* Style the front side (now the background image and title container) */
+.flip-card-front {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    /* Removed backface-visibility as there's no flip */
+    background-color: #2b2e31; /* Fallback/base color */
+    color: #fff;
     border-radius: 12px;
+    z-index: 1; /* Below the back content */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden; /* Hide content overflow on the card faces */
-}
-
-/* Style the front side (now serving as background and title holder) */
-.flip-card-front {
-    background-color: #2b2e31;
-    color: #fff;
-    position: absolute; /* Kept absolute for overlaying */
-    z-index: 1; /* Ensure back is on top for content */
+    justify-content: flex-start; /* Align title to top */
 }
 .flip-card-front .project-image-background {
     width: 100%;
@@ -360,43 +373,50 @@ nav a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Below the title and other content */
+    z-index: 1; /* Below the title and overlay */
 }
 .flip-card-front h3 {
-    position: relative; /* Now acts as a title over the image */
-    margin: 0 10px auto 10px; /* Push title to top, allow space below */
+    position: relative; /* Positioned over the background image */
+    margin: 15px 10px auto 10px; /* Push title to top, allow space below */
     padding: 10px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.7); /* Semi-transparent background for readability */
     color: #64FFDA;
     font-size: clamp(1em, 4vw, 1.4em);
     border-radius: 8px;
-    z-index: 2;
+    z-index: 2; /* On top of image */
     text-align: center;
     word-break: break-word;
     width: calc(100% - 20px);
 }
 
 /* Specific background images for each project */
+/* Make sure these filenames exactly match your files in the repo! */
 .ubuntu-site-card .project-image-background {
-    background-image: url('network_manager_fix.jpg'); /* <<< Verify your image filename! */
+    background-image: url('net.jpg'); /* <<< Updated to 'net.jpg' - VERIFY THIS FILENAME! */
 }
 .community-project-card .project-image-background {
-    background-image: url('edu.jpg'); /* Ensure 'edu.jpg' is the exact filename on GitHub */
+    background-image: url('edu.jpg'); /* VERIFY THIS FILENAME! */
 }
 
 
-/* Style the back side (now the primary visible content area) */
+/* Style the back side (now the primary visible content overlay) */
 .flip-card-back {
-    background-color: #3b3e41; /* Made fully opaque to hide front content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 62, 65, 0.85); /* Semi-transparent overlay to see image through */
     color: #fff;
     transform: none; /* No rotation */
-    z-index: 3; /* Ensure it's on top of the front face and its title */
+    z-index: 2; /* On top of the front face, but title might be Z-index 3 for more visibility */
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* ALIGN ALL CONTENT TO THE BOTTOM */
-    align-items: center; /* Center content horizontally if it's smaller than the container */
-    padding: 20px; /* Adjusted padding */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    align-items: center; /* Center content horizontally */
+    padding: 25px; /* Consistent padding around content */
+    box-sizing: border-box; /* Include padding in element's total size */
+    opacity: 1; /* Ensure full visibility */
 }
 .flip-card-back p {
     font-size: 0.95em;
@@ -405,17 +425,23 @@ nav a:hover {
     background: none;
     border-radius: 0;
     max-width: 100%;
-    flex-grow: 0; /* Prevent it from taking excessive space */
-    display: flex; /* Make paragraph content a flex container too */
-    align-items: center; /* Center text vertically within the paragraph's space */
-    justify-content: center; /* Center text horizontally within the paragraph's space */
-    margin: 0 0 15px 0; /* Margin-bottom to push it up from technologies/link */
+    flex-grow: 0; /* Prevent it from stretching unnecessarily */
+    display: block; /* Removed flex from p as parent handles it; use block for text flow */
+    margin: 0 0 15px 0; /* Margin-bottom to space from technologies/link */
+    padding: 0 5px; /* Small internal padding for readability */
+    box-sizing: border-box;
+    max-height: 150px; /* Set a max height for the description */
+    overflow-y: auto; /* Add scrollbar if content exceeds max-height */
 }
-.ubuntu-site-card .flip-card-back a { /* Targeting the specific unlinked text */
+/* Style for the unlinked project text */
+.ubuntu-site-card .flip-card-back a {
     color: #ccc;
     text-decoration: none;
     font-weight: normal;
     cursor: default;
+    display: inline-flex; /* Maintain flex for icon alignment */
+    align-items: center;
+    gap: 5px;
 }
 .ubuntu-site-card .flip-card-back a:hover {
     color: #ccc;
@@ -425,8 +451,8 @@ nav a:hover {
 
 
 .flip-card-back .technologies {
-    margin-top: auto; /* Pushes this element to the bottom */
-    margin-bottom: 10px; /* Add some space below technologies */
+    margin-top: 0; /* Removed auto, positioned relative to p */
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -447,7 +473,7 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    margin-top: 0; /* Reset margin-top from previous auto */
+    margin-top: 0; /* Removed auto, positioned relative to technologies */
 }
 .flip-card-back .project-link:hover {
     text-decoration: underline;
@@ -514,12 +540,34 @@ nav a:hover {
     padding: 0;
     border-radius: 0;
 }
-.elevator-pitch-section .video-placeholder {
+/* Responsive Video Container (for team video in portfolio) */
+.video-container {
+    position: relative;
     width: 100%;
-    max-width: 640px;
+    max-width: 640px; /* Match your previous max-width */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width = 9 / 16 = 0.5625) */
+    height: 0;
+    margin: 40px auto 20px auto; /* Adjusted margin for spacing */
+    overflow: hidden;
+    border-radius: 10px; /* Match placeholder border-radius */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6); /* Match placeholder shadow */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Inherit border-radius */
+}
+
+.elevator-pitch-section .video-placeholder { /* This will be used for the placeholder in Elevator Pitch */
+    width: 100%;
+    max-width: 560px; /* Adjusted to original placeholder size */
+    height: 315px; /* Adjusted to original placeholder size */
     margin: 40px auto 0 auto;
     background: #000;
-    aspect-ratio: 16 / 9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -557,6 +605,49 @@ nav a:hover {
     transform: scale(1.15);
     border-color: #ffb347;
 }
+
+/* New Team Projects Section Styling */
+.team-projects-heading {
+    margin-top: 50px; /* Space above the team projects section */
+    font-size: clamp(1.5em, 4vw, 2.2em);
+    color: #64FFDA; /* Distinct color for this heading */
+}
+
+.team-projects-section {
+    background: rgba(35,37,38,0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(42,122,226,0.10);
+    margin: 36px auto;
+    padding: 32px;
+    max-width: 900px;
+    border: 1.5px solid #ffb347;
+    text-align: center; /* Center content within the section */
+    display: flex; /* Ensure flexbox for vertical alignment within sections */
+    flex-direction: column; /* Stack contents vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh; /* Make this section also take up full viewport height */
+}
+
+.team-project-description {
+    font-size: 1em;
+    color: #bdbdbd;
+    line-height: 1.7;
+    margin: 20px auto;
+    max-width: 700px;
+    background: none; /* Override general p background */
+    padding: 0;
+}
+
+.team-slide-link {
+    margin-top: 20px; /* Space above the button */
+    display: inline-flex; /* To align icon with text */
+    align-items: center;
+    gap: 8px; /* Space between text and icon */
+    max-width: none; /* Allow button to size to content */
+    padding: 12px 28px; /* Slightly more compact button */
+}
+
 
 /* Footer Social Links */
 .social-links-footer {
@@ -626,6 +717,9 @@ footer p {
     .section-box {
         margin: 25px auto;
         padding: 25px;
+        min-height: auto; /* Allow height to adjust on smaller screens if content is short */
+        justify-content: flex-start; /* Align content to top on smaller screens */
+        padding-top: 80px; /* Add padding for sticky nav on small screens */
     }
     .elevator-pitch-section {
         padding: 40px 20px;
@@ -659,6 +753,17 @@ footer p {
         font-size: 2em;
         margin: 0 10px;
     }
+    .team-projects-section {
+        padding: 25px;
+        margin: 30px auto;
+        min-height: auto; /* Allow height to adjust on smaller screens */
+        justify-content: flex-start; /* Align content to top on smaller screens */
+        padding-top: 80px; /* Add padding for sticky nav on small screens */
+    }
+    .team-projects-heading {
+        margin-top: 30px;
+        font-size: clamp(1.4em, 6vw, 2em);
+    }
 }
 
 @media (max-width: 480px) {
@@ -675,6 +780,7 @@ footer p {
     .section-box {
         padding: 20px;
         margin: 20px auto;
+        min-height: auto; /* Ensure no forced height on very small screens */
     }
     p {
         padding: 0 15px;
@@ -691,5 +797,10 @@ footer p {
     .social-links-footer a {
         font-size: 1.8em;
         margin: 0 8px;
+    }
+    .team-projects-section {
+        padding: 20px;
+        margin: 20px auto;
+        min-height: auto; /* Ensure no forced height on very small screens */
     }
 }
