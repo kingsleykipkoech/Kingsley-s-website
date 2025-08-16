@@ -386,7 +386,7 @@ nav a:hover {
 } */
 
 .ubuntu-site-card .project-image-background {
-    background-image: url('network_manager_fix.jpg'); /* <<< Update this to your ACTUAL Network Manager project image filename (e.g., 'ubuntu_network.webp') */
+    background-image: url('net.jpg'); 
 }
 
 .community-project-card .project-image-background {
