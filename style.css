@@ -340,11 +340,12 @@ nav a:hover {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */ /* Changed from center to flex-end */
+    justify-content: flex-end; /* Align content to bottom */
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: hidden; /* Hide content overflow on the card faces */
 }
 
 /* Style the front side */
@@ -355,7 +356,7 @@ nav a:hover {
 }
 .flip-card-front .project-image-background {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Occupy full height of the front */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -363,29 +364,38 @@ nav a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 1; /* Below the title */
 }
 .flip-card-front h3 {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
-    right: 10px;
-    margin: 0;
+    position: relative; /* Changed from absolute to relative */
+    /* Remove bottom, left, right if using relative and flex-end on parent */
+    /* bottom: 20px; */
+    /* left: 10px; */
+    /* right: 10px; */
+    margin: 0 10px 20px 10px; /* Adjust margin for spacing from bottom and sides */
     padding: 10px;
     background: rgba(0,0,0,0.7);
     color: #64FFDA;
-    font-size: 1.4em;
+    font-size: clamp(1em, 4vw, 1.4em); /* Adjusted for responsiveness */
     border-radius: 8px;
     z-index: 2;
     text-align: center;
+    word-break: break-word; /* Ensure long words break */
+    width: calc(100% - 20px); /* Ensure it spans full width minus padding */
 }
 
 /* Specific background images for each project */
+/* The linux-script-card is removed from HTML, so this rule is no longer needed */
+/* .linux-script-card .project-image-background {
+    background-image: url('linux_script.jpg'); 
+} */
+
 .ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg');}
+    background-image: url('network_manager_fix.jpg'); /* <<< Update this to your ACTUAL Network Manager project image filename (e.g., 'ubuntu_network.webp') */
+}
 
 .community-project-card .project-image-background {
-    background-image: url('edu.jpg');
+    background-image: url('edu.jpg'); /* Ensure 'edu.jpg' is the exact filename on GitHub */
 }
 
 
