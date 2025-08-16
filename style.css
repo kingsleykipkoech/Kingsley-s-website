@@ -386,7 +386,7 @@ nav a:hover {
 }
 
 .ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg'); /* Set to network_manager.jpg */
+    background-image: url(net.jpg); /* Set to network_manager.jpg */
 }
 
 .community-project-card .project-image-background {
