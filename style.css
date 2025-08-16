@@ -414,7 +414,7 @@ nav a:hover {
     background: none;
     border-radius: 0;
     max-width: 100%;
-    flex-grow: 0; /* Changed from 1 to 0 to prevent excessive stretching */
+    flex-grow: 1; /* Changed from 0 to 1 to allow it to take available space */
     display: flex;
     align-items: center;
     justify-content: center;
