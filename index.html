@@ -15,24 +15,6 @@
         .hidden-section {
             display: none !important;
         }
-        .social-links-dropdown {
-            background: #222;
-            border: 1px solid #2a7ae2;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 8px;
-            box-shadow: 0 2px 8px #0002;
-            min-width: 200px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            position: static;
-            display: inline-block;
-        }
-        .social-links-dropdown.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
         .profile-pic {
             display: block;
             margin: 30px auto 10px auto;
@@ -83,7 +65,6 @@
             position: relative;
         }
         .close-btn {
-
             position: absolute;
             top: 12px;
             right: 18px;
@@ -312,7 +293,7 @@
         }
     </style>
 </head>
-<body>
+<body id="top"> <!-- Added id="top" to the body tag -->
     <!-- Modal Popup -->
     <div id="customModal" class="modal hidden-section">
         <div class="modal-content">
@@ -325,7 +306,7 @@
     <nav aria-label="Main Navigation">
         <span class="hamburger" id="hamburger" tabindex="0" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
         <div class="nav-links" id="navLinks">
-            <a href="#">Home</a> <!-- Updated to go to the very top of the page -->
+            <a href="#top">Home</a> <!-- Updated to go to the very top of the page -->
             <a href="#elevator-pitch">My Pitch</a>
             <a href="#about">About Me</a>
             <a href="#skills">Skills</a>
@@ -373,7 +354,8 @@
             <div class="skill-item">
                 <i class="fas fa-paint-brush"></i> <span>CSS</span>
             </div>
-            <div class="fab fa-linux"></i> <span>Linux-based CLI</span>
+            <div class="skill-item">
+                <i class="fab fa-linux"></i> <span>Linux-based CLI</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-file-excel"></i> <span>MS Office Tools</span>
