@@ -181,74 +181,62 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Navigation */
+/* Navigation - Converted to always be a dropdown */
 nav {
     background: linear-gradient(90deg, #181a1b 0%, #2a7ae2 100%);
-    padding: 16px 0;
-    text-align: center;
+    padding: 16px 20px; /* Padding for the nav bar */
+    display: flex; /* Use flexbox for nav bar content */
+    justify-content: flex-end; /* Push hamburger to the right */
+    align-items: center; /* Vertically align items */
     box-shadow: 0 2px 8px rgba(42,122,226,0.10);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensured it stays on top */
-}
-nav a {
-    color: #ffb347;
-    margin: 0 22px;
-    text-decoration: none;
-    font-size: 1.15em;
-    font-weight: 600;
-    transition: color 0.2s, transform 0.2s;
-    display: inline-block; /* Allows transform on hover */
-}
-nav a:hover {
-    color: #72dd0d;
-    transform: translateY(-2px); /* Subtle lift on hover */
-}
-/* Active nav link style (if you want to highlight current section) */
-nav a.active-nav-link {
-    color: #72dd0d; /* Highlight active link */
-    text-decoration: underline;
+    z-index: 1000;
 }
 
 .hamburger {
-    display: none;
+    display: block; /* Always visible */
     font-size: 2em;
     color: #ffb347;
     cursor: pointer;
-    margin-right: 18px;
-    vertical-align: middle;
+    /* Removed old positioning, flex handles it now */
 }
-@media (max-width: 700px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #232526;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        z-index: 999; /* Below sticky nav */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-    .nav-links.show {
-        display: flex;
-    }
-    nav a {
-        margin: 18px 0;
-        font-size: 1.2em;
-        text-align: center;
-        width: 100%; /* Full width for better tapping */
-        padding: 10px 0;
-    }
-    nav a:hover {
-        background: rgba(42,122,226,0.2); /* Highlight on hover for mobile */
-    }
-    .hamburger {
-        display: inline-block;
-        position: absolute;
-        left: 18px;
-        top: 18px;
-    }
+
+.nav-links {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Always vertical */
+    background: #232526;
+    position: absolute; /* Position relative to nav container */
+    top: 100%; /* Below the nav bar */
+    right: 0; /* Align to the right */
+    width: 200px; /* Fixed width for dropdown */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border-radius: 8px; /* Rounded corners for dropdown box */
+    padding: 10px 0; /* Padding inside dropdown */
+    border: 1px solid #ffb347; /* Accent border for dropdown */
+}
+
+.nav-links.show {
+    display: flex; /* Show when 'show' class is added */
+}
+
+nav a {
+    color: #ffb347;
+    padding: 12px 20px; /* Padding for each link inside dropdown */
+    text-decoration: none;
+    font-size: 1.15em;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s; /* Smooth hover for links */
+    text-align: left; /* Align text within dropdown */
+    margin: 0; /* Remove horizontal margin for dropdown links */
+    width: 100%; /* Ensure links take full width of dropdown */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+nav a:hover {
+    background: rgba(42,122,226,0.2); /* Highlight background on hover */
+    color: #72dd0d;
+    transform: none; /* No transform on links inside dropdown */
 }
 
 /* Buttons - General Button Styles */
