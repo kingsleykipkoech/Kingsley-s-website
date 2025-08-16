@@ -344,26 +344,40 @@ nav a:hover {
     align-items: center;
     padding: 20px; /* Consistent padding */
     box-sizing: border-box; /* Include padding in width/height */
+    overflow: hidden; /* Hide content overflow on the card faces */
 }
 
 /* Style the front side (fallback background for image) */
 .flip-card-front {
     background-color: #2b2e31; /* Consistent background with skill items */
     color: #fff;
+    position: relative; /* Needed for absolute positioning of title */
 }
-.flip-card-front img {
-    max-width: 90%; /* Image fills most of the front */
-    max-height: 60%; /* Adjust height */
-    object-fit: contain; /* Ensure image fits without cropping */
-    border-radius: 8px; /* Slight rounding for image */
-    margin-bottom: 15px; /* Space below image */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Subtle shadow for image */
+.flip-card-front .project-image-background {
+    width: 100%;
+    height: 100%; /* Occupy full height of the front */
+    background-size: cover; /* Image covers the area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    border-radius: 12px; /* Match card rounding */
+    position: absolute; /* Cover the entire front face */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Below the title */
 }
 .flip-card-front h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.4em; /* Match original project title size */
-    color: #64FFDA; /* Accent color */
+    position: absolute; /* Position over the background image */
+    bottom: 20px; /* From the bottom */
+    left: 10px; /* From the left */
+    right: 10px; /* From the right */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Padding around text */
+    background: rgba(0,0,0,0.7); /* Semi-transparent background for readability */
+    color: #64FFDA; /* Accent color for titles */
+    font-size: 1.4em;
+    border-radius: 8px; /* Slightly rounded background */
+    z-index: 2; /* Above the background image */
+    text-align: center; /* Center the title text */
 }
 
 
@@ -372,17 +386,23 @@ nav a:hover {
     background-color: #3b3e41; /* Slightly different background for back */
     color: #fff;
     transform: rotateY(180deg); /* Start rotated for the back */
-    justify-content: flex-start; /* Align content to top */
+    justify-content: space-between; /* Space out content vertically */
     padding-top: 30px; /* More padding at the top */
+    padding-bottom: 30px; /* More padding at the bottom */
 }
 .flip-card-back p {
     font-size: 0.95em; /* Match original project description size */
     color: #ccc;
     text-align: center;
     margin-bottom: 20px;
-    padding: 0; /* Remove specific padding for consistency */
+    padding: 0 10px; /* Added horizontal padding to p for better readability */
     background: none; /* Remove background for consistency */
+    border-radius: 0; /* Remove border-radius for consistency */
     max-width: 100%; /* Ensure text uses full width of card */
+    flex-grow: 1; /* Allow paragraph to take available space */
+    display: flex; /* Use flex to vertically center text if small */
+    align-items: center; /* Center text vertically if it's short */
+    justify-content: center;
 }
 .flip-card-back .technologies {
     margin-top: auto; /* Push technologies to bottom */
@@ -611,16 +631,10 @@ footer p {
         max-width: 300px; /* Keep reasonable max-width */
         height: 380px; /* Slightly adjust height */
     }
-    .project-card h3 { /* Now affects flip-card-front h3 */
-        font-size: 1.3em;
-    }
-    .project-card p { /* Now affects flip-card-back p */
-        font-size: 0.85em;
-    }
-    .project-card .technologies span { /* Now affects flip-card-back technologies */
-        font-size: 0.75em;
-        padding: 5px 10px;
-    }
+    /* Styles specific to .project-card are now applied via .flip-card-front/back */
+    /* .project-card h3 { } */
+    /* .project-card p { } */
+    /* .project-card .technologies span { } */
     .cta-button {
         padding: 12px 28px;
         font-size: 1em;

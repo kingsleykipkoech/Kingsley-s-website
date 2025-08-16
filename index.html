@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
-    <!-- Removed inline <style> block, moving styles to style.css -->
+    <!-- No inline styles needed here as they are moved to style.css -->
 </head>
 <body id="top"> <!-- id="top" for reliable Home navigation -->
     <!-- Modal Popup (kept as per previous version, but consider if needed) -->
@@ -103,15 +103,15 @@
             <!-- You can re-add your skill progress bars and table here if desired -->
         </section>
 
-        <!-- Portfolio Section - Now with ONE flip card project -->
+        <!-- Portfolio Section - Now with THREE flip card projects -->
         <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
             <h2 id="portfolio-heading">My Projects</h2>
             <div class="projects-grid">
-                <!-- Single Project Flip Card -->
+                <!-- Project 1: Secure Linux Hardening Script -->
                 <article class="flip-card" aria-labelledby="project1-title">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Project+Image" alt="Placeholder image for Secure Linux Hardening Script">
+                            <div class="project-image-background" style="background-image: url('https://placehold.co/300x200/4CAF50/FFFFFF?text=Linux+Script');"></div>
                             <h3 id="project1-title">Secure Linux Hardening Script</h3>
                         </div>
                         <div class="flip-card-back">
@@ -121,7 +121,36 @@
                         </div>
                     </div>
                 </article>
-                <!-- If you add more projects, duplicate the <article class="flip-card"> block -->
+
+                <!-- Project 2: Help Ubuntu Users Website -->
+                <article class="flip-card" aria-labelledby="project2-title">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="project-image-background" style="background-image: url('https://placehold.co/300x200/2A7AE2/FFFFFF?text=Ubuntu+Help+Site');"></div>
+                            <h3 id="project2-title">Ubuntu Network Manager Guide</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p id="project2-desc">A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
+                            <div class="technologies"><span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span></div>
+                            <a href="https://github.com/kingsleykoech/your-ubuntu-website-repo" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Ubuntu Network Manager Guide on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Community Technology Education -->
+                <article class="flip-card" aria-labelledby="project3-title">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="project-image-background" style="background-image: url('https://placehold.co/300x200/FFB347/222222?text=Community+Project');"></div>
+                            <h3 id="project3-title">Community Tech Education</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p id="project3-desc">Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
+                            <div class="technologies"><span>Community Engagement</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span></div>
+                            <a href="https://github.com/kingsleykoech/your-community-project-repo" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Community Tech Education Project on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
         
