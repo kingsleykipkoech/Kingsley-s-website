@@ -61,8 +61,9 @@
             </p>
             <div class="video-placeholder" aria-label="Placeholder for your pitch video">
                 <img src="https://placehold.co/560x315/333/64FFDA?text=Your+Pitch+Video+Here" alt="Placeholder for pitch video">
-                <button class="play-button" aria-label="Play video"></button>
+                <button class="play-button" aria-label="Play video">►</button>
             </div>
+            <a href="#portfolio" class="cta-button">Explore My Work</a>
         </section>
 
         <!-- About Section -->
@@ -102,28 +103,25 @@
             <!-- You can re-add your skill progress bars and table here if desired -->
         </section>
 
-        <!-- Portfolio Section -->
+        <!-- Portfolio Section - Now with ONE flip card project -->
         <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
             <h2 id="portfolio-heading">My Projects</h2>
             <div class="projects-grid">
-                <article class="project-card" aria-labelledby="project1-title" aria-describedby="project1-desc">
-                    <h3 id="project1-title">Secure Linux Hardening Script</h3>
-                    <p id="project1-desc">An automated Bash script that applies essential security best practices to a new Linux server, ensuring a strong foundation against common threats. This project reduced manual configuration time by 75%.</p>
-                    <div class="technologies"><span>Bash</span><span>Linux</span><span>Security Automation</span></div>
-                    <a href="https://github.com/kingsleykoech/your-linux-script-repo" target="_blank" rel="noopener" class="project-link" aria-label="View Secure Linux Hardening Script on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
+                <!-- Single Project Flip Card -->
+                <article class="flip-card" aria-labelledby="project1-title">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Project+Image" alt="Placeholder image for Secure Linux Hardening Script">
+                            <h3 id="project1-title">Secure Linux Hardening Script</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p id="project1-desc">An automated Bash script that applies essential security best practices to a new Linux server, ensuring a strong foundation against common threats. This project reduced manual configuration time by 75%.</p>
+                            <div class="technologies"><span>Bash</span><span>Linux</span><span>Security Automation</span></div>
+                            <a href="https://github.com/kingsleykoech/your-linux-script-repo" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Secure Linux Hardening Script on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
                 </article>
-                <article class="project-card" aria-labelledby="project2-title" aria-describedby="project2-desc">
-                    <h3 id="project2-title">Infrastructure as Code with Terraform</h3>
-                    <p id="project2-desc">A modular Terraform project that provisions a highly available and secure web server infrastructure on AWS, demonstrating expertise in repeatable, secure cloud deployments.</p>
-                    <div class="technologies"><span>Terraform</span><span>AWS</span><span>IaC</span><span>Cloud Security</span></div>
-                    <a href="https://github.com/kingsleykoech/your-terraform-repo" target="_blank" rel="noopener" class="project-link" aria-label="View Infrastructure as Code with Terraform on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
-                </article>
-                <article class="project-card" aria-labelledby="project3-title" aria-describedby="project3-desc">
-                    <h3 id="project3-title">Python Vulnerability Scanner</h3>
-                    <p id="project3-desc">A lightweight Python tool that scans websites for common vulnerabilities like SQL injection and XSS, providing an accessible solution for small businesses to identify risks early.</p>
-                    <div class="technologies"><span>Python</span><span>Web Security</span><span>Vulnerability Analysis</span></div>
-                    <a href="https://github.com/kingsleykoech/your-python-scanner-repo" target="_blank" rel="noopener" class="project-link" aria-label="View Python Vulnerability Scanner on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
-                </article>
+                <!-- If you add more projects, duplicate the <article class="flip-card"> block -->
             </div>
         </section>
         
@@ -142,7 +140,6 @@
             </div>
         </section>
 
-        <!-- Removed the redundant "Animated Button Example" and "Find Me Online" div -->
     </main>
 
     <!-- Footer - using <footer> for semantic structure -->
@@ -178,15 +175,6 @@
         // Optional: Modal logic (currently hidden by .hidden-section)
         const customModal = document.getElementById('customModal');
         const closeModalBtn = document.getElementById('closeModal');
-
-        // Example to show modal (you'd integrate this with a button if needed)
-        // const someTriggerButton = document.getElementById('someTriggerButton');
-        // if (someTriggerButton) {
-        //     someTriggerButton.addEventListener('click', () => {
-        //         customModal.classList.remove('hidden-section');
-        //         customModal.focus(); // Focus the modal for accessibility
-        //     });
-        // }
 
         if (closeModalBtn) {
             closeModalBtn.addEventListener('click', () => {
