@@ -82,7 +82,7 @@ p {
     padding: 0 24px;
     font-size: 1em;
     background: rgba(30,30,30,0.7);
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 18px auto;
     max-width: 800px;
 }
@@ -807,7 +807,7 @@ footer p {
     }
     .elevator-pitch-section p {
         font-size: 0.9em;
-        
+
     }
     .social-links-footer a {
         font-size: 1.8em;
