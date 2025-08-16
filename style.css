@@ -252,31 +252,10 @@ nav a.active-nav-link {
 }
 
 /* Buttons - General Button Styles */
-.cta-button {
-    background: linear-gradient(90deg, #72dd0d 0%, #2a7ae2 100%);
-    color: #fff;
-    border: none;
-    padding: 14px 36px;
-    border-radius: 10px;
-    font-size: 1.1em;
-    cursor: pointer;
-    margin: 28px auto;
-    display: block;
-    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(114,221,13,0.10);
-    font-weight: 600;
-    letter-spacing: 1px;
-    outline: none;
-    max-width: 250px;
-}
-.cta-button:hover {
-    background: linear-gradient(90deg, #2a7ae2 0%, #72dd0d 100%);
-    transform: scale(1.07);
-    box-shadow: 0 6px 24px #72dd0d33;
-}
-.cta-button:focus {
-    outline: 2px solid #ffb347;
-    outline-offset: 2px;
+.cta-button,
+.elevator-pitch-section .video-placeholder button,
+button.animated-btn { /* Selects all relevant buttons */
+    display: none !important; /* Forces the button to be hidden */
 }
 
 /* Modal Styles */
@@ -595,23 +574,6 @@ nav a.active-nav-link {
     opacity: 0.6;
     border-radius: 0;
 }
-.elevator-pitch-section .video-placeholder button {
-    background: rgba(0,0,0,0.8);
-    color: #fff;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    font-size: 3em;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.3s, transform 0.3s, border-color 0.3s;
-}
-.elevator-pitch-section .video-placeholder button:hover {
-    background: rgba(0,0,0,0.95);
-    transform: scale(1.15);
-    border-color: #ffb347;
-}
 
 /* New Team Projects Section Styling */
 .team-projects-heading {
@@ -647,12 +609,7 @@ nav a.active-nav-link {
 }
 
 .team-slide-link {
-    margin-top: 20px; /* Space above the button */
-    display: inline-flex; /* To align icon with text */
-    align-items: center;
-    gap: 8px; /* Space between text and icon */
-    max-width: none; /* Allow button to size to content */
-    padding: 12px 28px; /* Slightly more compact button */
+    display: none !important; /* Forces the button to be hidden */
 }
 
 
@@ -746,11 +703,6 @@ footer p {
     .elevator-pitch-section p {
         font-size: 1em;
     }
-    .elevator-pitch-section .video-placeholder button {
-        width: 70px;
-        height: 70px;
-        font-size: 2em;
-    }
     .projects-grid, .skills-list-grid {
         grid-template-columns: 1fr; /* Stack columns on small screens */
         padding: 0 15px;
@@ -807,7 +759,6 @@ footer p {
     }
     .elevator-pitch-section p {
         font-size: 0.9em;
-
     }
     .social-links-footer a {
         font-size: 1.8em;
