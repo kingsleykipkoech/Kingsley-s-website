@@ -92,7 +92,7 @@ p {
     background: rgba(35,37,38,0.95);
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(42,122,226,0.10);
-    margin: 36px auto;
+    margin: 15px auto; /* Reduced from 36px auto */
     padding: 32px;
     max-width: 900px; /* Increased max-width for better content display */
     border: 1.5px solid #ffb347;
