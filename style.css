@@ -290,7 +290,7 @@ nav a:hover {
     display: none !important;
 }
 
-/* --- Project Cards (Flip Card Styles) --- */
+/* --- Project Cards (Static Card Styles) --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -298,60 +298,57 @@ nav a:hover {
     margin-top: 30px;
     justify-content: center;
     padding: 0 20px;
-    perspective: 1000px; /* Needed for 3D flip effect */
 }
 
-/* The flip card container */
-.flip-card {
+/* The static card container */
+.flip-card { /* Renamed conceptually, but the class remains 'flip-card' for HTML compatibility */
     background-color: transparent;
     width: 300px;
     height: 400px;
     border: 1px solid rgba(100,255,218,0.3);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    perspective: 1000px;
     margin: auto;
+    /* Removed perspective as there's no flip */
 }
 
-/* This container is needed to handle the 3D perspective */
+/* This container now just holds the front and back for stacking */
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    /* Removed transition and transform-style to stop flipping */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-/* Do a horizontal flip when you hover over the flip box container */
+/* No hover flip effect */
 .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+    transform: none; /* Explicitly ensure no transform on hover */
 }
 
-/* Position the front and back side */
+/* Both faces are now positioned for display */
 .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
+    /* Removed backface-visibility as there's no flip */
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align content to bottom */
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden; /* Hide content overflow on the card faces */
 }
 
-/* Style the front side */
+/* Style the front side (now serving as background and title holder) */
 .flip-card-front {
     background-color: #2b2e31;
     color: #fff;
-    position: relative;
+    position: absolute; /* Kept absolute for overlaying */
+    z-index: 1; /* Ensure back is on top for content */
 }
 .flip-card-front .project-image-background {
     width: 100%;
@@ -363,81 +360,69 @@ nav a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 1; /* Below the title and other content */
 }
 .flip-card-front h3 {
-    position: relative; /* Changed from absolute to relative */
-    margin: 0 10px 20px 10px; /* Adjust margin for spacing from bottom and sides */
+    position: relative; /* Now acts as a title over the image */
+    margin: 0 10px auto 10px; /* Push title to top, allow space below */
     padding: 10px;
     background: rgba(0,0,0,0.7);
     color: #64FFDA;
-    font-size: clamp(1em, 4vw, 1.4em); /* Adjusted for responsiveness */
+    font-size: clamp(1em, 4vw, 1.4em);
     border-radius: 8px;
     z-index: 2;
     text-align: center;
-    word-break: break-word; /* Ensure long words break */
-    width: calc(100% - 20px); /* Ensure it spans full width minus padding */
+    word-break: break-word;
+    width: calc(100% - 20px);
 }
 
 /* Specific background images for each project */
-/* The linux-script-card is removed from HTML, so this rule is no longer needed */
-/* .linux-script-card .project-image-background {
-    background-image: url('linux_script.jpg'); 
-} */
-
 .ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg'); }
-
+    background-image: url('net.jpg'); /* <<< Verify your image filename! */
+}
 .community-project-card .project-image-background {
     background-image: url('edu.jpg'); /* Ensure 'edu.jpg' is the exact filename on GitHub */
 }
 
 
-/* Style the back side */
+/* Style the back side (now the primary visible content area) */
 .flip-card-back {
-    background-color: #3b3e41;
+    background-color: rgba(59, 62, 65, 0.9); /* Slightly transparent background for description over image */
     color: #fff;
-    transform: rotateY(180deg);
-    display: flex; /* Ensure flexbox is applied */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally if it's smaller than the container */
-    padding: 30px 20px; /* Adjust padding for better content spacing */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    transform: none; /* No rotation */
+    z-index: 2; /* Ensure it's on top of the front face */
+    justify-content: flex-end; /* ALIGN ALL CONTENT TO THE BOTTOM */
+    padding: 20px; /* Adjusted padding */
 }
 .flip-card-back p {
     font-size: 0.95em;
     color: #ccc;
     text-align: center;
-    /* Removed margin-bottom and padding from here, as flex properties will handle spacing */
-    /* margin-bottom: 20px; */
-    /* padding: 0 10px; */
     background: none;
     border-radius: 0;
     max-width: 100%;
-    flex-grow: 1; /* Allow it to take available space */
+    flex-grow: 0; /* Prevent it from taking excessive space */
     display: flex; /* Make paragraph content a flex container too */
     align-items: center; /* Center text vertically within the paragraph's space */
     justify-content: center; /* Center text horizontally within the paragraph's space */
-    margin: auto; /* This is key to centering the paragraph within its flex parent */
+    margin: 0 0 15px 0; /* Margin-bottom to push it up from technologies/link */
 }
 .ubuntu-site-card .flip-card-back a { /* Targeting the specific unlinked text */
-    color: #ccc; /* Set a default color to appear as regular text */
-    text-decoration: none; /* Ensure no underline */
-    font-weight: normal; /* No bold */
-    cursor: default; /* No pointer cursor */
-    /* Remove hover effects if any from generic 'a:hover' */
+    color: #ccc;
+    text-decoration: none;
+    font-weight: normal;
+    cursor: default;
 }
 .ubuntu-site-card .flip-card-back a:hover {
-    color: #ccc; /* Maintain color on hover */
-    text-decoration: none; /* No underline on hover */
-    transform: none; /* No transform on hover */
+    color: #ccc;
+    text-decoration: none;
+    transform: none;
 }
 
 
 .flip-card-back .technologies {
     margin-top: auto; /* Pushes this element to the bottom */
-    margin-bottom: 15px; /* Add some space below technologies */
+    margin-bottom: 10px; /* Add some space below technologies */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -458,7 +443,7 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    margin-top: auto; /* Pushes this element to the bottom */
+    margin-top: 0; /* Reset margin-top from previous auto */
 }
 .flip-card-back .project-link:hover {
     text-decoration: underline;
