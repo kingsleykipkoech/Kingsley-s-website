@@ -381,12 +381,8 @@ nav a:hover {
 }
 
 /* Specific background images for each project */
-.linux-script-card .project-image-background {
-    background-image: url('https://placehold.co/300x200/4CAF50/FFFFFF?text=Linux+Script'); /* Update this to your Linux project image */
-}
-
 .ubuntu-site-card .project-image-background {
-    background-image: url(net.jpg); /* Set to network_manager.jpg */
+    background-image: url('net.jpg');
 }
 
 .community-project-card .project-image-background {
