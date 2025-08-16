@@ -340,7 +340,6 @@ nav a:hover {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */ /* Changed from center to flex-end */
     justify-content: flex-end; /* Align content to bottom */
     align-items: center;
     padding: 20px;
@@ -364,14 +363,10 @@ nav a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Below the title */
+    z-index: 1;
 }
 .flip-card-front h3 {
     position: relative; /* Changed from absolute to relative */
-    /* Remove bottom, left, right if using relative and flex-end on parent */
-    /* bottom: 20px; */
-    /* left: 10px; */
-    /* right: 10px; */
     margin: 0 10px 20px 10px; /* Adjust margin for spacing from bottom and sides */
     padding: 10px;
     background: rgba(0,0,0,0.7);
@@ -422,6 +417,20 @@ nav a:hover {
     align-items: center;
     justify-content: center;
 }
+.ubuntu-site-card .flip-card-back a { /* Targeting the specific unlinked text */
+    color: #ccc; /* Set a default color to appear as regular text */
+    text-decoration: none; /* Ensure no underline */
+    font-weight: normal; /* No bold */
+    cursor: default; /* No pointer cursor */
+    /* Remove hover effects if any from generic 'a:hover' */
+}
+.ubuntu-site-card .flip-card-back a:hover {
+    color: #ccc; /* Maintain color on hover */
+    text-decoration: none; /* No underline on hover */
+    transform: none; /* No transform on hover */
+}
+
+
 .flip-card-back .technologies {
     margin-top: auto;
     margin-bottom: 15px;
@@ -438,7 +447,7 @@ nav a:hover {
     font-size: 0.8em;
     white-space: nowrap;
 }
-.flip-card-back .project-link {
+.flip-card-back .project-link { /* This rule still applies to the Community project link */
     color: #ffb347;
     text-decoration: none;
     font-weight: bold;
