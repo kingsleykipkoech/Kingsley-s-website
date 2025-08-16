@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley Kipkoech | Aspiring Cybersecurity & Software Engineer</title>
+    <title>Kingsley Koech | Cybersecurity & Software Engineer</title>
     
     <!-- Professional Meta Tags for SEO and Social Sharing -->
     <meta name="description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
-    <meta name="keywords" content="Kingsley Koech, Aspiring cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
+    <meta name="keywords" content="Kingsley Koech, cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
     <meta name="author" content="Kingsley Koech">
-    <meta property="og:title" content="Kingsley Kipkoech | Aspiring Cybersecurity & Software Engineer">
+    <meta property="og:title" content="Kingsley Koech | Cybersecurity & Software Engineer">
     <meta property="og:description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
     <meta property="og:image" content="https://murray-1.github.io/My--website/me.jpeg"> <!-- Ensure this path is correct on your live site -->
     <meta property="og:url" content="https://murray-1.github.io/My--website/">
@@ -49,8 +49,8 @@
         <!-- Profile Picture & Main Heading (part of the header/hero area) -->
         <header class="hero-section" role="banner">
             <img src="me.jpeg" onerror="this.src='https://placehold.co/150x150/000/FFF?text=Your+Photo';" alt="Kingsley Koech profile photo" class="profile-pic">
-            <h1 class="site-title">Kingsley Kipkoech</h1>
-            <h2 class="site-subtitle">Aspiring Cybersecurity & Software Engineer</h2>
+            <h1 class="site-title">Kingsley Koech</h1>
+            <h2 class="site-subtitle">Cybersecurity & Software Engineer</h2>
         </header>
 
         <!-- Elevator Pitch Section -->
@@ -59,9 +59,17 @@
             <p>
                 To leverage my passion for cybersecurity, software development, and Linux to architect and secure robust technology infrastructure solutions, empowering organizations to thrive in a resilient digital world.
             </p>
-            <div class="video-placeholder" aria-label="Placeholder for your pitch video">
-                <img src="video palceholder" alt="Placeholder for pitch video">
+            <div class="video-container" aria-label="Your pitch video">
+                <!-- YouTube Embed -->
+                <iframe 
+                    src="https://www.youtube.com/embed/mvykTntqiFI" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    title="Kingsley Koech's Elevator Pitch Video">
+                </iframe>
             </div>
+            <a href="#portfolio" class="cta-button">Explore My Work</a>
         </section>
 
         <!-- About Section -->
@@ -101,7 +109,7 @@
             <!-- You can re-add your skill progress bars and table here if desired -->
         </section>
 
-        <!-- Portfolio Section - Now with TWO flip card projects -->
+        <!-- Portfolio Section - Now with TWO static project cards -->
         <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
             <h2 id="portfolio-heading">My Projects</h2>
             <div class="projects-grid">
@@ -115,7 +123,7 @@
                         <div class="flip-card-back">
                             <p id="project2-desc">A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
                             <div class="technologies"><span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span></div>
-                            <!-- Removed href and class="project-link" attributes from this <a> tag -->
+                            <a>View Project <i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </article>
@@ -130,7 +138,7 @@
                         <div class="flip-card-back">
                             <p id="project3-desc">Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
                             <div class="technologies"><span>Community Engagement</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span></div>
-                            <a href="https://github.com/kingsleykoech/your-community-project-repo" target="_blank" rel="noopener noreferrer" class="project-link" 
+                            <a href="https://github.com/kingsleykoech/your-community-project-repo" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Community Tech Education Project on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </article>
