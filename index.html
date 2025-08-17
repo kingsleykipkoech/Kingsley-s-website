@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley Koech | Cybersecurity & Software Engineer</title>
+    <title>Kingsley Kipkoech | Aspiring Cybersecurity & Software Engineer</title>
     
     <!-- Professional Meta Tags for SEO and Social Sharing -->
-    <meta name="description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
-    <meta name="keywords" content="Kingsley Koech, cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
+    <meta name="description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
+    <meta name="keywords" content="Kingsley Kipkoech, Aspiring cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
     <meta name="author" content="Kingsley Koech">
     <meta property="og:title" content="Kingsley Koech | Cybersecurity & Software Engineer">
-    <meta property="og:description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
+    <meta property="og:description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
     <meta property="og:image" content="https://murray-1.github.io/My--website/me.jpeg"> <!-- Ensure this path is correct on your live site -->
     <meta property="og:url" content="https://murray-1.github.io/My--website/">
     <meta name="twitter:card" content="summary_large_image">
@@ -18,23 +18,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- Removed inline <style> block, moving styles to style.css -->
 </head>
-<body id="top"> <!-- id="top" for reliable Home navigation -->
-    <!-- Modal Popup (kept as per previous version, but consider if needed) -->
-    <div id="customModal" class="modal hidden-section" aria-modal="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-        <div class="modal-content">
-            <span id="closeModal" class="close-btn" role="button" aria-label="Close dialog">&times;</span>
-            <h2 id="modalTitle">Hello, Kingsley!</h2>
-            <p id="modalDescription">Thank you for exploring my portfolio. Let's connect and build something amazing together!</p>
-        </div>
-    </div>
-    
+<body id="top">
+  
     <!-- Navigation -->
     <nav aria-label="Main Navigation">
         <span class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
         <div class="nav-links" id="navLinks">
+            <!-- Href attributes point to section IDs for scrolling -->
             <a href="#top">Home</a>
             <a href="#elevator-pitch">My Pitch</a>
             <a href="#about">About Me</a>
@@ -44,16 +35,16 @@
         </div>
     </nav>
 
-    <!-- Main Content Area - using <main> for semantic structure -->
+    <!-- Main Content Area Container for all pages -->
     <main>
-        <!-- Profile Picture & Main Heading (part of the header/hero area) -->
-        <header class="hero-section" role="banner">
+        <!-- Profile Picture & Main Heading (Home Page Section) -->
+        <header class="hero-section" id="home-section" role="banner">
             <img src="me.jpeg" onerror="this.src='https://placehold.co/150x150/000/FFF?text=Your+Photo';" alt="Kingsley Koech profile photo" class="profile-pic">
-            <h1 class="site-title">Kingsley Koech</h1>
-            <h2 class="site-subtitle">Cybersecurity & Software Engineer</h2>
+            <h1 class="site-title">Kingsley Kipkoech</h1>
+            <h2 class="site-subtitle">Aspiring Cybersecurity & Software Engineer</h2>
         </header>
 
-        <!-- Elevator Pitch Section -->
+        <!-- Elevator Pitch Section - Now a Placeholder Page -->
         <section class="section-box elevator-pitch-section" id="elevator-pitch" aria-labelledby="pitch-heading">
             <h2 id="pitch-heading">Innovating for a Secure Digital Future</h2>
             <p>
@@ -66,7 +57,7 @@
             <a href="#portfolio" class="cta-button">Explore My Work</a>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section - Now a Page -->
         <section class="section-box" id="about" aria-labelledby="about-heading">
             <h2 id="about-heading">About Me</h2>
             <p>
@@ -74,7 +65,7 @@
             </p>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills Section - Now a Page -->
         <section class="section-box" id="skills" aria-labelledby="skills-heading">
             <h2 id="skills-heading">My Skills</h2>
             <div class="skills-list-grid">
@@ -100,32 +91,64 @@
                     <i class="fas fa-users" aria-hidden="true"></i> <span>Teamwork</span>
                 </div>
             </div>
-            <!-- You can re-add your skill progress bars and table here if desired -->
         </section>
 
-        <!-- Portfolio Section - Now with ONE flip card project -->
+        <!-- Portfolio Section - Now a Page -->
         <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
             <h2 id="portfolio-heading">My Projects</h2>
             <div class="projects-grid">
-                <!-- Single Project Flip Card -->
-                <article class="flip-card" aria-labelledby="project1-title">
+                <!-- Project 2: Help Ubuntu Users Website -->
+                <article class="flip-card ubuntu-site-card" aria-labelledby="project2-title">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Project+Image" alt="Placeholder image for Secure Linux Hardening Script">
-                            <h3 id="project1-title">Secure Linux Hardening Script</h3>
+                            <div class="project-image-background"></div>
+                            <h3 id="project2-title">Ubuntu Network Manager Guide</h3>
                         </div>
                         <div class="flip-card-back">
-                            <p id="project1-desc">An automated Bash script that applies essential security best practices to a new Linux server, ensuring a strong foundation against common threats. This project reduced manual configuration time by 75%.</p>
-                            <div class="technologies"><span>Bash</span><span>Linux</span><span>Security Automation</span></div>
-                            <a href="https://github.com/kingsleykoech/your-linux-script-repo" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Secure Linux Hardening Script on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
+                            <p id="project2-desc">A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
+                            <div class="technologies"><span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span></div>
+                            <a>View Project <i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </article>
-                <!-- If you add more projects, duplicate the <article class="flip-card"> block -->
+
+                <!-- Project 3: Community Technology Education -->
+                <article class="flip-card community-project-card" aria-labelledby="project3-title">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="project-image-background"></div>
+                            <h3 id="project3-title">Community Tech Education</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p id="project3-desc">Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
+                            <div class="technologies"><span>Community Engagement</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span></div>
+                            <a href="https://github.com/kingsleykoech/your-community-project-repo" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Community Tech Education Project on GitHub">View Project <i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="team-projects-heading" id="team-projects-heading">Team Projects</h3>
+            <div class="team-projects-section">
+                <div class="video-container" aria-label="Team Project Video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/mvykTntqiFI" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        title="Team Project Video">
+                    </iframe>
+                </div>
+                <p class="team-project-description">
+                    Our team collaborated on a comprehensive project to develop an intelligent system for real-time anomaly detection in network traffic, enhancing cybersecurity defenses for small businesses.
+                </p>
+                <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank" rel="noopener noreferrer" class="cta-button team-slide-link" aria-label="View Team Project Slide Deck">
+                    View Team Slide Deck <i class="fas fa-file-powerpoint" aria-hidden="true"></i>
+                </a>
             </div>
         </section>
         
-        <!-- Contact Section -->
+        <!-- Contact Section - Now a Page -->
         <section class="section-box" id="contact" aria-labelledby="contact-heading">
             <h2 id="contact-heading">Contact Me</h2>
             <p>Email: <a href="mailto:kingsleykoech@gmail.com" aria-label="Email Kingsley Koech at kingsleykoech@gmail.com">kingsleykoech@gmail.com</a></p>
@@ -151,21 +174,21 @@
         // Auto-update copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Hamburger menu logic (simplified and kept for basic functionality)
+        // Hamburger menu logic
         const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        const navLinksContainer = document.getElementById('navLinks');
 
-        if (hamburger && navLinks) {
+        if (hamburger && navLinksContainer) {
             hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-                const isExpanded = navLinks.classList.contains('show');
+                navLinksContainer.classList.toggle('show');
+                const isExpanded = navLinksContainer.classList.contains('show');
                 hamburger.setAttribute('aria-expanded', isExpanded);
             });
             // Close nav when a link is clicked (for better mobile UX)
-            navLinks.querySelectorAll('a').forEach(link => {
+            navLinksContainer.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
+                    if (navLinksContainer.classList.contains('show')) {
+                        navLinksContainer.classList.remove('show');
                         hamburger.setAttribute('aria-expanded', false);
                     }
                 });
