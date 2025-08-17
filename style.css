@@ -32,7 +32,7 @@ h1, h2, h3 {
 
 h1.site-title { /* Specific style for main site title */
     font-size: clamp(2.5em, 6vw, 4em);
-    margin-top: 2.5rem;
+    margin-top: 1rem; /* Reduced from 2.5rem for less space above the title */
     animation: pop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
@@ -288,7 +288,7 @@ nav a:hover {
     display: none !important;
 }
 
-/* Project Cards */
+/* --- Project Cards (Flip Card Styles) --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -557,16 +557,19 @@ footer p {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    /* Main navigation area changes for mobile */
     nav {
-        padding: 8px 12px; /* Even smaller padding on mobile */
-        border-bottom-right-radius: 8px;
+        flex-direction: column;
+        padding: 15px 5%;
     }
-    nav a {
-        font-size: 0.85em; /* Very small links on mobile */
-        padding: 4px 0;
+    nav .nav-links {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
+    nav .nav-links a {
+        margin: 5px 15px;
+    }
     .profile-pic {
         width: 100px;
         height: 100px;
@@ -628,9 +631,8 @@ footer p {
 
 @media (max-width: 480px) {
     nav a {
-        font-size: 0.8em; /* Even smaller on very small screens */
-        margin: 0; /* Remove horizontal margin */
-        padding: 3px 0;
+        font-size: 1em;
+        margin: 5px 10px;
     }
     h1.site-title {
         font-size: clamp(1.8em, 10vw, 2.5em);
