@@ -302,8 +302,8 @@ nav a:hover {
 /* The flip card container - was .project-card */
 .flip-card {
     background-color: transparent; /* Transparent as inner will have the background */
-    width: 300px; /* Fixed width, adjust if needed */
-    height: 400px; /* Fixed height, adjust if needed */
+    width: 400px; /* Increased width to 400px */
+    height: 450px; /* Kept height at 450px */
     border: 1px solid rgba(100,255,218,0.3);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
@@ -465,7 +465,7 @@ nav a:hover {
 }
 .elevator-pitch-section p {
     max-width: 800px; /* Wider paragraph */
-    margin: 0 auto 30px auto; /* More margin */
+    margin: 0 auto 30px auto;
     font-size: 1.15em; /* Slightly larger text */
     color: #eee;
     background: none; /* No background for pitch text */
@@ -605,9 +605,9 @@ footer p {
         padding: 0 15px;
     }
     .flip-card { /* Adjust flip card for smaller screens */
-        width: 100%; /* Full width minus padding */
-        max-width: 300px; /* Keep reasonable max-width */
-        height: 380px; /* Slightly adjust height */
+        width: 100%; /* Now takes full width on small screens */
+        max-width: 400px; /* Increased max-width for consistency */
+        height: 450px; /* Kept height at 450px */
     }
     .project-card h3 { /* Now affects flip-card-front h3 */
         font-size: 1.3em;
