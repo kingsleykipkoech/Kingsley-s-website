@@ -27,12 +27,13 @@ h1, h2, h3 {
     text-align: center;
     letter-spacing: 1.5px;
     font-weight: 700;
+    margin-bottom: 20px; /* Consistent spacing after headings */
 }
 
 h1.site-title { /* Specific style for main site title */
     font-size: clamp(2.5em, 6vw, 4em);
     margin-top: 2.5rem;
-    animation: pop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    animation: pop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 h2.site-subtitle { /* Specific style for main site subtitle */
@@ -78,11 +79,10 @@ img:hover {
 
 p {
     color: #bdbdbd;
-    line-height: 1.7;
+    line-height: 1.7; /* Good readability */
     padding: 0 24px;
     font-size: 1em;
-    background: rgba(30,30,30,0.7);
-    border-radius: 20px;
+    /* Removed background and border-radius from general p for cleaner look */
     margin: 18px auto;
     max-width: 800px;
 }
@@ -92,8 +92,8 @@ p {
     background: rgba(35,37,38,0.95);
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(42,122,226,0.10);
-    margin: 15px auto; /* Reduced from 36px auto */
-    padding: 32px;
+    margin: 30px auto; /* Slightly increased margin for better separation */
+    padding: 40px; /* Increased padding inside sections for more breathing room */
     max-width: 900px; /* Increased max-width for better content display */
     border: 1.5px solid #ffb347;
     animation: cardIn 1s cubic-bezier(.68,-0.55,.27,1.55);
@@ -149,7 +149,7 @@ th {
     font-size: 1.1em;
 }
 
-/* Unordered Lists (if used) */
+/* Unordered Lists (if used, consider if skills-list-grid replaces this need) */
 ul {
     background: rgba(35, 43, 54, 0.85);
     padding: 16px 32px;
@@ -181,98 +181,103 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Navigation - Converted to always be a dropdown */
+/* Navigation - Always visible, top-left corner */
 nav {
-    background: linear-gradient(90deg, #181a1b 0%, #2a7ae2 100%);
-    padding: 16px 20px; /* Padding for the nav bar */
-    display: flex; /* Use flexbox for nav bar content */
-    justify-content: flex-end; /* Push hamburger to the right */
-    align-items: center; /* Vertically align items */
-    box-shadow: 0 2px 8px rgba(42,122,226,0.10);
-    position: sticky;
+    background: rgba(24, 26, 27, 0.9); /* Slightly transparent background for the nav container */
+    padding: 10px 15px; /* Smaller padding */
+    display: block; /* Ensures it takes up space and wraps content */
+    position: fixed; /* Fixed position for top-left corner */
     top: 0;
+    left: 0;
     z-index: 1000;
+    box-shadow: 2px 2px 8px rgba(42, 122, 226, 0.1); /* Subtle shadow */
+    border-bottom-right-radius: 10px; /* Rounded corner for the bottom-right of the nav box */
+    border: 1px solid #2a7ae2; /* Thin border */
 }
 
 .hamburger {
-    display: block; /* Always visible */
-    font-size: 2em;
-    color: #ffb347;
-    cursor: pointer;
-    /* Removed old positioning, flex handles it now */
+    display: none; /* Hide the hamburger icon */
 }
 
 .nav-links {
-    display: none; /* Hidden by default */
-    flex-direction: column; /* Always vertical */
-    background: #232526;
-    position: absolute; /* Position relative to nav container */
-    top: 100%; /* Below the nav bar */
-    right: 0; /* Align to the right */
-    width: 200px; /* Fixed width for dropdown */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    border-radius: 8px; /* Rounded corners for dropdown box */
-    padding: 10px 0; /* Padding inside dropdown */
-    border: 1px solid #ffb347; /* Accent border for dropdown */
-}
-
-.nav-links.show {
-    display: flex; /* Show when 'show' class is added */
+    display: block; /* Always visible */
+    flex-direction: column; /* Links stacked vertically */
+    list-style: none; /* No bullets */
+    padding: 0;
+    margin: 0;
 }
 
 nav a {
-    color: #ffb347;
-    padding: 12px 20px; /* Padding for each link inside dropdown */
+    color: #ffb347; /* Link color */
     text-decoration: none;
-    font-size: 1.15em;
-    font-weight: 600;
-    transition: background 0.2s, color 0.2s; /* Smooth hover for links */
-    text-align: left; /* Align text within dropdown */
-    margin: 0; /* Remove horizontal margin for dropdown links */
-    width: 100%; /* Ensure links take full width of dropdown */
-    box-sizing: border-box; /* Include padding in width */
+    font-size: 0.9em; /* Smaller font size */
+    font-weight: 500; /* Slightly less bold */
+    display: block; /* Each link takes full width */
+    padding: 5px 0; /* Small padding for each link */
+    transition: color 0.2s, transform 0.2s;
+    text-align: left; /* Align text to the left within the nav box */
 }
 
 nav a:hover {
-    background: rgba(42,122,226,0.2); /* Highlight background on hover */
     color: #72dd0d;
-    transform: none; /* No transform on links inside dropdown */
+    transform: translateX(3px); /* Slight movement on hover */
 }
 
 /* Buttons - General Button Styles */
-.cta-button,
-.elevator-pitch-section .video-placeholder button,
-button.animated-btn { /* Selects all relevant buttons */
-    display: none !important; /* Forces the button to be hidden */
+.cta-button { /* Renamed from .animated-btn for clarity, similar styles */
+    background: linear-gradient(90deg, #72dd0d 0%, #2a7ae2 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 10px;
+    font-size: 1.1em; /* Slightly larger for CTA */
+    cursor: pointer;
+    margin: 28px auto;
+    display: block;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(114,221,13,0.10);
+    font-weight: 600;
+    letter-spacing: 1px;
+    outline: none;
+    max-width: 250px; /* Constrain width */
+}
+.cta-button:hover {
+    background: linear-gradient(90deg, #2a7ae2 0%, #72dd0d 100%);
+    transform: scale(1.07);
+    box-shadow: 0 6px 24px #72dd0d33;
+}
+.cta-button:focus {
+    outline: 2px solid #ffb347;
+    outline-offset: 2px;
 }
 
 /* Modal Styles */
 .modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.8); /* Slightly darker overlay */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2000;
 }
 .modal-content {
-    background: #232526;
+    background: #232526; /* Darker background for modal */
     color: #e0e0e0;
     padding: 32px 24px;
     border-radius: 10px;
     text-align: center;
-    max-width: 400px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    max-width: 400px; /* Slightly wider */
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5); /* Stronger shadow */
     position: relative;
-    border: 2px solid #ffb347;
+    border: 2px solid #ffb347; /* Accent border */
 }
 .close-btn {
     position: absolute;
     top: 12px;
     right: 18px;
-    font-size: 1.8em;
-    color: #ffb347;
+    font-size: 1.8em; /* Larger close button */
+    color: #ffb347; /* Accent color */
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -283,150 +288,103 @@ button.animated-btn { /* Selects all relevant buttons */
     display: none !important;
 }
 
-/* --- Project Cards (Static Card Styles) --- */
+/* Project Cards */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 25px; /* Slightly increased gap */
     margin-top: 30px;
     justify-content: center;
     padding: 0 20px;
+    perspective: 1000px; /* Needed for 3D flip effect */
 }
 
-/* The static card container */
-.flip-card { /* Class remains 'flip-card' for HTML compatibility, but no longer flips */
-    background-color: transparent;
-    width: 300px;
-    height: 400px;
+/* The flip card container - was .project-card */
+.flip-card {
+    background-color: transparent; /* Transparent as inner will have the background */
+    width: 300px; /* Fixed width, adjust if needed */
+    height: 400px; /* Fixed height, adjust if needed */
     border: 1px solid rgba(100,255,218,0.3);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    margin: auto;
-    position: relative; /* Ensure children are positioned relative to this */
-    overflow: hidden; /* Important to contain content within rounded corners */
+    perspective: 1000px; /* For 3D effect */
+    margin: auto; /* Center single card in grid */
 }
 
-/* No inner transform needed for static card */
+/* This container is needed to handle the 3D perspective */
 .flip-card-inner {
-    position: relative; /* For stacking children */
+    position: relative;
     width: 100%;
     height: 100%;
+    text-align: center;
+    transition: transform 0.8s; /* Flip animation speed */
+    transform-style: preserve-3d; /* Keep children in 3D space */
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    /* Removed transition and transform-style to stop flipping */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Consistent shadow */
 }
 
-/* No hover flip effect */
+/* Do a horizontal flip when you hover over the flip box container */
 .flip-card:hover .flip-card-inner {
-    transform: none; /* Explicitly ensure no transform on hover */
+    transform: rotateY(180deg);
 }
 
-/* Style the front side (now the background image and title container) */
-.flip-card-front {
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #2b2e31; /* Fallback/base color */
-    color: #fff;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden; /* Hide the back side until flipped */
     border-radius: 12px;
-    z-index: 1; /* Below the back content */
-    display: flex;
+    display: flex; /* Use flexbox for content alignment */
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start; /* Align title to top */
+    padding: 20px; /* Consistent padding */
+    box-sizing: border-box; /* Include padding in width/height */
 }
-.flip-card-front .project-image-background {
-    width: 100%;
-    height: 100%; /* Occupy full height of the front */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Below the title and overlay */
+
+/* Style the front side (fallback background for image) */
+.flip-card-front {
+    background-color: #2b2e31; /* Consistent background with skill items */
+    color: #fff;
+}
+.flip-card-front img {
+    max-width: 90%; /* Image fills most of the front */
+    max-height: 60%; /* Adjust height */
+    object-fit: contain; /* Ensure image fits without cropping */
+    border-radius: 8px; /* Slight rounding for image */
+    margin-bottom: 15px; /* Space below image */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Subtle shadow for image */
 }
 .flip-card-front h3 {
-    position: relative; /* Positioned over the background image */
-    margin: 15px 10px auto 10px; /* Push title to top, allow space below */
-    padding: 10px;
-    background: rgba(0,0,0,0.7); /* Semi-transparent background for readability */
-    color: #64FFDA;
-    font-size: clamp(1em, 4vw, 1.4em);
-    border-radius: 8px;
-    z-index: 2; /* On top of image */
-    text-align: center;
-    word-break: break-word;
-    width: calc(100% - 20px);
-}
-
-/* Specific background images for each project */
-/* Make sure these filenames exactly match your files in the repo! */
-.ubuntu-site-card .project-image-background {
-    background-image: url('net.jpg'); /* <<< Updated to 'net.jpg' - VERIFY THIS FILENAME! */
-}
-.community-project-card .project-image-background {
-    background-image: url('edu.jpg'); /* VERIFY THIS FILENAME! */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em; /* Match original project title size */
+    color: #64FFDA; /* Accent color */
 }
 
 
-/* Style the back side (now the primary visible content overlay) */
+/* Style the back side */
 .flip-card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(59, 62, 65, 0.85); /* Semi-transparent overlay to see image through */
+    background-color: #3b3e41; /* Slightly different background for back */
     color: #fff;
-    transform: none; /* No rotation */
-    z-index: 2; /* On top of the front face, but title might be Z-index 3 for more visibility */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* ALIGN ALL CONTENT TO THE BOTTOM */
-    align-items: center; /* Center content horizontally */
-    padding: 25px; /* Consistent padding around content */
-    box-sizing: border-box; /* Include padding in element's total size */
-    opacity: 1; /* Ensure full visibility */
+    transform: rotateY(180deg); /* Start rotated for the back */
+    justify-content: flex-start; /* Align content to top */
+    padding-top: 30px; /* More padding at the top */
 }
 .flip-card-back p {
-    font-size: 0.95em;
+    font-size: 0.95em; /* Match original project description size */
     color: #ccc;
     text-align: center;
-    background: none;
-    border-radius: 0;
-    max-width: 100%;
-    flex-grow: 0; /* Prevent it from stretching unnecessarily */
-    display: block; /* Removed flex from p as parent handles it; use block for text flow */
-    margin: 0 0 15px 0; /* Margin-bottom to space from technologies/link */
-    padding: 0 5px; /* Small internal padding for readability */
-    box-sizing: border-box;
-    max-height: 150px; /* Set a max height for the description */
-    overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+    margin-bottom: 20px;
+    padding: 0; /* Remove specific padding for consistency */
+    background: none; /* Remove background for consistency */
+    max-width: 100%; /* Ensure text uses full width of card */
 }
-/* Style for the unlinked project text */
-.ubuntu-site-card .flip-card-back a {
-    color: #ccc;
-    text-decoration: none;
-    font-weight: normal;
-    cursor: default;
-    display: inline-flex; /* Maintain flex for icon alignment */
-    align-items: center;
-    gap: 5px;
-}
-.ubuntu-site-card .flip-card-back a:hover {
-    color: #ccc;
-    text-decoration: none;
-    transform: none;
-}
-
-
 .flip-card-back .technologies {
-    margin-top: 0; /* Removed auto, positioned relative to p */
-    margin-bottom: 10px;
+    margin-top: auto; /* Push technologies to bottom */
+    margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -440,14 +398,14 @@ button.animated-btn { /* Selects all relevant buttons */
     font-size: 0.8em;
     white-space: nowrap;
 }
-.flip-card-back .project-link { /* This rule still applies to the Community project link */
+.flip-card-back .project-link {
     color: #ffb347;
     text-decoration: none;
     font-weight: bold;
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    margin-top: 0; /* Removed auto, positioned relative to technologies */
+    margin-top: auto; /* Push link to bottom */
 }
 .flip-card-back .project-link:hover {
     text-decoration: underline;
@@ -458,20 +416,20 @@ button.animated-btn { /* Selects all relevant buttons */
 /* Skills List */
 .skills-list-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
     gap: 20px;
     margin-top: 20px;
     padding: 0 20px;
-    list-style: none;
+    list-style: none; /* Ensure no default list style */
 }
 .skill-item {
-    background: #2b2e31;
-    padding: 20px;
-    border-radius: 12px;
+    background: #2b2e31; /* Consistent background with project cards */
+    padding: 20px; /* More padding */
+    border-radius: 12px; /* Consistent border-radius */
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    gap: 12px; /* More space between icon and text */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Consistent shadow */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .skill-item:hover {
@@ -480,73 +438,51 @@ button.animated-btn { /* Selects all relevant buttons */
 }
 .skill-item i {
     color: #64FFDA;
-    font-size: 1.5em;
+    font-size: 1.5em; /* Larger icons */
 }
 .skill-item span {
     color: #fff;
-    font-weight: 600;
+    font-weight: 600; /* Made skill text bold */
     font-size: 1.1em;
 }
 
 /* Elevator Pitch Section */
 .elevator-pitch-section {
     text-align: center;
-    padding: 60px 30px;
+    padding: 60px 30px; /* More padding */
     background: #1a1a1a;
     margin: 40px auto;
-    border-radius: 18px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
-    max-width: 1000px;
-    border: 2px solid #ffb347;
+    border-radius: 18px; /* Consistent with section-box */
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4); /* Stronger shadow */
+    max-width: 1000px; /* Wider section */
+    border: 2px solid #ffb347; /* Prominent border */
 }
 .elevator-pitch-section h2 {
     color: #ffb347;
-    font-size: clamp(1.8em, 4vw, 2.8em);
+    font-size: clamp(1.8em, 4vw, 2.8em); /* Responsive font size */
     margin-bottom: 25px;
     line-height: 1.3;
 }
 .elevator-pitch-section p {
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    font-size: 1.15em;
+    max-width: 800px; /* Wider paragraph */
+    margin: 0 auto 30px auto; /* More margin */
+    font-size: 1.15em; /* Slightly larger text */
     color: #eee;
-    background: none;
+    background: none; /* No background for pitch text */
     padding: 0;
     border-radius: 0;
 }
-/* Responsive Video Container (for team video in portfolio) */
-.video-container {
-    position: relative;
+.elevator-pitch-section .video-placeholder {
     width: 100%;
-    max-width: 640px; /* Match your previous max-width */
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width = 9 / 16 = 0.5625) */
-    height: 0;
-    margin: 40px auto 20px auto; /* Adjusted margin for spacing */
-    overflow: hidden;
-    border-radius: 10px; /* Match placeholder border-radius */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6); /* Match placeholder shadow */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px; /* Inherit border-radius */
-}
-
-.elevator-pitch-section .video-placeholder { /* This will be used for the placeholder in Elevator Pitch */
-    width: 100%;
-    max-width: 560px; /* Adjusted to original placeholder size */
-    height: 315px; /* Adjusted to original placeholder size */
+    max-width: 640px; /* Slightly larger video placeholder */
     margin: 40px auto 0 auto;
     background: #000;
+    aspect-ratio: 16 / 9;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 2em;
+    font-size: 2em; /* Larger play symbol */
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -559,81 +495,60 @@ button.animated-btn { /* Selects all relevant buttons */
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.6;
-    border-radius: 0;
+    opacity: 0.6; /* Slightly more visible overlay */
+    border-radius: 0; /* No border radius on inner image */
 }
-
-/* New Team Projects Section Styling */
-.team-projects-heading {
-    margin-top: 50px; /* Space above the team projects section */
-    font-size: clamp(1.5em, 4vw, 2.2em);
-    color: #64FFDA; /* Distinct color for this heading */
+.elevator-pitch-section .video-placeholder button {
+    background: rgba(0,0,0,0.8); /* Darker button background */
+    color: #fff;
+    border: 3px solid #fff; /* Thicker border */
+    border-radius: 50%;
+    width: 90px; /* Larger button */
+    height: 90px;
+    font-size: 3em; /* Larger play symbol */
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s, transform 0.3s, border-color 0.3s;
 }
-
-.team-projects-section {
-    background: rgba(35,37,38,0.95);
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(42,122,226,0.10);
-    margin: 36px auto;
-    padding: 32px;
-    max-width: 900px;
-    border: 1.5px solid #ffb347;
-    text-align: center; /* Center content within the section */
-    min-height: 100vh; /* Make this section also take up full viewport height */
-    display: flex; /* Ensure flexbox for vertical alignment within sections */
-    flex-direction: column; /* Stack contents vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+.elevator-pitch-section .video-placeholder button:hover {
+    background: rgba(0,0,0,0.95);
+    transform: scale(1.15); /* More pronounced scale */
+    border-color: #ffb347; /* Accent on hover */
 }
-
-.team-project-description {
-    font-size: 1em;
-    color: #bdbdbd;
-    line-height: 1.7;
-    margin: 20px auto;
-    max-width: 700px;
-    background: none; /* Override general p background */
-    padding: 0;
-}
-
-.team-slide-link {
-    display: none !important; /* Forces the button to be hidden */
-}
-
 
 /* Footer Social Links */
 .social-links-footer {
     text-align: center;
-    margin: 30px 0;
+    margin: 30px 0; /* More margin */
     padding: 10px 0;
 }
 .social-links-footer a {
-    color: #64FFDA;
-    font-size: 2.5em;
-    margin: 0 15px;
+    color: #64FFDA; /* Accent color for footer icons */
+    font-size: 2.5em; /* Larger icons */
+    margin: 0 15px; /* More spacing */
     transition: color 0.3s ease, transform 0.3s;
     display: inline-block;
 }
 .social-links-footer a:hover {
-    color: #ffb347;
-    transform: translateY(-5px) scale(1.1);
+    color: #ffb347; /* Orange hover effect */
+    transform: translateY(-5px) scale(1.1); /* Lift and grow */
 }
 
 /* Footer */
 footer {
-    background: linear-gradient(90deg, #181a1b 0%, #2a7ae2 100%);
-    color: #e0e0e0;
+    background: linear-gradient(90deg, #181a1b 0%, #2a7ae2 100%); /* Adjusted gradient for consistency */
+    color: #e0e0e0; /* Softer white */
     text-align: center;
-    padding: 20px 0;
-    position: relative;
+    padding: 20px 0; /* More padding */
+    position: relative; /* Changed to relative as fixed footer causes issues with long content */
     width: 100%;
-    font-weight: normal;
+    font-weight: normal; /* Adjusted from bold for footer text */
     letter-spacing: 0.5px;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
-    margin-top: 50px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.5); /* Stronger shadow */
+    margin-top: 50px; /* Add margin to separate from last section */
 }
 footer p {
-    margin: 0;
+    margin: 0; /* Remove default paragraph margin */
     padding: 0 20px;
     color: #e0e0e0;
     background: none;
@@ -642,29 +557,15 @@ footer p {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    /* Main navigation area changes for mobile */
     nav {
-        flex-direction: column;
-        padding: 15px 5%;
+        padding: 8px 12px; /* Even smaller padding on mobile */
+        border-bottom-right-radius: 8px;
     }
-    nav .nav-links {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+    nav a {
+        font-size: 0.85em; /* Very small links on mobile */
+        padding: 4px 0;
     }
-    nav .nav-links a {
-        margin: 5px 15px;
-    }
-    /* Section min-height and padding for smaller screens (still using scroll) */
-    .section-box {
-        min-height: auto; /* Allow height to adjust on smaller screens if content is short */
-        padding-top: 80px; /* Add padding for sticky nav on small screens */
-    }
-    header.hero-section {
-        min-height: auto; /* Allow height to adjust on smaller screens */
-        padding-top: 80px; /* Add padding for sticky nav on small screens */
-    }
-
 
     .profile-pic {
         width: 100px;
@@ -691,6 +592,11 @@ footer p {
     .elevator-pitch-section p {
         font-size: 1em;
     }
+    .elevator-pitch-section .video-placeholder button {
+        width: 70px;
+        height: 70px;
+        font-size: 2em;
+    }
     .projects-grid, .skills-list-grid {
         grid-template-columns: 1fr; /* Stack columns on small screens */
         padding: 0 15px;
@@ -700,6 +606,16 @@ footer p {
         max-width: 300px; /* Keep reasonable max-width */
         height: 380px; /* Slightly adjust height */
     }
+    .project-card h3 { /* Now affects flip-card-front h3 */
+        font-size: 1.3em;
+    }
+    .project-card p { /* Now affects flip-card-back p */
+        font-size: 0.85em;
+    }
+    .project-card .technologies span { /* Now affects flip-card-back technologies */
+        font-size: 0.75em;
+        padding: 5px 10px;
+    }
     .cta-button {
         padding: 12px 28px;
         font-size: 1em;
@@ -708,22 +624,13 @@ footer p {
         font-size: 2em;
         margin: 0 10px;
     }
-    .team-projects-section {
-        padding: 25px;
-        margin: 30px auto;
-        min-height: auto; /* Allow height to adjust on smaller screens */
-        padding-top: 80px; /* Add padding for sticky nav on small screens */
-    }
-    .team-projects-heading {
-        margin-top: 30px;
-        font-size: clamp(1.4em, 6vw, 2em);
-    }
 }
 
 @media (max-width: 480px) {
     nav a {
-        font-size: 1em;
-        margin: 5px 10px;
+        font-size: 0.8em; /* Even smaller on very small screens */
+        margin: 0; /* Remove horizontal margin */
+        padding: 3px 0;
     }
     h1.site-title {
         font-size: clamp(1.8em, 10vw, 2.5em);
@@ -734,7 +641,6 @@ footer p {
     .section-box {
         padding: 20px;
         margin: 20px auto;
-        min-height: auto; /* Ensure no forced height on very small screens */
     }
     p {
         padding: 0 15px;
@@ -751,10 +657,5 @@ footer p {
     .social-links-footer a {
         font-size: 1.8em;
         margin: 0 8px;
-    }
-    .team-projects-section {
-        padding: 20px;
-        margin: 20px auto;
-        min-height: auto; /* Ensure no forced height on very small screens */
     }
 }
