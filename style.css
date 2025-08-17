@@ -32,14 +32,14 @@ h1, h2, h3 {
 
 h1.site-title { /* Specific style for main site title */
     font-size: clamp(2.5em, 6vw, 4em);
-    margin-top: 1rem; /* Reduced from 2.5rem for less space above the title */
+    margin-top: 1rem;
     animation: pop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 h2.site-subtitle { /* Specific style for main site subtitle */
     font-size: clamp(1.2em, 3vw, 2em);
     font-weight: normal;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduced from 30px for less space below subtitle */
     color: #e0e0e0; /* More subtle color */
 }
 
@@ -92,7 +92,7 @@ p {
     background: rgba(35,37,38,0.95);
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(42,122,226,0.10);
-    margin: 30px auto; /* Slightly increased margin for better separation */
+    margin: 15px auto; /* Reduced from 30px auto for less space above sections */
     padding: 40px; /* Increased padding inside sections for more breathing room */
     max-width: 900px; /* Increased max-width for better content display */
     border: 1.5px solid #ffb347;
