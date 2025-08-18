@@ -16,8 +16,8 @@ body {
 
 /* Enable smooth scrolling */
 html {
-    scroll-behavior: smooth;
-    /* Removed scroll-padding-top as fixed nav doesn't cover content when scrolling */
+    scroll-behavior: smooth; /* IMPORTANT: Ensures smooth scrolling when clicking nav links */
+    /* Removed scroll-padding-top as fixed nav does not cover content when scrolling */
 }
 
 
