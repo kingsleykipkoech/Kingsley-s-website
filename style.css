@@ -555,21 +555,9 @@ footer p {
 }
 
 
-/* Responsive Adjustments */
+/* Responsive Adjustments - Ensure NO navigation-specific overrides here */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 15px 5%;
-    }
-    nav .nav-links {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    nav .nav-links a {
-        margin: 5px 15px;
-    }
+    /* Keeping non-navigation responsive rules here as per your custom changes */
     .profile-pic {
         width: 100px;
         height: 100px;
@@ -609,16 +597,6 @@ footer p {
         max-width: 300px; /* Keep reasonable max-width */
         height: 380px; /* Slightly adjust height */
     }
-    .project-card h3 { /* Now affects flip-card-front h3 */
-        font-size: 1.3em;
-    }
-    .project-card p { /* Now affects flip-card-back p */
-        font-size: 0.85em;
-    }
-    .project-card .technologies span { /* Now affects flip-card-back technologies */
-        font-size: 0.75em;
-        padding: 5px 10px;
-    }
     .cta-button {
         padding: 12px 28px;
         font-size: 1em;
@@ -630,10 +608,7 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    nav a {
-        font-size: 1em;
-        margin: 5px 10px;
-    }
+    /* Keeping non-navigation responsive rules here as per your custom changes */
     h1.site-title {
         font-size: clamp(1.8em, 10vw, 2.5em);
     }
