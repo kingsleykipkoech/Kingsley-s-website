@@ -3,12 +3,13 @@ body {
     font-family: 'Times New Roman', serif;
     margin: 0;
     padding: 0;
-    /* Increased padding-top to ensure content starts well below the fixed navigation */
-    padding-top: 250px; /* Increased from 200px to ensure no overlap */
+    /* Adjusted padding-top for the "Menu" toggle card */
+    padding-top: 80px; /* Reduced from 250px for fixed menu toggle */
     padding-bottom: 80px; /* Space for sticky footer */
     background-image: url('back1.jpeg'); /* Assumes back1.jpeg is in your repo */
     background-repeat: repeat;
-    background-size: auto;
+    /* Ensure background image always covers the viewport */
+    background-size: cover; /* Changed from 'auto' to 'cover' */
     background-position: center;
     background-attachment: fixed; /* Ensures background stays fixed during scroll */
     min-height: 100vh;
@@ -19,8 +20,8 @@ body {
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth; /* IMPORTANT: Ensures smooth scrolling when clicking nav links */
-    /* Increased scroll-padding-top to prevent fixed nav from covering content when jumping to anchors */
-    scroll-padding-top: 250px; /* Matches body's padding-top for consistent scrolling */
+    /* Adjusted scroll-padding-top for the "Menu" toggle card */
+    scroll-padding-top: 80px; /* Matches body's padding-top for consistent scrolling */
 }
 
 
@@ -626,13 +627,19 @@ footer p {
     .section-box {
         margin: 25px auto;
         padding: 25px;
-        /* Re-evaluating min-height for mobile sections if needed, but auto is generally better */
+        /* Set max-width to 100% to allow expansion on mobile */
+        max-width: 100%; /* IMPORTANT: Allow section to take full width */
         min-height: auto;
     }
-    .elevator-pitch-section {
+    /* Also apply max-width 100% to specific section types if they have it */
+    .elevator-pitch-section, .team-projects-section {
+        max-width: 100%; /* Allow these sections to take full width */
         padding: 40px 20px;
         margin: 30px auto;
+        min-height: auto; /* Ensure no forced height on smaller screens */
     }
+
+
     .elevator-pitch-section h2 {
         font-size: clamp(1.5em, 6vw, 2.2em);
     }
@@ -646,13 +653,14 @@ footer p {
     }
     .projects-grid, .skills-list-grid {
         grid-template-columns: 1fr; /* Stack columns on small screens */
-        padding: 0 15px;
+        padding: 0 15px; /* Adjust grid padding for mobile */
     }
     .flip-card { /* Adjust flip card for smaller screens */
-        width: calc(100% - 30px); /* Use calc to subtract projects-grid padding */
-        max-width: none; /* Remove max-width constraint for general mobile */
+        /* Calculate width based on grid padding */
+        width: calc(100% - 30px); /* 100% - (15px left + 15px right padding from .projects-grid) */
+        max-width: none; /* Remove max-width constraint to allow full expansion */
         height: 400px; /* Maintain a consistent height */
-        margin: 0 auto; /* Explicitly center */
+        margin: 0 auto; /* Explicitly center the card */
     }
     /* Ensured text elements within flip cards are properly sized and spaced */
     .flip-card-front h3 {
@@ -674,6 +682,10 @@ footer p {
         font-size: 2em;
         margin: 0 10px;
     }
+    .team-projects-heading {
+        margin-top: 30px;
+        font-size: clamp(1.4em, 6vw, 2em);
+    }
 }
 
 @media (max-width: 480px) {
@@ -685,10 +697,12 @@ footer p {
         font-size: 1em;
     }
     body {
-        padding-top: 70px; /* Adjust body padding for smaller menu toggle card */
+        /* Adjust body padding for smaller menu toggle card */
+        padding-top: 70px; 
     }
     html {
-        scroll-padding-top: 70px; /* Adjust scroll padding accordingly */
+        /* Adjust scroll padding accordingly */
+        scroll-padding-top: 70px; 
     }
 
     h1.site-title {
@@ -700,12 +714,10 @@ footer p {
     .section-box {
         padding: 20px;
         margin: 20px auto;
+        min-height: auto; /* Ensure no forced height on very small screens */
     }
     p {
         padding: 0 15px;
-    }
-    .elevator-pitch-section {
-        padding: 30px 15px;
     }
     .elevator-pitch-section h2 {
         font-size: clamp(1.4em, 8vw, 2em);
@@ -717,10 +729,19 @@ footer p {
         font-size: 1.8em;
         margin: 0 8px;
     }
+    .team-projects-section {
+        padding: 20px;
+        margin: 20px auto;
+        min-height: auto; /* Ensure no forced height on very small screens */
+    }
     .flip-card { /* Adjust for very small screens */
-        width: calc(100% - 30px); /* Keep consistent calculation */
+        /* Calculate width based on grid padding */
+        width: calc(100% - 20px); /* If .projects-grid padding is 0 10px; */
         max-width: none; /* No max-width */
         height: 380px; /* Slightly adjust height for very small screens */
         margin: 0 auto;
+    }
+    .projects-grid, .skills-list-grid {
+        padding: 0 10px; /* Even tighter padding for very small screens */
     }
 }
