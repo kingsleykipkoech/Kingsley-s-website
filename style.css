@@ -14,10 +14,10 @@ body {
     font-weight: normal; /* Adjusted to normal, bold can be applied to specific elements */
 }
 
-/* Enable smooth scrolling and offset for sticky nav */
+/* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Adjust this value if your nav height changes */
+    /* Removed scroll-padding-top as fixed nav doesn't cover content when scrolling */
 }
 
 
@@ -64,10 +64,10 @@ img:hover {
 }
 
 .profile-pic {
-    width: 150px; /* Increased size slightly for professionalism */
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 150px; /* Kept width */
+    height: 150px; /* Kept height, ensure it's equal to width for perfect square */
+    border-radius: 0; /* Changed from 50% to 0 for a square shape */
+    object-fit: cover; /* Ensures the image fills the square without distortion */
     border: 4px solid #2a7ae2; /* Slightly thicker border */
     margin: 32px auto 16px auto;
     box-shadow: 0 6px 20px rgba(42,122,226,0.3); /* Enhanced shadow for profile */
@@ -181,7 +181,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Navigation - Always visible, top-left corner */
+/* Navigation - Always visible, fixed top-left corner */
 nav {
     background: rgba(24, 26, 27, 0.9); /* Slightly transparent background for the nav container */
     padding: 10px 15px; /* Smaller padding */
@@ -196,7 +196,7 @@ nav {
 }
 
 .hamburger {
-    display: none; /* Hide the hamburger icon */
+    display: none; /* Hide the hamburger icon as menu is always visible */
 }
 
 .nav-links {
@@ -465,7 +465,7 @@ nav a:hover {
 }
 .elevator-pitch-section p {
     max-width: 800px; /* Wider paragraph */
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px auto; /* More margin */
     font-size: 1.15em; /* Slightly larger text */
     color: #eee;
     background: none; /* No background for pitch text */
