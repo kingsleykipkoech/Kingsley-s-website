@@ -6,7 +6,7 @@ body {
     /* Adjusted padding-top for the "Menu" toggle card */
     padding-top: 80px; /* Reduced from 250px for fixed menu toggle */
     padding-bottom: 80px; /* Space for sticky footer */
-    background-image: url('back1.jpeg'); /* Assumes back1.jpeg is in your repo */
+    background-image: url('full.png'); /* Assumes back1.jpeg is in your repo */
     background-repeat: repeat;
     /* Ensure background image always covers the viewport */
     background-size: cover; /* Changed from 'auto' to 'cover' */
