@@ -1,8 +1,10 @@
-/* Base Styles */
+/* Base Styles/* Base Styles */
 body {
     font-family: 'Times New Roman', serif;
     margin: 0;
     padding: 0;
+    /* Increased padding-top to ensure content starts below the fixed navigation */
+    padding-top: 200px; /* Increased from 180px */
     padding-bottom: 80px; /* Space for sticky footer */
     background-image: url('back1.jpeg'); /* Assumes back1.jpeg is in your repo */
     background-repeat: repeat;
@@ -17,7 +19,8 @@ body {
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth; /* IMPORTANT: Ensures smooth scrolling when clicking nav links */
-    /* Removed scroll-padding-top as fixed nav does not cover content when scrolling */
+    /* Increased scroll-padding-top to prevent fixed nav from covering content when jumping to anchors */
+    scroll-padding-top: 200px; /* Matches body's padding-top for consistent scrolling */
 }
 
 
@@ -555,9 +558,21 @@ footer p {
 }
 
 
-/* Responsive Adjustments - Ensure NO navigation-specific overrides here */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    /* Keeping non-navigation responsive rules here as per your custom changes */
+    nav {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+    nav .nav-links {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav .nav-links a {
+        margin: 5px 15px;
+    }
     .profile-pic {
         width: 100px;
         height: 100px;
@@ -597,6 +612,16 @@ footer p {
         max-width: 300px; /* Keep reasonable max-width */
         height: 380px; /* Slightly adjust height */
     }
+    .project-card h3 { /* Now affects flip-card-front h3 */
+        font-size: 1.3em;
+    }
+    .project-card p { /* Now affects flip-card-back p */
+        font-size: 0.85em;
+    }
+    .project-card .technologies span { /* Now affects flip-card-back technologies */
+        font-size: 0.75em;
+        padding: 5px 10px;
+    }
     .cta-button {
         padding: 12px 28px;
         font-size: 1em;
@@ -608,7 +633,10 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    /* Keeping non-navigation responsive rules here as per your custom changes */
+    nav a {
+        font-size: 1em;
+        margin: 5px 10px;
+    }
     h1.site-title {
         font-size: clamp(1.8em, 10vw, 2.5em);
     }
