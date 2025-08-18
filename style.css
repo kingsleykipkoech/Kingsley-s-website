@@ -3,8 +3,8 @@ body {
     font-family: 'Times New Roman', serif;
     margin: 0;
     padding: 0;
-    /* Adjusted padding-top for a clear space below where the menu toggle card will sit */
-    padding-top: 80px; /* Reduced from 250px as fixed nav won't overlap content */
+    /* Increased padding-top to ensure content starts well below the fixed navigation */
+    padding-top: 250px; /* Increased from 200px to ensure no overlap */
     padding-bottom: 80px; /* Space for sticky footer */
     background-image: url('back1.jpeg'); /* Assumes back1.jpeg is in your repo */
     background-repeat: repeat;
@@ -19,8 +19,8 @@ body {
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth; /* IMPORTANT: Ensures smooth scrolling when clicking nav links */
-    /* Adjusted scroll-padding-top to account for the fixed menu toggle card at the top */
-    scroll-padding-top: 80px; /* Matches body's padding-top for consistent scrolling */
+    /* Increased scroll-padding-top to prevent fixed nav from covering content when jumping to anchors */
+    scroll-padding-top: 250px; /* Matches body's padding-top for consistent scrolling */
 }
 
 
@@ -36,7 +36,7 @@ h1, h2, h3 {
 h1.site-title { /* Specific style for main site title */
     font-size: clamp(2.5em, 6vw, 4em);
     margin-top: 1rem;
-    animation: pop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    animation: pop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 h2.site-subtitle { /* Specific style for main site subtitle */
@@ -100,7 +100,7 @@ p {
     max-width: 900px; /* Increased max-width for better content display */
     border: 1.5px solid #ffb347;
     animation: cardIn 1s cubic-bezier(.68,-0.55,.27,1.55);
-    /* Removed min-height: 100vh here to avoid excessive blank space and content overlap */
+    /* Changed min-height from 100vh to auto to prevent excessive empty space */
     min-height: auto; /* Allow height to adjust based on content */
     display: flex; /* Use flexbox for vertical alignment within sections */
     flex-direction: column; /* Stack contents vertically */
@@ -592,19 +592,23 @@ footer p {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    /* Adjusted nav padding to be less intrusive on mobile */
     nav {
-        flex-direction: column;
-        padding: 15px 5%;
+        padding: 0; /* Remove padding from nav, nav-links will handle it */
     }
     nav .nav-links {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        padding-top: 20px; /* Padding for links inside the sliding menu */
+        padding-left: 0; /* Ensure no left padding pushes links */
+        margin-top: 0; /* Remove margin-top as links are within the nav */
+        width: 100%; /* Ensure nav-links takes full width of the sliding nav */
+        align-items: flex-start; /* Align links to the start of the menu */
     }
     nav .nav-links a {
-        margin: 5px 15px;
+        margin: 0; /* Remove margins from individual links */
+        padding: 12px 20px; /* Consistent padding for all menu links */
+        font-size: 1.2em; /* Slightly larger for easier tapping on mobile */
     }
+
     .profile-pic {
         width: 100px;
         height: 100px;
@@ -619,6 +623,8 @@ footer p {
     .section-box {
         margin: 25px auto;
         padding: 25px;
+        /* Re-evaluating min-height for mobile sections if needed, but auto is generally better */
+        min-height: auto;
     }
     .elevator-pitch-section {
         padding: 40px 20px;
@@ -640,17 +646,19 @@ footer p {
         padding: 0 15px;
     }
     .flip-card { /* Adjust flip card for smaller screens */
-        width: 100%; /* Full width minus padding */
-        max-width: 300px; /* Keep reasonable max-width */
-        height: 380px; /* Slightly adjust height */
+        width: 100%; /* Make card take full available width minus padding */
+        max-width: 320px; /* A bit more space than 300px, still limits overall size */
+        height: 400px; /* Slightly adjust height for content */
     }
-    .project-card h3 { /* Now affects flip-card-front h3 */
+    /* Ensured text elements within flip cards are properly sized and spaced */
+    .flip-card-front h3 {
         font-size: 1.3em;
     }
-    .project-card p { /* Now affects flip-card-back p */
-        font-size: 0.85em;
+    .flip-card-back p {
+        font-size: 0.9em; /* Adjusted for readability */
+        padding: 0 15px; /* Add some horizontal padding inside the back of the card */
     }
-    .project-card .technologies span { /* Now affects flip-card-back technologies */
+    .flip-card-back .technologies span {
         font-size: 0.75em;
         padding: 5px 10px;
     }
@@ -665,10 +673,20 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    nav a {
+    /* Further adjustments for very small mobile screens */
+    .menu-toggle-card {
+        top: 15px;
+        left: 15px;
+        padding: 10px 15px;
         font-size: 1em;
-        margin: 5px 10px;
     }
+    body {
+        padding-top: 70px; /* Adjust body padding for smaller menu toggle card */
+    }
+    html {
+        scroll-padding-top: 70px; /* Adjust scroll padding accordingly */
+    }
+
     h1.site-title {
         font-size: clamp(1.8em, 10vw, 2.5em);
     }
