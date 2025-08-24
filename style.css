@@ -17,7 +17,7 @@ body {
     font-weight: normal; /* Adjusted to normal, bold can be applied to specific elements */
 }
 
-/* Enable smooth scrolling */
+/* Smooth scroll */
 html {
     scroll-behavior: smooth; /* IMPORTANT: Ensures smooth scrolling when clicking nav links */
     /* Adjusted scroll-padding-top for the "Menu" toggle card */
@@ -744,4 +744,103 @@ footer p {
     .projects-grid, .skills-list-grid {
         padding: 0 10px; /* Even tighter padding for very small screens */
     }
+}
+
+/* Sticky header / nav */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+    background: #ffffffcc; /* slight transparency */
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* inner container */
+.site-nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+}
+
+/* Logo */
+.logo-link {
+    font-weight: 700;
+    color: #064e3b; /* deep green */
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: auto;
+}
+
+/* Nav buttons */
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.nav-btn {
+    display: inline-block;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: #64FFDA;
+    color: #072018;
+    text-decoration: none;
+    font-weight: 600;
+    border: 0;
+    box-shadow: 0 6px 18px rgba(100,255,218,0.08);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s;
+}
+.nav-btn:hover,
+.nav-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(100,255,218,0.12);
+    outline: none;
+}
+
+/* Active state from scrollspy */
+.nav-btn.active {
+    background: #072018; /* dark */
+    color: #64FFDA;
+    box-shadow: 0 8px 22px rgba(7,32,24,0.12);
+}
+
+/* Mobile: hide inline links and show hamburger-controlled menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        background: #fff;
+        flex-direction: column;
+        padding: 0.6rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        display: none;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .hamburger {
+        display: inline-block;
+    }
+    .logo-link {
+        margin-right: 0.6rem;
+    }
+}
+
+/* Ensure sections don't hide under sticky nav on jump */
+.section-box,
+header.hero-section {
+    scroll-margin-top: 84px; /* same height as nav */
 }
