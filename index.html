@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley Kipkoech | Aspiring Cybersecurity & Software Engineer</title>
+    <title>Kingsley Koech | Cybersecurity & Software Engineer</title>
     
     <!-- Professional Meta Tags for SEO and Social Sharing -->
-    <meta name="description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
-    <meta name="keywords" content="Kingsley Kipkoech, Aspiring cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
+    <meta name="description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
+    <meta name="keywords" content="Kingsley Koech, cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
     <meta name="author" content="Kingsley Koech">
     <meta property="og:title" content="Kingsley Koech | Cybersecurity & Software Engineer">
-    <meta property="og:description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
+    <meta property="og:description" content="Kingsley Koech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
     <meta property="og:image" content="https://murray-1.github.io/My--website/me.jpeg"> <!-- Ensure this path is correct on your live site -->
     <meta property="og:url" content="https://murray-1.github.io/My--website/">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,205 +21,49 @@
 </head>
 <body id="top">
   
-    <!-- Navigation -->
-    <nav aria-label="Main Navigation" class="site-nav">
-        <div class="nav-inner">
-            <a class="logo-link" href="#top" aria-label="Home">Kingsley</a>
-
-            <span class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
-
-            <div class="nav-links" id="navLinks" role="navigation">
-                <!-- data-target used by JS for scrollspy/smooth scroll -->
-                <a href="#top" data-target="top" class="nav-btn">Home</a>
-                <a href="#elevator-pitch" data-target="elevator-pitch" class="nav-btn">My Pitch</a>
-                <a href="#about" data-target="about" class="nav-btn">About</a>
-                <a href="#skills" data-target="skills" class="nav-btn">Skills</a>
-                <a href="#portfolio" data-target="portfolio" class="nav-btn">Portfolio</a>
-                <a href="#contact" data-target="contact" class="nav-btn">Contact</a>
-            </div>
+    <!-- Navigation (This will now be a fixed, top-left menu on ALL pages) -->
+    <nav aria-label="Main Navigation">
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Home</a>
+            <a href="my-pitch.html">My Pitch</a>
+            <a href="about-me.html">About Me</a>
+            <a href="skills.html">Skills</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <!-- Main Content Area Container for all pages -->
     <main>
-        <!-- Profile Picture & Main Heading (Home Page Section) -->
+        <!-- Home Page Content -->
         <header class="hero-section" id="home-section" role="banner">
             <img src="me.jpeg" onerror="this.src='';" alt="Kingsley Kipkoech profile photo" class="profile-pic">
             <h1 class="site-title">Kingsley Kipkoech</h1>
             <h2 class="site-subtitle">Aspiring Cybersecurity & Software Engineer</h2>
+            <p class="home-intro-text">
+                Welcome to my professional portfolio. Explore my passion for cybersecurity, software development, and Linux, and discover how I architect secure infrastructure solutions.
+            </p>
         </header>
-
-        <!-- Elevator Pitch Section - Now a Placeholder Page -->
-        <section class="section-box elevator-pitch-section" id="elevator-pitch" aria-labelledby="pitch-heading">
-            <h2 id="pitch-heading">Innovating for a Secure Digital Future</h2>
-            <p>
-                To leverage my passion for cybersecurity, software development, and Linux to architect and secure robust technology infrastructure solutions, empowering organizations to thrive in a resilient digital world.
-            </p>
-            <h2 id="elavator pitch heading">My elevator pitch</h2>
-            <div class="video-placeholder" aria-label="Placeholder for my pitch video">
-                <img src="https://placehold.co/560x315/333/64FFDA?text=My+Pitch+Video+Here" alt="Placeholder for pitch video">
-            </div>
-            <a href="#portfolio" class="cta-button">Explore My Work</a>
-        </section>
- 
-        
-        <!-- About Section - Now a Page -->
-        <section class="section-box" id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About Me</h2>
-            <p>
-                Kingsley Kipkoech is an aspiring cybersecurity professional and software engineer driven by a passion for architecting and securing technology infrastructure. As a dedicated student, he is committed to leveraging his expertise to empower organizations to thrive in a resilient digital world. One of his proudest achievements is creating a Python-based script that automated a critical data backup process, reducing manual effort by over 80%. Additionally, he successfully designed and implemented a secure user authentication system for a group project, which passed all security audits with zero vulnerabilities. He is building on these successes by focusing on Linux-based system security and network defense to further his career goals.
-            </p>
-        </section>
-
-        <!-- Skills Section - Now a Page -->
-        <section class="section-box" id="skills" aria-labelledby="skills-heading">
-            <h2 id="skills-heading">My Skills</h2>
-            <div class="skills-list-grid">
-                <div class="skill-item">
-                    <i class="fas fa-desktop" aria-hidden="true"></i> <span>HTML</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-paint-brush" aria-hidden="true"></i> <span>CSS</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-linux" aria-hidden="true"></i> <span>Linux-based CLI</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-file-excel" aria-hidden="true"></i> <span>MS Office Tools</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-lightbulb" aria-hidden="true"></i> <span>Empathetic Reasoning</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-question" aria-hidden="true"></i> <span>Problem Solving</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-users" aria-hidden="true"></i> <span>Teamwork</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section - Now a Page -->
-        <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
-            <h2 id="portfolio-heading"><b><u>Portfolio</u></b></h2>
-            <h2 id="Portfolio-sub Heading">My Projects</h2>
-            <p><i><u>Select the card to view the project description</u></i></p>
-            <div class="projects-grid">
-                <!-- Project 2: Help Ubuntu Users Website -->
-                <article class="flip-card ubuntu-site-card" aria-labelledby="project2-title">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="project-image-background"></div>
-                            <img src="ubu.jpg" alt="Ubuntu project image">
-                            <h3 id="project2-title">Ubuntu Network Manager Guide</h3>
-                        </div>
-                        <div class="flip-card-back">
-                            <p id="project2-desc">A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
-                            <div class="technologies"><span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Community Technology Education -->
-                <article class="flip-card community-project-card" aria-labelledby="project3-title">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="project-image-background"></div>
-                            <img src="tech.png" alt="Community tech project image">
-                            <h3 id="project3-title">Community Tech Education</h3>
-                        </div>
-                        <div class="flip-card-back">
-                            <p id="project3-desc">Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
-                            <div class="technologies"><span>Community Engagement</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span></div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <h3 class="team-projects-heading" id="team-projects-heading">Team Projects</h3>
-            <div class="team-projects-section">
-                <div class="video-container" aria-label="Team Project Video">
-                    <iframe 
-                        src="https://www.youtube.com/embed/mvykTntqiFI" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen 
-                        title="Team Project Video">
-                    </iframe>
-                </div>
-                <p src="https://www.youtube.com/embed/mvykTntqiFI" p> <br>
-                <p class="team-project-description">
-                    Our team collaborated on a comprehensive project to develop an adaptive offline learning application called Knowledge pack that is set to solve access to education in marginalised areas
-                </p>
-                <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank" rel="noopener noreferrer" class="cta-button team-slide-link" aria-label="View Team Project Slide Deck">
-                    View Team Slide Deck <i class="fas fa-file-powerpoint" aria-hidden="true"></i>
-                </a>
-            </div>
-        </section>
-        
-        <!-- Contact Section - Now a Page -->
-        <section class="section-box" id="contact" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Me</h2>
-            <p>Email: <a href="mailto:kingsleykoech@gmail.com" aria-label="Email Kingsley Koech at kingsleykoech@gmail.com">kingsleykoech@gmail.com</a></p>
-            <p>Phone: <a href="tel:+254701498294" aria-label="Call Kingsley Koech at +254 701498294">+254 701498294</a></p>
-            <p>I wish to collaborate!</p>
-            <div class="social-links-footer" role="contentinfo" aria-label="Social Media Links">
-                <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/kingsley-kipkoech-09016a365" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Footer - using <footer> for semantic structure -->
-    <footer role="contentinfo">
-        <p>&copy; <span id="year"></span> Kingsley Koech. All rights reserved.</p>
+    <footer>
+        <p>&copy; <span id="year"></span> Kingsley Kipkoech. All rights reserved.</p>
     </footer>
 
     <script>
-        // Auto-update copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Hamburger menu logic
-        const hamburger = document.getElementById('hamburger');
-        const navLinksContainer = document.getElementById('navLinks');
-
-        if (hamburger && navLinksContainer) {
-            hamburger.addEventListener('click', () => {
-                navLinksContainer.classList.toggle('show');
-                const isExpanded = navLinksContainer.classList.contains('show');
-                hamburger.setAttribute('aria-expanded', isExpanded);
-            });
-            // Close nav when a link is clicked (for better mobile UX)
-            navLinksContainer.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinksContainer.classList.contains('show')) {
-                        navLinksContainer.classList.remove('show');
-                        hamburger.setAttribute('aria-expanded', false);
-                    }
-                });
-            });
-        }
-
-        // Optional: Modal logic (currently hidden by .hidden-section)
-        const customModal = document.getElementById('customModal');
-        const closeModalBtn = document.getElementById('closeModal');
-
-        if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', () => {
-                customModal.classList.add('hidden-section');
-            });
-        }
-        if (customModal) {
-            customModal.addEventListener('click', (event) => {
-                if (event.target === customModal) {
-                    customModal.classList.add('hidden-section');
+        // JavaScript for active link highlighting (optional, but good for multi-page)
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPath || (currentPath === '' && linkHref === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
                 }
             });
-        }
+        });
     </script>
-    <!-- Assuming script.js exists and contains other JS logic you might have -->
-    <script src="script.js"></script>
 </body>
 </html>

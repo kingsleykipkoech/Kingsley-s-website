@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Kingsley Kipkoech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body id="top">
+    <nav aria-label="Main Navigation">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="my-pitch.html">My Pitch</a>
+            <a href="about-me.html">About Me</a>
+            <a href="skills.html">Skills</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <main>
+        <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
+            <h2 id="portfolio-heading"><b><u>Portfolio</u></b></h2>
+            <h3 id="portfolio-sub-heading">My Projects</h3>
+            <div class="projects-grid">
+                <!-- Project 2: Help Ubuntu Users Website -->
+                <article class="flip-card ubuntu-site-card" aria-labelledby="project2-title">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="project-image-background"></div>
+                            <img src="ubu.jpg" alt="Screenshot of the Ubuntu Network Manager Guide website">
+                            <h3 id="project2-title">Ubuntu Network Manager Guide</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p id="project2-desc">A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
+                            <div class="technologies"><span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Community Technology Education -->
+                <article class="flip-card community-project-card" aria-labelledby="project3-title">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="project-image-background"></div>
+                            <img src="tech.png" alt="Screenshot of the Community Tech Education project">
+                            <h3 id="project3-title">Community Tech Education</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p id="project3-desc">Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
+                            <div class="technologies"><span>Community Engagement</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="team-projects-heading" id="team-projects-heading">Team Projects</h3>
+            <div class="team-projects-section">
+                <div class="video-container" aria-label="Team Project Video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/mvykTntqiFI" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        title="Team Project Video">
+                    </iframe>
+                </div>
+                <p class="team-project-description">
+                    Our team collaborated on a comprehensive project to develop an adaptive offline learning application called Knowledge pack that is set to solve access to education in marginalised areas
+                </p>
+                <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank" rel="noopener noreferrer" class="cta-button team-slide-link" aria-label="View Team Project Slide Deck">
+                    View Team Slide Deck <i class="fas fa-file-powerpoint" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="year"></span> Kingsley Kipkoech. All rights reserved.</p>
+    </footer>
+    <script> document.getElementById('year').textContent = new Date().getFullYear(); </script>
+</body>
+</html>
