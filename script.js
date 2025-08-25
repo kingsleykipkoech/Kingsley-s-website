@@ -1,157 +1,140 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Set the current year in the footer
     const yearSpan = document.getElementById('year');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 
+    // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    const navAnchors = navLinks ? Array.from(navLinks.querySelectorAll('a')) : [];
-    const sectionsSelector = '.section-box, .hero-section';
-    const sections = Array.from(document.querySelectorAll(sectionsSelector));
-
-    // Helper: map visible-hash (nav href) to actual section id in the DOM
-    function mapHashToSectionId(hash) {
-        if (!hash || hash === 'top') return 'home-section';
-        // common direct mapping (about -> about, skills -> skills, etc.)
-        return hash;
-    }
-
-    function hideAllSections() {
-        sections.forEach(s => s.classList.add('hidden-section'));
-    }
-
-    function showSectionBySectionId(sectionId) {
-        hideAllSections();
-        const el = document.getElementById(sectionId);
-        if (el) el.classList.remove('hidden-section');
-    }
-
-    function setActiveNavForHash(hash) {
-        navAnchors.forEach(a => {
-            const hrefHash = (a.getAttribute('href') || '').replace('#', '') || 'top';
-            if (hrefHash === hash) a.classList.add('active');
-            else a.classList.remove('active');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+            hamburger.classList.toggle('active');
         });
-    }
 
-    // Initialize nav click behavior: show/hide sections (no scrolling)
-    if (navLinks) {
-        navAnchors.forEach(link => {
+        // Hide/show sections on nav click
+        navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-
-                // Determine the visible hash the nav uses (e.g., "top", "about")
-                const visibleHash = (this.getAttribute('href') || '').replace('#', '') || 'top';
-                const targetSectionId = mapHashToSectionId(visibleHash);
-
-                // Show target and update URL without causing a jump
-                showSectionBySectionId(targetSectionId);
-                try {
-                    history.pushState(null, '', '#' + visibleHash);
-                } catch (err) {
-                    // fall back silently
-                    location.hash = '#' + visibleHash;
+                // Hide all sections
+                document.querySelectorAll('.section-box').forEach(section => {
+                    section.classList.add('hidden-section');
+                });
+                // Show the clicked section
+                const targetId = this.getAttribute('href').replace('#', '');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden-section');
                 }
-
-                // set active state on nav
-                setActiveNavForHash(visibleHash);
-
-                // close mobile nav if open
+                // Close nav on mobile
                 navLinks.classList.remove('show');
-                if (hamburger) {
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                }
+                hamburger.classList.remove('active');
             });
         });
     }
 
-    // Hamburger toggle (keyboard accessible)
-    if (hamburger && navLinks) {
-        const toggleMenu = () => {
-            const isOpen = navLinks.classList.toggle('show');
-            hamburger.classList.toggle('active', isOpen);
-            hamburger.setAttribute('aria-expanded', String(isOpen));
-        };
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('keydown', (ev) => {
-            if (ev.key === 'Enter' || ev.key === ' ') {
-                ev.preventDefault();
-                toggleMenu();
-            }
-        });
-    }
-
-    // Animated button / modal logic (preserve existing behavior)
+    // Animated button with custom modal popup
     const animatedBtn = document.querySelector('.animated-btn');
     const customModal = document.getElementById('customModal');
     const closeModal = document.getElementById('closeModal');
 
     if (animatedBtn && customModal && closeModal) {
-        animatedBtn.addEventListener('click', () => customModal.classList.remove('hidden-section'));
-        closeModal.addEventListener('click', () => customModal.classList.add('hidden-section'));
-        customModal.addEventListener('click', (e) => {
-            if (e.target === customModal) customModal.classList.add('hidden-section');
+        animatedBtn.addEventListener('click', function() {
+            customModal.classList.remove('hidden-section');
+        });
+        closeModal.addEventListener('click', function() {
+            customModal.classList.add('hidden-section');
+        });
+        // Close modal when clicking outside modal content
+        customModal.addEventListener('click', function(e) {
+            if (e.target === customModal) {
+                customModal.classList.add('hidden-section');
+            }
         });
     }
 
-    // Find Me Online dropdown toggle
+    // Find Me Online dropdown toggle at the bottom with smooth effect and outside click close
     const findMeBtn = document.getElementById('findMeBtn');
     const socialLinks = document.getElementById('social-links');
     if (findMeBtn && socialLinks) {
-        findMeBtn.addEventListener('click', (e) => {
+        // Toggle dropdown on button click
+        findMeBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent document click from firing
             socialLinks.classList.toggle('show');
         });
-        socialLinks.addEventListener('click', (e) => e.stopPropagation());
-        document.addEventListener('click', () => socialLinks.classList.remove('show'));
+
+        // Prevent dropdown from closing when clicking inside it
+        socialLinks.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            socialLinks.classList.remove('show');
+        });
     }
 
-    // On load: show section based on URL hash (or default home)
-    const initialHash = (location.hash || '').replace('#', '') || 'top';
-    const initialSectionId = mapHashToSectionId(initialHash);
-    // hide all then show the initial
-    hideAllSections();
-    showSectionBySectionId(initialSectionId);
-    setActiveNavForHash(initialHash);
+    // Ensure this file is loaded (index.html already includes it).
+    (() => {
+        const navContainer = document.getElementById('navLinks');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = Array.from(navButtons).map(btn => document.getElementById(btn.dataset.target));
+        const hamburger = document.getElementById('hamburger');
 
-    // Smooth scroll handler (use scroll-margin-top on sections, so native smooth works)
-    navAnchors.forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = mapHashToSectionId((this.getAttribute('href') || '').replace('#', ''));
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                e.preventDefault();
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // Scrollspy: mark active nav button based on viewport
-    let ticking = false;
-    function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(() => {
-            const fromTop = window.scrollY + 120; // small offset
-            let currentId = 'top';
-            sections.forEach(sec => {
-                if (!sec) return;
-                const offsetTop = sec.offsetTop;
-                if (fromTop >= offsetTop) {
-                    currentId = sec.id;
+        // Smooth scroll handler (use scroll-margin-top on sections, so native smooth works)
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // close mobile menu if open
+                if (navContainer.classList.contains('show')) {
+                    navContainer.classList.remove('show');
+                    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+                }
+                // allow default anchor behavior (native smooth scroll) but prevent instant jump on some browsers
+                const targetId = btn.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-            navAnchors.forEach(a => {
-                const hrefHash = (a.getAttribute('href') || '').replace('#', '') || 'top';
-                if (hrefHash === currentId) a.classList.add('active');
-                else a.classList.remove('active');
-            });
-            ticking = false;
         });
-    }
-    document.addEventListener('scroll', onScroll, { passive: true });
-    // run once on load
-    onScroll();
+
+        // Hamburger toggle (keeps existing behavior but ensures aria-expanded updated)
+        if (hamburger && navContainer) {
+            hamburger.addEventListener('click', () => {
+                navContainer.classList.toggle('show');
+                const isExpanded = navContainer.classList.contains('show');
+                hamburger.setAttribute('aria-expanded', String(isExpanded));
+            });
+        }
+
+        // Scrollspy: mark active nav button based on viewport
+        let ticking = false;
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                const fromTop = window.scrollY + 120; // small offset
+                let currentId = 'top';
+                sections.forEach(sec => {
+                    if (!sec) return;
+                    const offsetTop = sec.offsetTop;
+                    if (fromTop >= offsetTop) {
+                        currentId = sec.id;
+                    }
+                });
+                navButtons.forEach(btn => {
+                    if (btn.dataset.target === currentId) btn.classList.add('active');
+                    else btn.classList.remove('active');
+                });
+                ticking = false;
+            });
+        }
+        document.addEventListener('scroll', onScroll, { passive: true });
+        // run once on load
+        onScroll();
+    })();
 });
