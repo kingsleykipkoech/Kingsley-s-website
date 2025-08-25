@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Kingsley Kipkoech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body id="top">
+    <nav aria-label="Main Navigation">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="my-pitch.html">My Pitch</a>
+            <a href="about-me.html">About Me</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <main>
+        <section class="section-box" id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">My Skills</h2>
+            <div class="skills-list-grid">
+                <div class="skill-item">
+                    <i class="fas fa-desktop" aria-hidden="true"></i> <span>HTML</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-paint-brush" aria-hidden="true"></i> <span>CSS</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-linux" aria-hidden="true"></i> <span>Linux-based CLI</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-excel" aria-hidden="true"></i> <span>MS Office Tools</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i> <span>Empathetic Reasoning</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-question" aria-hidden="true"></i> <span>Problem Solving</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users" aria-hidden="true"></i> <span>Teamwork</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="year"></span> Kingsley Kipkoech. All rights reserved.</p>
+    </footer>
+    <script> document.getElementById('year').textContent = new Date().getFullYear(); </script>
+</body>
+</html>

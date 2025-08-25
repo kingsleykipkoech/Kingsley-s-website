@@ -3,12 +3,11 @@ body {
     font-family: 'Times New Roman', serif;
     margin: 0;
     padding: 0;
-    /* Adjusted padding-top for the "Menu" toggle card */
-    padding-top: 80px; /* Reduced from 250px for fixed menu toggle */
+    /* Increased padding-top to ensure content starts well below the fixed navigation */
+    padding-top: 250px; /* Increased from 200px to ensure no overlap */
     padding-bottom: 80px; /* Space for sticky footer */
-    background-image: url('full.png'); /* Assumes back1.jpeg is in your repo */
+    background-image: url('back1.jpeg'); /* Assumes back1.jpeg is in your repo */
     background-repeat: repeat;
-    /* Ensure background image always covers the viewport */
     background-size: cover; /* Changed from 'auto' to 'cover' */
     background-position: center;
     background-attachment: fixed; /* Ensures background stays fixed during scroll */
@@ -20,8 +19,8 @@ body {
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth; /* IMPORTANT: Ensures smooth scrolling when clicking nav links */
-    /* Adjusted scroll-padding-top for the "Menu" toggle card */
-    scroll-padding-top: 80px; /* Matches body's padding-top for consistent scrolling */
+    /* Increased scroll-padding-top to prevent fixed nav from covering content when jumping to anchors */
+    scroll-padding-top: 250px; /* Matches body's padding-top for consistent scrolling */
 }
 
 
@@ -37,7 +36,7 @@ h1, h2, h3 {
 h1.site-title { /* Specific style for main site title */
     font-size: clamp(2.5em, 6vw, 4em);
     margin-top: 1rem;
-    animation: pop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    animation: pop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 h2.site-subtitle { /* Specific style for main site subtitle */
@@ -70,8 +69,8 @@ img:hover {
 .profile-pic {
     width: 200px; /* Increased width */
     height: 200px; /* Increased height */
-    border-radius: 50%; /* Changed to 50% for a circular shape */
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    border-radius: 0; /* Changed from 50% to 0 for a square shape */
+    object-fit: cover; /* Ensures the image fills the square without distortion */
     border: 4px solid #2a7ae2; /* Slightly thicker border */
     margin: 32px auto 16px auto;
     box-shadow: 0 6px 20px rgba(42,122,226,0.3); /* Enhanced shadow for profile */
@@ -101,7 +100,6 @@ p {
     max-width: 900px; /* Increased max-width for better content display */
     border: 1.5px solid #ffb347;
     animation: cardIn 1s cubic-bezier(.68,-0.55,.27,1.55);
-    /* Changed min-height from 100vh to auto to prevent excessive empty space */
     min-height: auto; /* Allow height to adjust based on content */
     display: flex; /* Use flexbox for vertical alignment within sections */
     flex-direction: column; /* Stack contents vertically */
@@ -186,77 +184,46 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Navigation - The sliding menu */
+/* Navigation - Always visible, fixed top-left corner */
 nav {
-    background: rgba(24, 26, 27, 0.95); /* Slightly transparent background for the nav container */
-    position: fixed; /* Fixed position for the sliding menu */
+    background: rgba(24, 26, 27, 0.9); /* Slightly transparent background for the nav container */
+    padding: 10px 15px; /* Smaller padding */
+    display: block; /* Ensures it takes up space and wraps content */
+    position: fixed; /* Fixed position for top-left corner */
     top: 0;
-    left: -280px; /* Hidden off-screen to the left */
-    width: 250px; /* Width of the sliding menu */
-    height: 100%; /* Full height of the viewport */
+    left: 0;
     z-index: 1000;
-    box-shadow: 2px 2px 8px rgba(42, 122, 226, 0.2); /* Subtle shadow */
-    transition: left 0.4s ease-in-out; /* Smooth sliding animation */
-    padding-top: 20px; /* Initial padding from the top inside the menu */
+    box-shadow: 2px 2px 8px rgba(42, 122, 226, 0.1); /* Subtle shadow */
+    border-bottom-right-radius: 10px; /* Rounded corner for the bottom-right of the nav box */
+    border: 1px solid #2a7ae2; /* Thin border */
 }
 
-nav.show {
-    left: 0; /* Slides the menu into view */
+.hamburger {
+    display: none; /* Hide the hamburger icon as menu is always visible */
 }
-
-/* Menu Toggle Button (The "Card") */
-.menu-toggle-card {
-    background: #2a7ae2; /* Your primary blue accent color */
-    color: #fff;
-    padding: 12px 18px; /* Padding for the card */
-    border-radius: 10px; /* Rounded corners for card */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Shadow for card depth */
-    cursor: pointer;
-    position: fixed; /* Fixed position on the page */
-    top: 20px; /* Distance from top */
-    left: 20px; /* Distance from left */
-    z-index: 1001; /* Ensure it's on top of the sliding menu */
-    font-size: 1.1em;
-    font-weight: 600;
-    transition: transform 0.2s, background 0.2s;
-    letter-spacing: 0.5px;
-}
-
-.menu-toggle-card:hover {
-    background: #72dd0d; /* Green accent on hover */
-    transform: translateY(-2px);
-}
-
-.menu-toggle-card:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
 
 .nav-links {
-    display: flex; /* Use flexbox for vertical alignment of links */
+    display: block; /* Always visible */
     flex-direction: column; /* Links stacked vertically */
     list-style: none; /* No bullets */
     padding: 0;
     margin: 0;
-    padding-top: 60px; /* Space inside the menu for its own potential close button or just top padding */
 }
 
-nav .nav-links a {
+nav a {
     color: #ffb347; /* Link color */
     text-decoration: none;
-    font-size: 1.1em; /* Slightly larger font for menu links */
+    font-size: 0.9em; /* Smaller font size */
     font-weight: 500; /* Slightly less bold */
     display: block; /* Each link takes full width */
-    padding: 12px 20px; /* Generous padding for easier tapping */
-    transition: background-color 0.2s, color 0.2s;
-    text-align: left; /* Align text to the left within the nav menu */
+    padding: 5px 0; /* Small padding for each link */
+    transition: color 0.2s, transform 0.2s;
+    text-align: left; /* Align text to the left within the nav box */
 }
 
-nav .nav-links a:hover {
-    background-color: rgba(42,122,226,0.2); /* Subtle blue highlight on hover */
+nav a:hover {
     color: #72dd0d;
-    transform: none; /* No translation on hover for menu links */
+    transform: translateX(3px); /* Slight movement on hover */
 }
 
 /* Buttons - General Button Styles */
@@ -414,12 +381,10 @@ nav .nav-links a:hover {
     font-size: 0.95em; /* Match original project description size */
     color: #ccc;
     text-align: center;
-    margin: 0 auto 20px auto; /* Centered with margin */
+    margin-bottom: 20px;
     padding: 0; /* Remove specific padding for consistency */
     background: none; /* Remove background for consistency */
     max-width: 100%; /* Ensure text uses full width of card */
-    max-height: 150px; /* Limit height for scrollbar if content is long */
-    overflow-y: auto; /* Enable vertical scrolling for long content */
 }
 .flip-card-back .technologies {
     margin-top: auto; /* Push technologies to bottom */
@@ -504,7 +469,7 @@ nav .nav-links a:hover {
 }
 .elevator-pitch-section p {
     max-width: 800px; /* Wider paragraph */
-    margin: 0 auto 30px auto; /* More margin */
+    margin: 0 auto 30px auto;
     font-size: 1.15em; /* Slightly larger text */
     color: #eee;
     background: none; /* No background for pitch text */
@@ -537,23 +502,6 @@ nav .nav-links a:hover {
     opacity: 0.6; /* Slightly more visible overlay */
     border-radius: 0; /* No border radius on inner image */
 }
-.elevator-pitch-section .video-placeholder button {
-    background: rgba(0,0,0,0.8); /* Darker button background */
-    color: #fff;
-    border: 3px solid #fff; /* Thicker border */
-    border-radius: 50%;
-    width: 90px; /* Larger button */
-    height: 90px;
-    font-size: 3em; /* Larger play symbol */
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.3s, transform 0.3s, border-color 0.3s;
-}
-.elevator-pitch-section .video-placeholder button:hover {
-    background: rgba(0,0,0,0.95);
-    transform: scale(1.15); /* More pronounced scale */
-    border-color: #ffb347; /* Accent on hover */
-}
 
 /* Footer Social Links */
 .social-links-footer {
@@ -562,15 +510,15 @@ nav .nav-links a:hover {
     padding: 10px 0;
 }
 .social-links-footer a {
-    color: #64FFDA; /* Accent color for footer icons */
+    color: #64FFDA;
     font-size: 2.5em; /* Larger icons */
     margin: 0 15px; /* More spacing */
     transition: color 0.3s ease, transform 0.3s;
     display: inline-block;
 }
 .social-links-footer a:hover {
-    color: #ffb347; /* Orange hover effect */
-    transform: translateY(-5px) scale(1.1); /* Lift and grow */
+    color: #ffb347;
+    transform: translateY(-5px) scale(1.1);
 }
 
 /* Footer */
@@ -595,93 +543,90 @@ footer p {
 
 
 /* Responsive Adjustments */
+/* Removed @media (max-width: 700px) nav rules to keep desktop fixed nav */
+/* Removed @media (max-width: 700px) .menu-toggle-card rules to keep desktop fixed nav */
+/* Removed @media (max-width: 700px) .nav-links rules to keep desktop fixed nav */
+/* Removed @media (max-width: 700px) nav .nav-links a rules to keep desktop fixed nav */
+/* Removed @media (max-width: 700px) nav .nav-links a:hover rules to keep desktop fixed nav */
+
 @media (max-width: 768px) {
-    /* Adjusted nav padding to be less intrusive on mobile */
-    nav {
-        padding: 0; /* Remove padding from nav, nav-links will handle it */
-    }
-    nav .nav-links {
-        padding-top: 20px; /* Padding for links inside the sliding menu */
-        padding-left: 0; /* Ensure no left padding pushes links */
-        margin-top: 0; /* Remove margin-top as links are within the nav */
-        width: 100%; /* Ensure nav-links takes full width of the sliding nav */
-        align-items: flex-start; /* Align links to the start of the menu */
-    }
-    nav .nav-links a {
-        margin: 0; /* Remove margins from individual links */
-        padding: 12px 20px; /* Consistent padding for all menu links */
-        font-size: 1.2em; /* Slightly larger for easier tapping on mobile */
+    /* Profile picture size for mobile */
+    .profile-pic {
+        width: 150px; /* Adjusted from 100px to 150px for better visibility */
+        height: 150px;
+        border-width: 4px; /* Maintain border thickness */
     }
 
-    .profile-pic {
-        width: 150px; /* Increased width for mobile */
-        height: 150px; /* Increased height for mobile */
-        border-width: 3px;
-    }
     h1.site-title {
         font-size: clamp(2em, 8vw, 3em);
     }
+
     h2.site-subtitle {
         font-size: clamp(1em, 4vw, 1.5em);
     }
+
     .section-box {
         margin: 25px auto;
         padding: 25px;
-        /* Set max-width to 100% to allow expansion on mobile */
         max-width: 100%; /* IMPORTANT: Allow section to take full width */
         min-height: auto;
     }
-    /* Also apply max-width 100% to specific section types if they have it */
-    .elevator-pitch-section, .team-projects-section {
-        max-width: 100%; /* Allow these sections to take full width */
+
+    .elevator-pitch-section {
         padding: 40px 20px;
         margin: 30px auto;
-        min-height: auto; /* Ensure no forced height on smaller screens */
     }
-
 
     .elevator-pitch-section h2 {
         font-size: clamp(1.5em, 6vw, 2.2em);
     }
+
     .elevator-pitch-section p {
         font-size: 1em;
     }
-    .elevator-pitch-section .video-placeholder button {
-        width: 70px;
-        height: 70px;
-        font-size: 2em;
-    }
+
     .projects-grid, .skills-list-grid {
-        grid-template-columns: 1fr; /* Stack columns on small screens */
-        padding: 0 15px; /* Adjust grid padding for mobile */
+        grid-template-columns: 1fr;
+        padding: 0 15px;
     }
-    .flip-card { /* Adjust flip card for smaller screens */
-        /* Calculate width based on grid padding */
-        width: calc(100% - 30px); /* 100% - (15px left + 15px right padding from .projects-grid) */
-        max-width: none; /* Remove max-width constraint to allow full expansion */
-        height: 400px; /* Maintain a consistent height */
-        margin: 0 auto; /* Explicitly center the card */
+
+    .flip-card {
+        width: calc(100% - 30px);
+        max-width: none;
+        height: 400px;
+        margin: 0 auto;
     }
-    /* Ensured text elements within flip cards are properly sized and spaced */
+
     .flip-card-front h3 {
         font-size: 1.3em;
     }
+
     .flip-card-back p {
-        font-size: 0.9em; /* Adjusted for readability */
-        padding: 0 15px; /* Add some horizontal padding inside the back of the card */
+        font-size: 0.9em;
+        padding: 0 15px;
     }
+
     .flip-card-back .technologies span {
         font-size: 0.75em;
         padding: 5px 10px;
     }
+
     .cta-button {
         padding: 12px 28px;
         font-size: 1em;
     }
+
     .social-links-footer a {
         font-size: 2em;
         margin: 0 10px;
     }
+
+    .team-projects-section {
+        padding: 25px;
+        margin: 30px auto;
+        min-height: auto;
+    }
+
     .team-projects-heading {
         margin-top: 30px;
         font-size: clamp(1.4em, 6vw, 2em);
@@ -689,59 +634,55 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    /* Further adjustments for very small mobile screens */
-    .menu-toggle-card {
-        top: 15px;
-        left: 15px;
-        padding: 10px 15px;
-        font-size: 1em;
-    }
-    body {
-        /* Adjust body padding for smaller menu toggle card */
-        padding-top: 70px; 
-    }
-    html {
-        /* Adjust scroll padding accordingly */
-        scroll-padding-top: 70px; 
-    }
-
     h1.site-title {
         font-size: clamp(1.8em, 10vw, 2.5em);
     }
+
     h2.site-subtitle {
         font-size: clamp(0.9em, 5vw, 1.2em);
     }
+
     .section-box {
         padding: 20px;
         margin: 20px auto;
-        min-height: auto; /* Ensure no forced height on very small screens */
+        min-height: auto;
     }
+
     p {
         padding: 0 15px;
     }
+
+    .elevator-pitch-section {
+        padding: 30px 15px;
+    }
+
     .elevator-pitch-section h2 {
         font-size: clamp(1.4em, 8vw, 2em);
     }
+
     .elevator-pitch-section p {
         font-size: 0.9em;
     }
+
     .social-links-footer a {
         font-size: 1.8em;
         margin: 0 8px;
     }
+
     .team-projects-section {
         padding: 20px;
         margin: 20px auto;
-        min-height: auto; /* Ensure no forced height on very small screens */
+        min-height: auto;
     }
-    .flip-card { /* Adjust for very small screens */
-        /* Calculate width based on grid padding */
-        width: calc(100% - 20px); /* If .projects-grid padding is 0 10px; */
-        max-width: none; /* No max-width */
-        height: 380px; /* Slightly adjust height for very small screens */
+
+    .flip-card {
+        width: calc(100% - 20px);
+        max-width: none;
+        height: 380px;
         margin: 0 auto;
     }
+
     .projects-grid, .skills-list-grid {
-        padding: 0 10px; /* Even tighter padding for very small screens */
+        padding: 0 10px;
     }
 }
