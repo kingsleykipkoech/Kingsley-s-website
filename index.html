@@ -22,21 +22,16 @@
 <body id="top">
   
     <!-- Navigation -->
-    <nav aria-label="Main Navigation" class="site-nav">
-        <div class="nav-inner">
-            <a class="logo-link" href="#top" aria-label="Home">Kingsley</a>
-
-            <span class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
-
-            <div class="nav-links" id="navLinks" role="navigation">
-                <!-- data-target used by JS for scrollspy/smooth scroll -->
-                <a href="#top" data-target="top" class="nav-btn">Home</a>
-                <a href="#elevator-pitch" data-target="elevator-pitch" class="nav-btn">My Pitch</a>
-                <a href="#about" data-target="about" class="nav-btn">About</a>
-                <a href="#skills" data-target="skills" class="nav-btn">Skills</a>
-                <a href="#portfolio" data-target="portfolio" class="nav-btn">Portfolio</a>
-                <a href="#contact" data-target="contact" class="nav-btn">Contact</a>
-            </div>
+    <nav aria-label="Main Navigation">
+        <span class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
+        <div class="nav-links" id="navLinks">
+            <!-- Href attributes point to section IDs for scrolling -->
+            <a href="#top">Home</a>
+            <a href="#elevator-pitch">My Pitch</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
@@ -62,7 +57,6 @@
             <a href="#portfolio" class="cta-button">Explore My Work</a>
         </section>
  
-        
         <!-- About Section - Now a Page -->
         <section class="section-box" id="about" aria-labelledby="about-heading">
             <h2 id="about-heading">About Me</h2>
@@ -110,7 +104,7 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="project-image-background"></div>
-                            <img src="ubu.jpg" alt="Ubuntu project image">
+                            <img src="ubu.jpg"
                             <h3 id="project2-title">Ubuntu Network Manager Guide</h3>
                         </div>
                         <div class="flip-card-back">
@@ -125,7 +119,7 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="project-image-background"></div>
-                            <img src="tech.png" alt="Community tech project image">
+                            <img src="tech.png"
                             <h3 id="project3-title">Community Tech Education</h3>
                         </div>
                         <div class="flip-card-back">
