@@ -13,6 +13,3 @@ tech.png
 - Easy navigation
 
 ## Getting Started
-
-Clone the repository and follow the setup instructions in the project to run locally.
-
