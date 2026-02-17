@@ -3,217 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley Kipkoech | Aspiring Cybersecurity & Software Engineer</title>
-      <meta name="google-site-verification" content="TNN5JP9M2h5M8PpwM67xRuOX1PBRFbTlu5LeMYyxVNQ" />
-    
-    <!-- Professional Meta Tags for SEO and Social Sharing -->
-    <meta name="description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
-    <meta name="keywords" content="Kingsley Kipkoech, Aspiring cybersecurity, software engineer, Linux, security automation, Terraform, AWS, Python, portfolio, web developer">
-    <meta name="author" content="Kingsley Koech">
-    <meta property="og:title" content="Kingsley Koech | Cybersecurity & Software Engineer">
-    <meta property="og:description" content="Kingsley Kipkoech's professional portfolio, showcasing expertise in cybersecurity, software development, and Linux-based infrastructure solutions.">
-    <meta property="og:image" content="https://murray-1.github.io/My--website/me.jpeg"> <!-- Ensure this path is correct on your live site -->
-    <meta property="og:url" content="https://murray-1.github.io/My--website/">
+    <title>Kingsley Kipkoech | Cybersecurity & Software Engineer</title>
+    <meta name="google-site-verification" content="TNN5JP9M2h5M8PpwM67xRuOX1PBRFbTlu5LeMYyxVNQ" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Kingsley Kipkoech's professional portfolio — cybersecurity specialist, DevSecOps advocate, and software engineer building secure, scalable digital infrastructure.">
+    <meta name="keywords" content="Kingsley Kipkoech, cybersecurity, DevSecOps, software engineer, Linux, Python, security automation, portfolio, ALU, network security">
+    <meta name="author" content="Kingsley Kipkoech">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kingsley Kipkoech | Cybersecurity & Software Engineer">
+    <meta property="og:description" content="Portfolio showcasing expertise in cybersecurity, DevSecOps, and secure software development.">
+    <meta property="og:image" content="https://kingsley-s-website-iota.vercel.app/images/me.jpeg">
+    <meta property="og:url" content="https://kingsley-s-website-iota.vercel.app/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    
+    <meta name="twitter:title" content="Kingsley Kipkoech | Cybersecurity & Software Engineer">
+    <meta name="twitter:description" content="Portfolio showcasing expertise in cybersecurity, DevSecOps, and secure software development.">
+    <meta name="twitter:image" content="https://kingsley-s-website-iota.vercel.app/images/me.jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body id="top">
-  
-    <!-- Navigation -->
-    <nav aria-label="Main Navigation">
-        <span class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">&#9776;</span>
-        <div class="nav-links" id="navLinks">
-            <!-- Href attributes point to section IDs for scrolling -->
-            <a href="#top">Home</a>
-            <a href="#elevator-pitch">My Pitch</a>
-            <a href="#about">About Me</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="navbar" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>KK<span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="https://drive.google.com/file/d/your-resume-link" target="_blank" rel="noopener noreferrer" class="nav-cta">
+                <i class="fas fa-download"></i> Resume
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Main Content Area Container for all pages -->
     <main>
-        <!-- Profile Picture & Main Heading (Home Page Section) -->
-        <header class="hero-section" id="home-section" role="banner">
-            <img src="me.jpeg" onerror="this.src='';" alt="Kingsley Kipkoech profile photo" class="profile-pic">
-            <h1 class="site-title">Kingsley Kipkoech</h1>
-            <h2 class="site-subtitle">Aspiring Cybersecurity & Software Engineer</h2>
-        </header>
-
-        <!-- Elevator Pitch Section - Now a Placeholder Page -->
-        <section class="section-box elevator-pitch-section" id="elevator-pitch" aria-labelledby="pitch-heading">
-            <h2 id="pitch-heading">Innovating for a Secure Digital Future</h2>
-            <p>
-                To leverage my passion for cybersecurity, software development, and Linux to architect and secure robust technology infrastructure solutions, empowering organizations to thrive in a resilient digital world.
-            </p>
-            <div class="video-placeholder" aria-label="Placeholder for my pitch video">
-                <img src="https://placehold.co/560x315/333/64FFDA?text=My+Pitch+Video+Here" alt="Placeholder for pitch video">
-            </div>
-            <a href="#portfolio" class="cta-button">Explore My Work</a>
-        </section>
-
-        <!-- About Section - Now a Page -->
-        <section class="section-box" id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About Me</h2>
-            <p>
-                Kingsley Kipkoech is an aspiring cybersecurity professional and software engineer driven by a passion for architecting and securing technology infrastructure. As a dedicated student, he is committed to leveraging his expertise to empower organizations to thrive in a resilient digital world. One of his proudest achievements is creating a Python-based script that automated a critical data backup process, reducing manual effort by over 80%. Additionally, he successfully designed and implemented a secure user authentication system for a group project, which passed all security audits with zero vulnerabilities. He is building on these successes by focusing on Linux-based system security and network defense to further his career goals.
-            </p>
-        </section>
-
-        <!-- Skills Section - Now a Page -->
-        <section class="section-box" id="skills" aria-labelledby="skills-heading">
-            <h2 id="skills-heading">My Skills</h2>
-            <div class="skills-list-grid">
-                <div class="skill-item">
-                    <i class="fas fa-desktop" aria-hidden="true"></i> <span>HTML</span>
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero" id="hero">
+            <div class="hero-particles" aria-hidden="true"></div>
+            <div class="hero-content">
+                <div class="hero-image-wrapper">
+                    <img src="images/me.jpeg" alt="Kingsley Kipkoech" class="hero-avatar" />
+                    <div class="avatar-ring"></div>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-paint-brush" aria-hidden="true"></i> <span>CSS</span>
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Kingsley Kipkoech</h1>
+                <div class="hero-typing-wrapper">
+                    <span class="hero-typing-prefix">I'm a&nbsp;</span>
+                    <span class="hero-typed" id="typed-text"></span>
+                    <span class="typing-cursor" aria-hidden="true">|</span>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-linux" aria-hidden="true"></i> <span>Linux-based CLI</span>
+                <p class="hero-tagline">Architecting and securing robust technology infrastructure — empowering organizations to thrive in a resilient digital world.</p>
+                <div class="hero-cta-group">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-file-excel" aria-hidden="true"></i> <span>MS Office Tools</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-lightbulb" aria-hidden="true"></i> <span>Empathetic Reasoning</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-question" aria-hidden="true"></i> <span>Problem Solving</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-users" aria-hidden="true"></i> <span>Teamwork</span>
+                <div class="hero-social">
+                    <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kingsleykipkoech" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://instagram.com/kings_le.y" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </section>
 
-        <!-- Portfolio Section - Now a Page -->
-        <section class="section-box" id="portfolio" aria-labelledby="portfolio-heading">
-            <h2 id="portfolio-heading"><b><u>Portfolio</u></b></h2>
-            <h2 id="Portfolio-sub Heading">My Projects</h2>
-            <p><i><u>Select the card to view the project description</u></i></p>
-            <div class="projects-grid">
-                <!-- Project 2: Help Ubuntu Users Website -->
-                <article class="flip-card ubuntu-site-card" aria-labelledby="project2-title">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="project-image-background"></div>
-                            <img src="ubu.jpg"
-                            <h3 id="project2-title">Ubuntu Network Manager Guide</h3>
+        <!-- ========== ABOUT SECTION ========== -->
+        <section class="section" id="about">
+            <div class="section-container animate-on-scroll">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I'm an aspiring cybersecurity professional and software engineer driven by a passion for architecting and securing technology infrastructure. Currently studying at the <strong>African Leadership University (ALU)</strong> in Kigali, I'm committed to building a resilient digital world.</p>
+                        <p>One of my proudest achievements is creating a <strong>Python-based script</strong> that automated a critical data backup process, reducing manual effort by over <strong>80%</strong>. I also designed and implemented a <strong>secure user authentication system</strong> for a group project, which passed all security audits with zero vulnerabilities.</p>
+                        <p>I'm building on these successes by focusing on <strong>Linux-based system security</strong>, <strong>DevSecOps pipelines</strong>, and <strong>network defense</strong> to further my career goals.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card glass-card">
+                            <span class="stat-number" data-target="80">0</span><span class="stat-suffix">%</span>
+                            <span class="stat-label">Automation Efficiency</span>
                         </div>
-                        <div class="flip-card-back">
-                            <p id="project2-desc">A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
-                            <div class="technologies"><span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span></div>
+                        <div class="stat-card glass-card">
+                            <span class="stat-number" data-target="0">0</span>
+                            <span class="stat-label">Security Vulnerabilities</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <span class="stat-number" data-target="12">0</span><span class="stat-suffix">+</span>
+                            <span class="stat-label">GitHub Projects</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <span class="stat-number" data-target="100">0</span><span class="stat-suffix">+</span>
+                            <span class="stat-label">Commits</span>
                         </div>
                     </div>
-                </article>
+                </div>
+            </div>
+        </section>
 
-                <!-- Project 3: Community Technology Education -->
-                <article class="flip-card community-project-card" aria-labelledby="project3-title">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="project-image-background"></div>
-                            <img src="tech.png"
-                            <h3 id="project3-title">Community Tech Education</h3>
+        <!-- ========== SKILLS SECTION ========== -->
+        <section class="section" id="skills">
+            <div class="section-container animate-on-scroll">
+                <h2 class="section-title">My Skills</h2>
+                <div class="section-divider"></div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title"><i class="fas fa-code"></i> Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
                         </div>
-                        <div class="flip-card-back">
-                            <p id="project3-desc">Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
-                            <div class="technologies"><span>Community Engagement</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span></div>
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-linux"></i>
+                            <span>Linux / CLI</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-terminal"></i>
+                            <span>Bash Scripting</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git / GitHub</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>DevSecOps</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Network Security</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-lock"></i>
+                            <span>Security Auditing</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-file-code"></i>
+                            <span>Terraform</span>
                         </div>
                     </div>
-                </article>
-            </div>
-
-            <h3 class="team-projects-heading" id="team-projects-heading">Team Projects</h3>
-            <div class="team-projects-section">
-                <div class="video-container" aria-label="Team Project Video">
-                    <iframe 
-                        src="https://www.youtube.com/embed/mvykTntqiFI" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen 
-                        title="Team Project Video">
-                    </iframe>
                 </div>
-                <p src="https://www.youtube.com/embed/mvykTntqiFI" p> <br>
-                <p class="team-project-description">
-                    Our team collaborated on a comprehensive project to develop an adaptive offline learning application called Knowledge pack that is set to solve access to education in marginalised areas
-                </p>
-                <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank" rel="noopener noreferrer" class="cta-button team-slide-link" aria-label="View Team Project Slide Deck">
-                    View Team Slide Deck <i class="fas fa-file-powerpoint" aria-hidden="true"></i>
-                </a>
-            </div>
-        </section>
-        
-        <!-- Contact Section - Now a Page -->
-        <section class="section-box" id="contact" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Me</h2>
-            <p>Email: <a href="mailto:kingsleykoech@gmail.com" aria-label="Email Kingsley Koech at kingsleykoech@gmail.com">kingsleykoech@gmail.com</a></p>
-            <p>Phone: <a href="tel:+254701498294" aria-label="Call Kingsley Koech at +254 701498294">+254 701498294</a></p>
-            <p>I wish to collaborate!</p>
-            <div class="social-links-footer" role="contentinfo" aria-label="Social Media Links">
-                <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/kingsley-kipkoech-09016a365" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title"><i class="fas fa-brain"></i> Soft Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Problem Solving</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-users"></i>
+                            <span>Teamwork</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Critical Thinking</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-comments"></i>
+                            <span>Communication</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-heart"></i>
+                            <span>Empathy</span>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Leadership</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- ========== PORTFOLIO SECTION ========== -->
+        <section class="section" id="portfolio">
+            <div class="section-container animate-on-scroll">
+                <h2 class="section-title">Portfolio</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Hover over a card to see project details</p>
+
+                <div class="projects-grid">
+                    <!-- Project 1: Ubuntu Guide -->
+                    <article class="flip-card" aria-label="Ubuntu Network Manager Guide project">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/ubu.jpg" alt="Ubuntu Network Manager Guide screenshot" />
+                                <h3>Ubuntu Network Manager Guide</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Ubuntu Network Manager Guide</h3>
+                                <p>A website built to guide Ubuntu users through manual installation and troubleshooting steps for Network Manager issues, helping them regain network access effectively.</p>
+                                <div class="tech-tags">
+                                    <span>HTML</span><span>CSS</span><span>Linux</span><span>Troubleshooting</span>
+                                </div>
+                                <a href="https://github.com/kingsleykipkoech/Ubunut-25.04-help-c" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Community Tech Education -->
+                    <article class="flip-card" aria-label="Community Tech Education project">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/tech.png" alt="Community Tech Education project" />
+                                <h3>Community Tech Education</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Community Tech Education</h3>
+                                <p>Participated in a community project focused on educating students about various aspects of technology, fostering digital literacy and inspiring future tech enthusiasts.</p>
+                                <div class="tech-tags">
+                                    <span>Community</span><span>Education</span><span>Tech Literacy</span><span>Mentorship</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Digital Resilience Initiative -->
+                    <article class="flip-card" aria-label="Digital Resilience Initiative">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="project-icon-placeholder">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <h3>Digital Resilience Initiative</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Digital Resilience Initiative</h3>
+                                <p>A project focused on empowering organizations and individuals with tools and knowledge to build digital resilience against cyber threats and infrastructure failures.</p>
+                                <div class="tech-tags">
+                                    <span>Cybersecurity</span><span>Resilience</span><span>Education</span>
+                                </div>
+                                <a href="https://github.com/kingsleykipkoech/digital-resilience-initiative" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Team Projects -->
+                <div class="team-section">
+                    <h3 class="skills-category-title"><i class="fas fa-users-gear"></i> Team Projects</h3>
+                    <div class="team-card glass-card">
+                        <div class="team-video">
+                            <iframe
+                                src="https://www.youtube.com/embed/mvykTntqiFI"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                title="Knowledge Pack - Team Project Video"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="team-info">
+                            <h4>Knowledge Pack</h4>
+                            <p>Our team collaborated on a comprehensive project to develop an adaptive offline learning application called Knowledge Pack, designed to solve access to education in marginalized areas.</p>
+                            <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                                <i class="fas fa-file-powerpoint"></i> View Slide Deck
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <section class="section" id="contact">
+            <div class="section-container animate-on-scroll">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">I'm always open to new opportunities and collaborations. Let's connect!</p>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-card glass-card">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <a href="mailto:kingsleykoech@gmail.com">kingsleykoech@gmail.com</a>
+                        </div>
+                        <div class="contact-card glass-card">
+                            <i class="fas fa-phone"></i>
+                            <h4>Phone</h4>
+                            <a href="tel:+254701498294">+254 701 498 294</a>
+                        </div>
+                        <div class="contact-card glass-card">
+                            <i class="fas fa-location-dot"></i>
+                            <h4>Location</h4>
+                            <span>Kigali, Rwanda</span>
+                        </div>
+                    </div>
+
+                    <form class="contact-form glass-card" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-social">
+                    <a href="https://github.com/kingsleykipkoech" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kingsleykipkoech" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/kingsleykoech" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://instagram.com/kings_le.y" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer - using <footer> for semantic structure -->
-    <footer role="contentinfo">
-        <p>&copy; <span id="year"></span> Kingsley Koech. All rights reserved.</p>
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-container">
+            <a href="#hero" class="footer-logo">
+                <span class="logo-bracket">&lt;</span>KK<span class="logo-bracket">/&gt;</span>
+            </a>
+            <p>&copy; <span id="year"></span> Kingsley Kipkoech. All rights reserved.</p>
+            <p class="footer-tagline">Empowering a secure digital future.</p>
+        </div>
     </footer>
 
-    <script>
-        // Auto-update copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-        // Hamburger menu logic
-        const hamburger = document.getElementById('hamburger');
-        const navLinksContainer = document.getElementById('navLinks');
-
-        if (hamburger && navLinksContainer) {
-            hamburger.addEventListener('click', () => {
-                navLinksContainer.classList.toggle('show');
-                const isExpanded = navLinksContainer.classList.contains('show');
-                hamburger.setAttribute('aria-expanded', isExpanded);
-            });
-            // Close nav when a link is clicked (for better mobile UX)
-            navLinksContainer.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinksContainer.classList.contains('show')) {
-                        navLinksContainer.classList.remove('show');
-                        hamburger.setAttribute('aria-expanded', false);
-                    }
-                });
-            });
-        }
-
-        // Optional: Modal logic (currently hidden by .hidden-section)
-        const customModal = document.getElementById('customModal');
-        const closeModalBtn = document.getElementById('closeModal');
-
-        if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', () => {
-                customModal.classList.add('hidden-section');
-            });
-        }
-        if (customModal) {
-            customModal.addEventListener('click', (event) => {
-                if (event.target === customModal) {
-                    customModal.classList.add('hidden-section');
-                }
-            });
-        }
-    </script>
-    <!-- Assuming script.js exists and contains other JS logic you might have -->
     <script src="script.js"></script>
 </body>
 </html>
