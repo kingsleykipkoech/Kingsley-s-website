@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsley Kipkoech | Full Stack Engineer</title>
+    <title>Kingsley Kipkoech | Cybersecurity & Software Engineer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
 
@@ -40,7 +41,13 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6, .logo {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .logo {
             font-family: 'Syne', sans-serif;
             color: #ffffff;
         }
@@ -55,9 +62,11 @@
         }
 
         /* Custom Cursor */
-        .cursor-dot, .cursor-ring {
+        .cursor-dot,
+        .cursor-ring {
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
@@ -93,15 +102,15 @@
         /* CRT Scanline */
         .scanline {
             position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,0),
-                rgba(255,255,255,0) 50%,
-                rgba(0,0,0,0.2) 50%,
-                rgba(0,0,0,0.2)
-            );
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(0, 0, 0, 0.2) 50%,
+                    rgba(0, 0, 0, 0.2));
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 9000;
@@ -110,16 +119,23 @@
         }
 
         @keyframes scanline {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 100vh; }
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 0 100vh;
+            }
         }
 
         /* Animated Grid Background */
         .bg-grid {
             position: absolute;
-            top: -50%; left: -50%;
-            width: 200vw; height: 200vh;
-            background-image: 
+            top: -50%;
+            left: -50%;
+            width: 200vw;
+            height: 200vh;
+            background-image:
                 linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -131,8 +147,13 @@
         }
 
         @keyframes gridMove {
-            0% { transform: perspective(600px) rotateX(60deg) translateY(0) translateZ(-200px); }
-            100% { transform: perspective(600px) rotateX(60deg) translateY(40px) translateZ(-200px); }
+            0% {
+                transform: perspective(600px) rotateX(60deg) translateY(0) translateZ(-200px);
+            }
+
+            100% {
+                transform: perspective(600px) rotateX(60deg) translateY(40px) translateZ(-200px);
+            }
         }
 
         /* Containers & Utilities */
@@ -144,28 +165,56 @@
             z-index: 10;
         }
 
-        .section-padding { padding: 120px 0; }
+        .section-padding {
+            padding: 120px 0;
+        }
 
-        .text-cyan { color: var(--cyan); }
-        .text-green { color: var(--green); }
-        .text-pink { color: var(--pink); }
-        .text-yellow { color: var(--yellow); }
-        .text-orange { color: var(--orange); }
+        .text-cyan {
+            color: var(--cyan);
+        }
+
+        .text-green {
+            color: var(--green);
+        }
+
+        .text-pink {
+            color: var(--pink);
+        }
+
+        .text-yellow {
+            color: var(--yellow);
+        }
+
+        .text-orange {
+            color: var(--orange);
+        }
 
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
 
         /* Buttons */
         .btn {
@@ -227,8 +276,10 @@
             font-weight: 800;
             letter-spacing: -1px;
         }
-        
-        .logo span { color: var(--cyan); }
+
+        .logo span {
+            color: var(--cyan);
+        }
 
         .nav-links {
             display: flex;
@@ -244,18 +295,24 @@
             transition: opacity 0.3s;
         }
 
-        .nav-links a:hover { opacity: 1; }
+        .nav-links a:hover {
+            opacity: 1;
+        }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px; left: 0;
-            width: 0; height: 2px;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
             background: var(--cyan);
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
         /* Hero */
         .hero {
@@ -284,7 +341,8 @@
         }
 
         .status-badge .dot {
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             background: var(--green);
             border-radius: 50%;
             box-shadow: 0 0 8px var(--green);
@@ -292,8 +350,15 @@
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         .label {
@@ -331,7 +396,7 @@
         /* Floating Code Card */
         .floating-card {
             position: absolute;
-            right: -20px;
+            right: -30px;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(15, 20, 32, 0.8);
@@ -339,15 +404,18 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 25px;
-            width: 420px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 30px rgba(56, 189, 248, 0.1);
+            width: 440px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.1);
             animation: float 6s ease-in-out infinite;
+            font-size: 0.85rem;
         }
 
         .floating-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--cyan), var(--pink));
             border-top-left-radius: 12px;
@@ -361,29 +429,56 @@
         }
 
         .floating-card .mac-btns span {
-            width: 12px; height: 12px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             display: block;
         }
-        .floating-card .mac-btns .red { background: #ff5f56; }
-        .floating-card .mac-btns .yellow { background: #ffbd2e; }
-        .floating-card .mac-btns .green { background: #27c93f; }
+
+        .floating-card .mac-btns .red {
+            background: #ff5f56;
+        }
+
+        .floating-card .mac-btns .yellow {
+            background: #ffbd2e;
+        }
+
+        .floating-card .mac-btns .green {
+            background: #27c93f;
+        }
 
         .floating-card pre {
-            font-size: 0.9rem;
             color: #a8b2d1;
             white-space: pre-wrap;
             line-height: 1.6;
         }
 
-        .floating-card .keyword { color: var(--pink); }
-        .floating-card .string { color: var(--green); }
-        .floating-card .function { color: var(--cyan); }
-        .floating-card .comment { color: var(--muted); }
+        .floating-card .keyword {
+            color: var(--pink);
+        }
+
+        .floating-card .string {
+            color: var(--green);
+        }
+
+        .floating-card .function {
+            color: var(--cyan);
+        }
+
+        .floating-card .comment {
+            color: var(--muted);
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(-50%); }
-            50% { transform: translateY(calc(-50% - 20px)); }
+
+            0%,
+            100% {
+                transform: translateY(-50%);
+            }
+
+            50% {
+                transform: translateY(calc(-50% - 20px));
+            }
         }
 
         /* Stats Bar */
@@ -425,7 +520,7 @@
             margin-bottom: 3.5rem;
             position: relative;
         }
-        
+
         .section-title::before {
             content: '// ';
             color: var(--cyan);
@@ -434,7 +529,7 @@
             vertical-align: middle;
             opacity: 0.7;
         }
-        
+
         .section-title span {
             color: transparent;
             -webkit-text-stroke: 1.5px #ffffff;
@@ -458,7 +553,7 @@
 
         .skill-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 0 1px var(--cyan);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--cyan);
             border-color: rgba(56, 189, 248, 0.5);
         }
 
@@ -474,7 +569,7 @@
         .skill-bar-bg {
             width: 100%;
             height: 6px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 3px;
             overflow: hidden;
         }
@@ -506,14 +601,17 @@
 
         .project-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
             border-color: rgba(56, 189, 248, 0.3);
         }
-        
+
         .project-card::after {
             content: '';
             position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
             background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.15), transparent);
             transform: skewX(-20deg);
             transition: left 0.8s ease;
@@ -539,7 +637,7 @@
             justify-content: center;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .project-card.featured .project-image-wrap {
             width: 55%;
             height: auto;
@@ -591,7 +689,7 @@
             gap: 1.5rem;
             margin-top: auto;
         }
-        
+
         .project-links a {
             font-size: 0.95rem;
             color: #fff;
@@ -601,7 +699,7 @@
             transition: color 0.3s;
             font-weight: 700;
         }
-        
+
         .project-links a:hover {
             color: var(--cyan);
         }
@@ -612,26 +710,28 @@
             height: 100%;
             background: rgba(10, 15, 25, 0.8);
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 20px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--green);
             overflow: hidden;
             position: relative;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
         }
 
         .term-anim-header {
             display: flex;
             gap: 6px;
             margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
         }
+
         .term-anim-header span {
-            width: 10px; height: 10px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
         }
 
@@ -639,9 +739,11 @@
             margin: 0;
             line-height: 1.5;
         }
+
         .term-content .cursor {
             display: inline-block;
-            width: 8px; height: 15px;
+            width: 8px;
+            height: 15px;
             background: var(--green);
             vertical-align: middle;
             animation: blink 1s step-end infinite;
@@ -657,8 +759,10 @@
         .timeline::before {
             content: '';
             position: absolute;
-            top: 0; left: 24px;
-            height: 100%; width: 2px;
+            top: 0;
+            left: 24px;
+            height: 100%;
+            width: 2px;
             background: linear-gradient(to bottom, var(--cyan), var(--pink));
             opacity: 0.3;
         }
@@ -671,8 +775,10 @@
 
         .timeline-dot {
             position: absolute;
-            left: 17px; top: 8px;
-            width: 16px; height: 16px;
+            left: 17px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--bg);
             border: 2px solid var(--cyan);
@@ -703,7 +809,7 @@
         .timeline-content:hover {
             transform: translateX(15px);
             border-color: rgba(56, 189, 248, 0.6);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .timeline-content h4 {
@@ -711,12 +817,14 @@
             margin-bottom: 0.3rem;
             color: #fff;
         }
+
         .timeline-content h5 {
             font-size: 1.1rem;
             color: var(--muted);
             margin-bottom: 1.2rem;
             font-family: 'JetBrains Mono', monospace;
         }
+
         .timeline-content p {
             font-size: 1.05rem;
             color: #94a3b8;
@@ -749,17 +857,20 @@
             color: var(--cyan);
             text-shadow: var(--glow);
         }
-        
+
         .contact .email-link::after {
             content: '';
             position: absolute;
-            bottom: -8px; left: 0;
-            width: 100%; height: 3px;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
             background: var(--cyan);
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .contact .email-link:hover::after {
             transform: scaleX(1);
             transform-origin: left;
@@ -769,6 +880,7 @@
             display: flex;
             justify-content: center;
             gap: 3rem;
+            flex-wrap: wrap;
         }
 
         .social-links a {
@@ -798,13 +910,16 @@
         ::-webkit-scrollbar {
             width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg);
         }
+
         ::-webkit-scrollbar-thumb {
             background: rgba(56, 189, 248, 0.2);
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(56, 189, 248, 0.5);
         }
@@ -816,38 +931,113 @@
         }
 
         @media (max-width: 1200px) {
-            .floating-card { display: none; }
-            .hero-content { margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
-            .hero h1 { font-size: 4.5rem; }
-            .hero-desc { margin: 0 auto 2.5rem; }
+            .floating-card {
+                display: none;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+
+            .hero-desc {
+                margin: 0 auto 2.5rem;
+            }
         }
 
         @media (max-width: 900px) {
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .project-card.featured { flex-direction: column; }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-card.featured {
+                flex-direction: column;
+            }
+
             .project-card.featured .project-image-wrap,
-            .project-card.featured .project-content { width: 100%; }
-            .project-card.featured .project-image-wrap { border-right: none; border-bottom: 1px solid var(--border); min-height: 300px; }
-            .contact h2 { font-size: 3rem; }
-            .contact .email-link { font-size: 1.8rem; }
-            .section-title { font-size: 2.8rem; }
+            .project-card.featured .project-content {
+                width: 100%;
+            }
+
+            .project-card.featured .project-image-wrap {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                min-height: 300px;
+            }
+
+            .contact h2 {
+                font-size: 3rem;
+            }
+
+            .contact .email-link {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
         }
 
         @media (max-width: 600px) {
-            .cursor-dot, .cursor-ring { display: none; }
-            * { cursor: auto; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 3.2rem; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .timeline-item { padding-left: 40px; }
-            .timeline::before { left: 14px; }
-            .timeline-dot { left: 7px; width: 14px; height: 14px; }
-            .contact h2 { font-size: 2.5rem; }
-            .social-links { flex-direction: column; gap: 1.5rem; }
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none;
+            }
+
+            * {
+                cursor: auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                padding-left: 40px;
+            }
+
+            .timeline::before {
+                left: 14px;
+            }
+
+            .timeline-dot {
+                left: 7px;
+                width: 14px;
+                height: 14px;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="cursor-dot"></div>
@@ -872,10 +1062,11 @@
             <div class="status-badge reveal active stagger-1">
                 <span class="dot"></span> available
             </div>
-            <div class="label reveal active stagger-2">// Full Stack Engineer</div>
+            <div class="label reveal active stagger-2">// DevSecOps & Software Engineer</div>
             <h1 class="reveal active stagger-3">Kingsley <br><span class="outline">Kipkoech</span></h1>
             <p class="hero-desc reveal active stagger-4">
-                I build high-performance web applications and digital experiences with a focus on modern aesthetics, scalable architectures, and flawless execution.
+                Aspiring cybersecurity professional and software engineer at ALU. Passionate about architecting and
+                securing resilient technology infrastructure and network integrity.
             </p>
             <div class="hero-btns reveal active stagger-4">
                 <a href="#projects" class="btn btn-solid hover-trigger">View Work</a>
@@ -887,76 +1078,108 @@
             <div class="mac-btns">
                 <span class="red"></span><span class="yellow"></span><span class="green"></span>
             </div>
-            <pre><code><span class="keyword">import</span> { Developer } <span class="keyword">from</span> <span class="string">'@world/talent'</span>;
+            <pre><code><span class="keyword">import</span> { Cybersecurity } <span class="keyword">from</span> <span class="string">'@tech/resilience'</span>;
 
-<span class="keyword">const</span> kingsley = <span class="keyword">new</span> Developer({
-  name: <span class="string">'Kingsley Kipkoech'</span>,
-  role: <span class="string">'Full Stack Engineer'</span>,
-  skills: [<span class="string">'TypeScript'</span>, <span class="string">'Python'</span>, <span class="string">'React'</span>],
-  fuel: <span class="string">'Coffee'</span>
-});
+<span class="keyword">class</span> Engineer {
+  name = <span class="string">'Kingsley Kipkoech'</span>;
+  stack = [<span class="string">'Python'</span>, <span class="string">'Linux'</span>, <span class="string">'DevSecOps'</span>];
+  
+  <span class="function">secureInfrastructure</span>(target) {
+    target.harden();
+    target.deployAutomatedBackups();
+    <span class="keyword">return</span> <span class="string">"Network Integrity Confirmed."</span>;
+  }
+}
 
-kingsley.<span class="function">execute</span>(awesomeProject);
-<span class="comment">// Returns: Exceptional Digital Experience </span></code></pre>
+<span class="comment">// Returns: 100% Security Audits Passed</span></code></pre>
         </div>
     </header>
 
     <section class="stats-bar">
         <div class="container stats-grid">
-            <div class="stat-item reveal stagger-1"><h3 data-val="65">0</h3><p>Projects Shipped</p></div>
-            <div class="stat-item reveal stagger-2"><h3 data-val="4">0</h3><p>Years Experience</p></div>
-            <div class="stat-item reveal stagger-3"><h3 data-val="12">0</h3><p>Open Source Repos</p></div>
-            <div class="stat-item reveal stagger-4"><h3 data-val="100">0</h3><p>Client Satisfaction</p></div>
+            <div class="stat-item reveal stagger-1">
+                <h3 data-val="16">0</h3>
+                <p>Projects Shipped</p>
+            </div>
+            <div class="stat-item reveal stagger-2">
+                <h3 data-val="2">0</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item reveal stagger-3">
+                <h3 data-val="15">0</h3>
+                <p>GitHub Repos</p>
+            </div>
+            <div class="stat-item reveal stagger-4">
+                <h3 data-val="100">0</h3>
+                <p>Audit Success</p>
+            </div>
         </div>
     </section>
 
     <section id="skills" class="section-padding container">
-        <h2 class="section-title reveal"><span>Core</span> Technologies</h2>
+        <h2 class="section-title reveal"><span>Core</span> Capabilities</h2>
         <div class="skills-grid">
             <div class="skill-card hover-trigger reveal stagger-1" data-percent="95">
-                <div class="skill-header"><span>React.js / Next.js</span><span class="text-cyan">95%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar"></div></div>
+                <div class="skill-header"><span>Python / Scripting</span><span class="text-cyan">95%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar"></div>
+                </div>
             </div>
             <div class="skill-card hover-trigger reveal stagger-2" data-percent="90">
-                <div class="skill-header"><span>TypeScript</span><span class="text-pink">90%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div></div>
+                <div class="skill-header"><span>Linux SysAdmin / Bash</span><span class="text-green">90%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)"></div>
+                </div>
             </div>
             <div class="skill-card hover-trigger reveal stagger-3" data-percent="85">
-                <div class="skill-header"><span>Node.js / Express</span><span class="text-green">85%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)"></div></div>
+                <div class="skill-header"><span>DevSecOps / Docker</span><span class="text-pink">85%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div>
+                </div>
             </div>
-            <div class="skill-card hover-trigger reveal stagger-4" data-percent="80">
-                <div class="skill-header"><span>Python / Django</span><span class="text-yellow">80%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar" style="background:var(--yellow);box-shadow:0 0 12px var(--yellow)"></div></div>
+            <div class="skill-card hover-trigger reveal stagger-4" data-percent="85">
+                <div class="skill-header"><span>HTML5 / CSS3</span><span class="text-yellow">85%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar" style="background:var(--yellow);box-shadow:0 0 12px var(--yellow)"></div>
+                </div>
             </div>
-            <div class="skill-card hover-trigger reveal stagger-1" data-percent="85">
-                <div class="skill-header"><span>PostgreSQL</span><span class="text-cyan">85%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar"></div></div>
+            <div class="skill-card hover-trigger reveal stagger-1" data-percent="80">
+                <div class="skill-header"><span>Nmap / Wireshark</span><span class="text-cyan">80%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar"></div>
+                </div>
             </div>
             <div class="skill-card hover-trigger reveal stagger-2" data-percent="75">
-                <div class="skill-header"><span>AWS / Cloud</span><span class="text-orange">75%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar" style="background:var(--orange);box-shadow:0 0 12px var(--orange)"></div></div>
+                <div class="skill-header"><span>Metasploit / Burp Suite</span><span class="text-orange">75%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar" style="background:var(--orange);box-shadow:0 0 12px var(--orange)"></div>
+                </div>
             </div>
             <div class="skill-card hover-trigger reveal stagger-3" data-percent="80">
-                <div class="skill-header"><span>Docker & CI/CD</span><span class="text-cyan">80%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar"></div></div>
+                <div class="skill-header"><span>Secure User Auth</span><span class="text-green">80%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)"></div>
+                </div>
             </div>
-            <div class="skill-card hover-trigger reveal stagger-4" data-percent="70">
-                <div class="skill-header"><span>GraphQL</span><span class="text-pink">70%</span></div>
-                <div class="skill-bar-bg"><div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div></div>
+            <div class="skill-card hover-trigger reveal stagger-4" data-percent="85">
+                <div class="skill-header"><span>Git / SSH / Vim</span><span class="text-pink">85%</span></div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="section-padding container">
-        <h2 class="section-title reveal"><span>Selected</span> Works</h2>
+        <h2 class="section-title reveal"><span>Selected</span> Projects</h2>
         <div class="projects-grid">
-            
+
             <div class="project-card featured hover-trigger reveal stagger-1">
                 <div class="project-image-wrap">
                     <div class="term-anim">
                         <div class="term-anim-header">
-                            <span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span>
+                            <span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span
+                                style="background:#27c93f"></span>
                         </div>
                         <div class="term-content" id="term-preview"></div>
                     </div>
@@ -964,14 +1187,23 @@ kingsley.<span class="function">execute</span>(awesomeProject);
                 <div class="project-content">
                     <div>
                         <div class="project-tags">
-                            <span>React</span><span>Node.js</span><span>WebSockets</span><span>Redis</span>
+                            <span>Python</span><span>Bash</span><span>Linux</span><span>Cron</span>
                         </div>
-                        <h3 class="project-title">Nexus Core CLI & API</h3>
-                        <p class="project-desc">A highly scalable realtime communication backend capable of handling massive concurrent websocket connections. Features a completely custom distributed messaging queue, real-time analytics dashboard, and a dedicated developer CLI.</p>
+                        <h3 class="project-title">Secure Automated Backups</h3>
+                        <p class="project-desc">Engineered a highly reliable Python-based script automating crucial data
+                            backup and retention processes. Implementing this significantly optimized the workflow,
+                            reducing manual administrative effort by over 80% while ensuring zero data loss and
+                            compliance with security requirements.</p>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-solid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Live Demo</a>
-                        <a href="#" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Repository</a>
+                        <a href="https://github.com/kingsleykipkoech" target="_blank" class="btn btn-primary"><svg
+                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-right:6px">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg> Repository</a>
                     </div>
                 </div>
             </div>
@@ -980,13 +1212,17 @@ kingsley.<span class="function">execute</span>(awesomeProject);
                 <div class="project-content">
                     <div>
                         <div class="project-tags">
-                            <span>Next.js</span><span>Tailwind</span><span>Stripe</span>
+                            <span>DevSecOps</span><span>Cryptography</span><span>Auth</span>
                         </div>
-                        <h3 class="project-title">E-Commerce Flow</h3>
-                        <p class="project-desc">Headless e-commerce storefront with highly optimized conversion funnel, blazing fast loading times achieving perfect Lighthouse scores, and complex global cart state management.</p>
+                        <h3 class="project-title">Secure User Authentication</h3>
+                        <p class="project-desc">Designed and implemented a thoroughly hardened user authentication
+                            system for a complex group project. It successfully passed all rigorous security audits
+                            without exhibiting any vulnerabilities, utilizing modern encryption and salting techniques.
+                        </p>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="hover-trigger">View Project &rarr;</a>
+                        <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger">View on
+                            GitHub &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -995,13 +1231,16 @@ kingsley.<span class="function">execute</span>(awesomeProject);
                 <div class="project-content">
                     <div>
                         <div class="project-tags">
-                            <span>Python</span><span>FastAPI</span><span>TensorFlow</span>
+                            <span>Ubuntu</span><span>Networking</span><span>SysAdmin</span>
                         </div>
-                        <h3 class="project-title">AI Image Processor</h3>
-                        <p class="project-desc">REST API wrapping deep learning models for on-the-fly image restoration, smart upscaling, and background removal, served via Edge CDN with sub-second latency.</p>
+                        <h3 class="project-title">Ubuntu Network Guide</h3>
+                        <p class="project-desc">Built a comprehensive educational website tailored to guide new Ubuntu
+                            users through intricate manual installations and effectively troubleshooting critical
+                            Network Manager issues.</p>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="hover-trigger">View Project &rarr;</a>
+                        <a href="https://github.com/kingsleykipkoech/Ubunut-25.04-help-c" target="_blank"
+                            class="hover-trigger">View Project &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -1010,36 +1249,42 @@ kingsley.<span class="function">execute</span>(awesomeProject);
     </section>
 
     <section id="experience" class="section-padding container">
-        <h2 class="section-title reveal"><span>Work</span> History</h2>
+        <h2 class="section-title reveal"><span>Journey</span></h2>
         <div class="timeline">
-            
+
             <div class="timeline-item reveal stagger-1">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content hover-trigger">
-                    <p class="timeline-date">2023 - Present</p>
-                    <h4>Senior Full Stack Engineer</h4>
-                    <h5>TechFlow Inc.</h5>
-                    <p>Spearheaded the migration of legacy monolith to microservices architecture, reducing deployment times by 60% and cutting cloud infrastructure costs significantly. Led internal frontend guild sharing modern React patterns.</p>
+                    <p class="timeline-date">Present</p>
+                    <h4>Cybersecurity & Software Engineering Student</h4>
+                    <h5>African Leadership University (ALU)</h5>
+                    <p>Actively honing skills in building resilient, scalable digital environments. Operating at the
+                        intersection of secure systems development and network integrity. Exploring DevSecOps paradigms
+                        and learning to integrate security directly into CI/CD pipelines.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal stagger-2">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content hover-trigger">
-                    <p class="timeline-date">2021 - 2023</p>
-                    <h4>Software Engineer</h4>
-                    <h5>Orbit Digital</h5>
-                    <p>Developed high-traffic enterprise web applications utilizing server-side rendering. Integrated complex third-party payment and messaging APIs. Implemented robust automated CI/CD pipelines.</p>
+                    <p class="timeline-date">Recent</p>
+                    <h4>Linux Systems Hardening</h4>
+                    <h5>Independent Projects</h5>
+                    <p>Building architecture and hardening environments entirely via the command line. Extensive usage
+                        of Nmap, Wireshark, Metasploit, and Burp Suite to audit application security and monitor complex
+                        network integrity.</p>
                 </div>
             </div>
 
             <div class="timeline-item reveal stagger-3">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content hover-trigger">
-                    <p class="timeline-date">2019 - 2021</p>
-                    <h4>Frontend Developer</h4>
-                    <h5>Creative Solutions Agency</h5>
-                    <p>Built responsive, highly interactive and visually stunning promotional websites for premium brand clients. Focused heavily on bespoke web animations, WebGL, accessibility standards, and pixel-perfect execution.</p>
+                    <p class="timeline-date">Past</p>
+                    <h4>Technology Educator</h4>
+                    <h5>Community Project Initiative</h5>
+                    <p>Participated heavily in a broad community project explicitly focused on educating fellow students
+                        about technology, troubleshooting methodologies, and bringing technical literacy to
+                        underrepresented groups.</p>
                 </div>
             </div>
 
@@ -1047,19 +1292,22 @@ kingsley.<span class="function">execute</span>(awesomeProject);
     </section>
 
     <section id="contact" class="contact container reveal">
-        <h2>Let's build something<br>extraordinary.</h2>
+        <h2>Let's build something<br>resilient.</h2>
         <a href="mailto:hello@kingsley.dev" class="email-link hover-trigger">hello@kingsley.dev</a>
         <div class="social-links">
-            <a href="#" class="hover-trigger">GitHub</a>
-            <a href="#" class="hover-trigger">LinkedIn</a>
-            <a href="#" class="hover-trigger">Twitter / X</a>
-            <a href="#" class="hover-trigger">Download Resume</a>
+            <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger">GitHub</a>
+            <a href="https://www.linkedin.com/in/kingsley-kipkoech-09016a365" target="_blank"
+                class="hover-trigger">LinkedIn</a>
+            <a href="https://twitter.com/kingsleykoech" target="_blank" class="hover-trigger">Twitter / X</a>
+            <a href="https://murray-1.github.io/My--website/" target="_blank" class="hover-trigger">Legacy Portfolio</a>
+            <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank"
+                class="hover-trigger">Knowledge Pack</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Kingsley Kipkoech. Designed & Built with passion.</p>
+            <p>&copy; 2026 Kingsley Kipkoech. Architected and Secured with passion.</p>
         </div>
     </footer>
 
@@ -1067,14 +1315,14 @@ kingsley.<span class="function">execute</span>(awesomeProject);
         // Custom Cursor Logic
         const dot = document.querySelector('.cursor-dot');
         const ring = document.querySelector('.cursor-ring');
-        
+
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
         let ringX = window.innerWidth / 2;
         let ringY = window.innerHeight / 2;
-        
+
         // Hide default cursor completely if screen is wide enough
-        if(window.innerWidth > 600) {
+        if (window.innerWidth > 600) {
             window.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
@@ -1102,25 +1350,25 @@ kingsley.<span class="function">execute</span>(awesomeProject);
 
         // Scroll Reveal & Animations
         const revealElms = document.querySelectorAll('.reveal');
-        
+
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
+
                     // Activate skill bars
-                    if(entry.target.classList.contains('skill-card')) {
+                    if (entry.target.classList.contains('skill-card')) {
                         const bar = entry.target.querySelector('.skill-bar');
                         const percent = entry.target.getAttribute('data-percent');
-                        if(bar && percent) {
+                        if (bar && percent) {
                             setTimeout(() => {
                                 bar.style.width = percent + '%';
-                            }, 400); 
+                            }, 400);
                         }
                     }
 
                     // Activate stats counter
-                    if(entry.target.classList.contains('stat-item')) {
+                    if (entry.target.classList.contains('stat-item')) {
                         const countEl = entry.target.querySelector('h3');
                         if (countEl && !countEl.classList.contains('counted')) {
                             const target = parseInt(countEl.getAttribute('data-val'));
@@ -1128,7 +1376,7 @@ kingsley.<span class="function">execute</span>(awesomeProject);
                             const duration = 2000;
                             const fps = 60;
                             const increment = target / (duration / (1000 / fps));
-                            
+
                             const updateCount = () => {
                                 count += increment;
                                 if (count < target) {
@@ -1153,7 +1401,7 @@ kingsley.<span class="function">execute</span>(awesomeProject);
 
         // Add reveal class to cards without it explicitly set inline
         revealElms.forEach(el => {
-            if(!el.classList.contains('active')) { // skip hero which is active on load
+            if (!el.classList.contains('active')) { // skip hero which is active on load
                 revealObserver.observe(el);
             }
         });
@@ -1161,16 +1409,17 @@ kingsley.<span class="function">execute</span>(awesomeProject);
         // Terminal animation script
         const termContent = document.getElementById('term-preview');
         const termLines = [
-            "<span style='color:var(--muted)'>$ nexus-cli init cluster</span>",
-            "Initializing secure connection...",
-            "<span style='color:var(--yellow)'>[WARN] Bypass protocol selected.</span>",
-            "Connecting to <span style='color:var(--cyan)'>wss://nexus.core:8080</span>",
-            "Connection established.",
-            "Authenticating user <span style='color:var(--pink)'>[ADMIN]</span>...",
-            "Access granted! Welcome aboard.",
-            "<span style='color:var(--muted)'>Loading realtime modules</span> [||||||||||] 100%"
+            "<span style='color:var(--muted)'>$ python3 security-backup.py --init</span>",
+            "Initializing secure cron job protocol...",
+            "<span style='color:var(--yellow)'>[WARN] Verifying administrative privileges...</span>",
+            "Authentication... <span style='color:var(--green)'>[SUCCESS]</span>",
+            "Encrypting payload via <span style='color:var(--cyan)'>AES-256</span>",
+            "Establishing tunnel to isolated AWS bucket...",
+            "Backup transferring... 1.2GB done.",
+            "<span style='color:var(--pink)'>[SYSTEM] Integrity hash matches origin.</span>",
+            "<span style='color:var(--muted)'>Process completed in 2.4s. Exiting.</span>"
         ];
-        
+
         let currentLine = 0;
         let currentChar = 0;
         let htmlBuffer = "";
@@ -1179,24 +1428,24 @@ kingsley.<span class="function">execute</span>(awesomeProject);
         const terminalTyping = () => {
             if (currentLine < termLines.length) {
                 const lineStr = termLines[currentLine];
-                
+
                 if (currentChar === 0) {
                     htmlBuffer += "<p>";
                 }
-                
+
                 // Handle HTML tags smoothly
                 const nextChar = lineStr.charAt(currentChar);
-                if(nextChar === '<') isTag = true;
-                
+                if (nextChar === '<') isTag = true;
+
                 htmlBuffer += nextChar;
                 currentChar++;
-                
-                if(nextChar === '>') isTag = false;
+
+                if (nextChar === '>') isTag = false;
 
                 // Strip the exact previous HTML to prevent cursor bug and append cursor
-                if(!isTag) {
+                if (!isTag) {
                     termContent.innerHTML = htmlBuffer + "<span class='cursor'></span></p>";
-                    
+
                     if (currentChar >= lineStr.length) {
                         currentChar = 0;
                         currentLine++;
@@ -1212,8 +1461,8 @@ kingsley.<span class="function">execute</span>(awesomeProject);
                 }
             } else {
                 termContent.innerHTML = htmlBuffer; // Remove cursor at end or leave it
-                termContent.innerHTML += "<p><span style='color:var(--green)'>$ </span><span class='cursor'></span></p>";
-                
+                termContent.innerHTML += "<p><span style='color:var(--green)'>admin@base:~$ </span><span class='cursor'></span></p>";
+
                 // Restart loop after idle
                 setTimeout(() => {
                     termContent.innerHTML = "";
@@ -1232,4 +1481,5 @@ kingsley.<span class="function">execute</span>(awesomeProject);
         });
     </script>
 </body>
+
 </html>
