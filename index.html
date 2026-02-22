@@ -156,6 +156,188 @@
             }
         }
 
+        /* Split Layout Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .split-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+        }
+
+        .fixed-sidebar {
+            width: 40%;
+            height: 100vh;
+            border-right: 1px solid var(--border);
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background: rgba(6, 8, 16, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: 20;
+        }
+
+        .scrollable-content {
+            width: 60%;
+            height: 100vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            padding: 0 4rem 4rem 4rem;
+            position: relative;
+        }
+
+        .scrollable-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-track {
+            background: rgba(15, 20, 32, 0.5);
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
+        }
+
+        .fixed-sidebar .hero-content {
+            margin-top: 1rem;
+            max-width: 100%;
+        }
+
+        .fixed-sidebar h1 {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .fixed-sidebar .label {
+            font-size: 0.95rem;
+        }
+
+        .fixed-sidebar .hero-desc {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            max-width: 95%;
+        }
+
+        .nav-links-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-links-vertical a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            transition: opacity 0.3s, transform 0.3s, color 0.3s;
+            display: inline-block;
+            transform-origin: left;
+            font-weight: bold;
+        }
+
+        .nav-links-vertical a:hover,
+        .nav-links-vertical a.active {
+            opacity: 1;
+            color: var(--cyan);
+            transform: scale(1.05) translateX(10px);
+        }
+
+        .floating-card-inline {
+            background: rgba(15, 20, 32, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 15px;
+            width: 100%;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-size: 0.75rem;
+        }
+
+        .contact-mini {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .social-links-mini {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links-mini a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links-mini a:hover {
+            background: var(--cyan);
+            color: var(--bg);
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px var(--cyan);
+        }
+
+        .scrollable-content .section-padding {
+            padding: 80px 0;
+        }
+
+        .scrollable-content .container {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                overflow: auto;
+            }
+
+            .split-layout {
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+
+            .fixed-sidebar {
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                position: relative;
+                padding: 2rem;
+            }
+
+            .scrollable-content {
+                width: 100%;
+                height: auto;
+                overflow-y: visible;
+                padding: 2rem;
+            }
+
+            .nav-links-vertical {
+                display: none;
+            }
+        }
+
         /* Containers & Utilities */
         .container {
             max-width: 1100px;
@@ -253,16 +435,9 @@
             transform: translateY(-2px);
         }
 
-        /* Navigation */
+        /* Navigation hidden in split layout */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 0;
-            z-index: 1000;
-            background: rgba(6, 8, 16, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            display: none;
         }
 
         nav .container {
@@ -1044,490 +1219,546 @@
     <div class="cursor-ring"></div>
     <div class="scanline"></div>
 
-    <nav>
-        <div class="container">
-            <a href="#" class="logo hover-trigger">kingsley<span>.kip</span></a>
-            <ul class="nav-links">
-                <li><a href="#skills" class="hover-trigger">Skills</a></li>
-                <li><a href="#projects" class="hover-trigger">Projects</a></li>
-                <li><a href="#experience" class="hover-trigger">Experience</a></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary hover-trigger">Connect &rarr;</a>
-        </div>
-    </nav>
+    <div class="split-layout">
+        <!-- LEFT PANEL: Fixed Identity -->
+        <aside class="fixed-sidebar">
+            <div class="hero-content">
+                <a href="#" class="logo hover-trigger"
+                    style="display:block; margin-bottom:1.5rem; font-size:1.5rem;">kingsley<span>.kip</span></a>
+                <div class="status-badge" style="margin-bottom: 1rem;">
+                    <span class="dot"></span> Available
+                </div>
+                <div class="label reveal active stagger-2" style="margin-bottom:0.5rem;">// DevSecOps & Software
+                    Engineer</div>
+                <h1 class="reveal active stagger-3">Kingsley <span class="outline">Kipkoech</span></h1>
+                <p class="hero-desc reveal active stagger-4">Architecting and securing technology infrastructure
+                    solutions for a resilient digital world.</p>
 
-    <header class="hero container reveal active">
-        <div class="bg-grid"></div>
-        <div class="hero-content">
-            <div class="status-badge reveal active stagger-1">
-                <span class="dot"></span> available
-            </div>
-            <div class="label reveal active stagger-2">// DevSecOps & Software Engineer</div>
-            <h1 class="reveal active stagger-3">Kingsley <br><span class="outline">Kipkoech</span></h1>
-            <p class="hero-desc reveal active stagger-4">
-                Aspiring cybersecurity professional and software engineer at ALU. Passionate about architecting and
-                securing resilient technology infrastructure and network integrity.
-            </p>
-            <div class="hero-btns reveal active stagger-4">
-                <a href="#projects" class="btn btn-solid hover-trigger">View Work</a>
-                <a href="#contact" class="btn btn-primary hover-trigger">Get In Touch</a>
-            </div>
-        </div>
+                <div class="nav-links-vertical reveal active stagger-4">
+                    <a href="#pitch-stats" class="hover-trigger">01 // The Pitch</a>
+                    <a href="#experience" class="hover-trigger">02 // Experience</a>
+                    <a href="#skills" class="hover-trigger">03 // Arsenal</a>
+                    <a href="#projects" class="hover-trigger">04 // Field Reports</a>
+                </div>
 
-        <div class="floating-card reveal active stagger-4 hover-trigger">
-            <div class="mac-btns">
-                <span class="red"></span><span class="yellow"></span><span class="green"></span>
-            </div>
-            <pre><code><span class="keyword">import</span> { Cybersecurity } <span class="keyword">from</span> <span class="string">'@tech/resilience'</span>;
-
-<span class="keyword">class</span> Engineer {
-  name = <span class="string">'Kingsley Kipkoech'</span>;
-  stack = [<span class="string">'Python'</span>, <span class="string">'Linux'</span>, <span class="string">'DevSecOps'</span>];
-  
-  <span class="function">secureInfrastructure</span>(target) {
-    target.harden();
-    target.deployAutomatedBackups();
-    <span class="keyword">return</span> <span class="string">"Network Integrity Confirmed."</span>;
-  }
-}
-
-<span class="comment">// Returns: 100% Security Audits Passed</span></code></pre>
-        </div>
-    </header>
-
-    <section class="stats-bar">
-        <div class="container stats-grid">
-            <div class="stat-item reveal stagger-1">
-                <h3 data-val="16">0</h3>
-                <p>Projects Shipped</p>
-            </div>
-            <div class="stat-item reveal stagger-2">
-                <h3 data-val="2">0</h3>
-                <p>Years Experience</p>
-            </div>
-            <div class="stat-item reveal stagger-3">
-                <h3 data-val="15">0</h3>
-                <p>GitHub Repos</p>
-            </div>
-            <div class="stat-item reveal stagger-4">
-                <h3 data-val="100">0</h3>
-                <p>Audit Success</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="pitch" class="section-padding container" style="padding-top: 60px; padding-bottom: 60px;">
-        <h2 class="section-title reveal"><span>My</span> Pitch</h2>
-        <div class="reveal active stagger-1" style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p style="font-size: 1.15rem; color: #94a3b8; margin-bottom: 2.5rem; line-height: 1.7;">
-                To leverage my passion for cybersecurity, software development, and Linux to architect and secure robust
-                technology infrastructure solutions, empowering organizations to thrive in a resilient digital world.
-            </p>
-            <div class="hover-trigger"
-                style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="https://placehold.co/800x450/0f1420/38bdf8?text=My+Pitch+Video+Here"
-                    alt="Placeholder for pitch video"
-                    style="position: absolute; top:0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section-padding container">
-        <h2 class="section-title reveal"><span>Core</span> Capabilities</h2>
-        <div class="skills-grid">
-            <div class="skill-card hover-trigger reveal stagger-1" data-percent="95">
-                <div class="skill-header"><span>Python / Scripting</span><span class="text-cyan">95%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar"></div>
+                <div class="floating-card-inline reveal active stagger-4">
+                    <div class="mac-btns" style="display:flex; gap:6px; margin-bottom:10px;">
+                        <span
+                            style="width:10px; height:10px; border-radius:50%; background:#ff5f56; display:block;"></span>
+                        <span
+                            style="width:10px; height:10px; border-radius:50%; background:#ffbd2e; display:block;"></span>
+                        <span
+                            style="width:10px; height:10px; border-radius:50%; background:#27c93f; display:block;"></span>
+                    </div>
+                    <pre><span class="keyword">def</span> <span class="function">secure_infrastructure</span>():
+    <span class="comment"># Initiating automated defenses</span>
+    stack = [<span class="string">'Python'</span>, <span class="string">'Linux'</span>, <span class="string">'DevSecOps'</span>]
+    <span class="keyword">for</span> tool <span class="keyword">in</span> stack:
+        deploy(tool)
+    <span class="keyword">return</span> <span class="string">"System Secured"</span></pre>
                 </div>
             </div>
-            <div class="skill-card hover-trigger reveal stagger-2" data-percent="90">
-                <div class="skill-header"><span>Linux SysAdmin / Bash</span><span class="text-green">90%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)"></div>
-                </div>
-            </div>
-            <div class="skill-card hover-trigger reveal stagger-3" data-percent="85">
-                <div class="skill-header"><span>DevSecOps / Docker</span><span class="text-pink">85%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div>
-                </div>
-            </div>
-            <div class="skill-card hover-trigger reveal stagger-4" data-percent="85">
-                <div class="skill-header"><span>HTML5 / CSS3</span><span class="text-yellow">85%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar" style="background:var(--yellow);box-shadow:0 0 12px var(--yellow)"></div>
-                </div>
-            </div>
-            <div class="skill-card hover-trigger reveal stagger-1" data-percent="80">
-                <div class="skill-header"><span>Nmap / Wireshark</span><span class="text-cyan">80%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar"></div>
-                </div>
-            </div>
-            <div class="skill-card hover-trigger reveal stagger-2" data-percent="75">
-                <div class="skill-header"><span>Metasploit / Burp Suite</span><span class="text-orange">75%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar" style="background:var(--orange);box-shadow:0 0 12px var(--orange)"></div>
-                </div>
-            </div>
-            <div class="skill-card hover-trigger reveal stagger-3" data-percent="80">
-                <div class="skill-header"><span>Secure User Auth</span><span class="text-green">80%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)"></div>
-                </div>
-            </div>
-            <div class="skill-card hover-trigger reveal stagger-4" data-percent="85">
-                <div class="skill-header"><span>Git / SSH / Vim</span><span class="text-pink">85%</span></div>
-                <div class="skill-bar-bg">
-                    <div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="projects" class="section-padding container">
-        <h2 class="section-title reveal"><span>Selected</span> Projects</h2>
-        <div class="projects-grid">
+            <div class="contact-mini reveal active stagger-4">
+                <p style="color:var(--muted); font-size:0.85rem; margin-bottom:0.3rem;">Initialize Connection:</p>
+                <a href="mailto:kingsleykoech@gmail.com" class="text-cyan hover-trigger"
+                    style="font-weight:700; font-size:1.1rem;">kingsleykoech@gmail.com</a>
+                <div class="social-links-mini">
+                    <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger"><svg width="18"
+                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg></a>
+                    <a href="https://www.linkedin.com/in/kingsley-kipkoech-09016a365" target="_blank"
+                        class="hover-trigger"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg></a>
+                    <a href="https://twitter.com/kingsleykoech" target="_blank" class="hover-trigger"><svg width="18"
+                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </aside>
 
-            <div class="project-card featured hover-trigger reveal stagger-1">
-                <div class="project-image-wrap">
-                    <div class="term-anim">
-                        <div class="term-anim-header">
-                            <span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span
-                                style="background:#27c93f"></span>
+        <!-- RIGHT PANEL: Scrollable Content -->
+        <main class="scrollable-content">
+
+            <div id="pitch-stats">
+                <section class="stats-bar" style="border-top: none;">
+                    <div class="container stats-grid">
+                        <div class="stat-item reveal stagger-1">
+                            <h3 data-val="16">0</h3>
+                            <p>Projects Shipped</p>
                         </div>
-                        <div class="term-content" id="term-preview"></div>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div>
-                        <div class="project-tags">
-                            <span>Python</span><span>Bash</span><span>Linux</span><span>Cron</span>
+                        <div class="stat-item reveal stagger-2">
+                            <h3 data-val="2">0</h3>
+                            <p>Years Experience</p>
                         </div>
-                        <h3 class="project-title">Secure Automated Backups</h3>
-                        <p class="project-desc">Engineered a highly reliable Python-based script automating crucial data
-                            backup and retention processes. Implementing this significantly optimized the workflow,
-                            reducing manual administrative effort by over 80% while ensuring zero data loss and
-                            compliance with security requirements.</p>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kingsleykipkoech" target="_blank" class="btn btn-primary"><svg
-                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                style="margin-right:6px">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                            </svg> Repository</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card hover-trigger reveal stagger-2">
-                <div class="project-content">
-                    <div>
-                        <div class="project-tags">
-                            <span>DevSecOps</span><span>Cryptography</span><span>Auth</span>
+                        <div class="stat-item reveal stagger-3">
+                            <h3 data-val="15">0</h3>
+                            <p>GitHub Repos</p>
                         </div>
-                        <h3 class="project-title">Secure User Authentication</h3>
-                        <p class="project-desc">Designed and implemented a thoroughly hardened user authentication
-                            system for a complex group project. It successfully passed all rigorous security audits
-                            without exhibiting any vulnerabilities, utilizing modern encryption and salting techniques.
-                        </p>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger">View on
-                            GitHub &rarr;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card hover-trigger reveal stagger-3">
-                <div class="project-content">
-                    <div>
-                        <div class="project-tags">
-                            <span>Ubuntu</span><span>Networking</span><span>SysAdmin</span>
+                        <div class="stat-item reveal stagger-4">
+                            <h3 data-val="100">0</h3>
+                            <p>Audit Success</p>
                         </div>
-                        <h3 class="project-title">Ubuntu Network Guide</h3>
-                        <p class="project-desc">Built a comprehensive educational website tailored to guide new Ubuntu
-                            users through intricate manual installations and effectively troubleshooting critical
-                            Network Manager issues.</p>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kingsleykipkoech/Ubunut-25.04-help-c" target="_blank"
-                            class="hover-trigger">View Project &rarr;</a>
-                    </div>
-                </div>
+                </section>
             </div>
 
-            <div class="project-card featured hover-trigger reveal stagger-4" style="margin-top: 2.5rem;">
-                <div class="project-image-wrap"
-                    style="padding: 0; background: #000; overflow: hidden; border-right: 1px solid var(--border);">
-                    <iframe src="https://www.youtube.com/embed/mvykTntqiFI"
-                        style="width: 100%; height: 100%; min-height: 400px; border: none; pointer-events: auto;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen title="Team Project Video">
-                    </iframe>
-                </div>
-                <div class="project-content">
-                    <div>
-                        <div class="project-tags">
-                            <span>Team Project</span><span>EdTech</span><span>Offline Learning</span>
+            <section id="experience" class="section-padding container">
+                <h2 class="section-title reveal"><span>Professional</span> Experience</h2>
+                <div class="timeline">
+
+                    <div class="timeline-item reveal stagger-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content hover-trigger">
+                            <p class="timeline-date">Present</p>
+                            <h4>Cybersecurity & Software Engineering Student</h4>
+                            <h5>African Leadership University (ALU)</h5>
+                            <p>Actively honing skills in building resilient, scalable digital environments. Operating at
+                                the
+                                intersection of secure systems development and network integrity. Exploring DevSecOps
+                                paradigms
+                                and learning to integrate security directly into CI/CD pipelines.</p>
                         </div>
-                        <h3 class="project-title">Knowledge Pack</h3>
-                        <p class="project-desc">Our team collaborated on a comprehensive project to develop an adaptive
-                            offline learning application called Knowledge pack that is set to solve access to education
-                            in marginalised areas.</p>
                     </div>
-                    <div class="project-links">
-                        <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank"
-                            class="btn btn-solid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                style="margin-right:6px">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg> View Slide Deck</a>
+
+                    <div class="timeline-item reveal stagger-2">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content hover-trigger">
+                            <p class="timeline-date">Recent</p>
+                            <h4>Linux Systems Hardening</h4>
+                            <h5>Independent Projects</h5>
+                            <p>Building architecture and hardening environments entirely via the command line. Extensive
+                                usage
+                                of Nmap, Wireshark, Metasploit, and Burp Suite to audit application security and monitor
+                                complex
+                                network integrity.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal stagger-3">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content hover-trigger">
+                            <p class="timeline-date">Past</p>
+                            <h4>Technology Educator</h4>
+                            <h5>Community Project Initiative</h5>
+                            <p>Participated heavily in a broad community project explicitly focused on educating fellow
+                                students
+                                about technology, troubleshooting methodologies, and bringing technical literacy to
+                                underrepresented groups.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="pitch" class="section-padding container" style="padding-top: 60px; padding-bottom: 60px;">
+                <h2 class="section-title reveal"><span>My</span> Pitch</h2>
+                <div class="reveal active stagger-1" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 1.15rem; color: #94a3b8; margin-bottom: 2.5rem; line-height: 1.7;">
+                        To leverage my passion for cybersecurity, software development, and Linux to architect and
+                        secure robust
+                        technology infrastructure solutions, empowering organizations to thrive in a resilient digital
+                        world.
+                    </p>
+                    <div class="hover-trigger"
+                        style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <img src="https://placehold.co/800x450/0f1420/38bdf8?text=My+Pitch+Video+Here"
+                            alt="Placeholder for pitch video"
+                            style="position: absolute; top:0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
-            </div>
+            </section>
 
-        </div>
-    </section>
-
-    <section id="experience" class="section-padding container">
-        <h2 class="section-title reveal"><span>Professional</span> Experience</h2>
-        <div class="timeline">
-
-            <div class="timeline-item reveal stagger-1">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content hover-trigger">
-                    <p class="timeline-date">Present</p>
-                    <h4>Cybersecurity & Software Engineering Student</h4>
-                    <h5>African Leadership University (ALU)</h5>
-                    <p>Actively honing skills in building resilient, scalable digital environments. Operating at the
-                        intersection of secure systems development and network integrity. Exploring DevSecOps paradigms
-                        and learning to integrate security directly into CI/CD pipelines.</p>
+            <section id="skills" class="section-padding container">
+                <h2 class="section-title reveal"><span>Core</span> Capabilities</h2>
+                <div class="skills-grid">
+                    <div class="skill-card hover-trigger reveal stagger-1" data-percent="95">
+                        <div class="skill-header"><span>Python / Scripting</span><span class="text-cyan">95%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-2" data-percent="90">
+                        <div class="skill-header"><span>Linux SysAdmin / Bash</span><span class="text-green">90%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-3" data-percent="85">
+                        <div class="skill-header"><span>DevSecOps / Docker</span><span class="text-pink">85%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-4" data-percent="85">
+                        <div class="skill-header"><span>HTML5 / CSS3</span><span class="text-yellow">85%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar" style="background:var(--yellow);box-shadow:0 0 12px var(--yellow)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-1" data-percent="80">
+                        <div class="skill-header"><span>Nmap / Wireshark</span><span class="text-cyan">80%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-2" data-percent="75">
+                        <div class="skill-header"><span>Metasploit / Burp Suite</span><span
+                                class="text-orange">75%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar" style="background:var(--orange);box-shadow:0 0 12px var(--orange)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-3" data-percent="80">
+                        <div class="skill-header"><span>Secure User Auth</span><span class="text-green">80%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar" style="background:var(--green);box-shadow:0 0 12px var(--green)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card hover-trigger reveal stagger-4" data-percent="85">
+                        <div class="skill-header"><span>Git / SSH / Vim</span><span class="text-pink">85%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar" style="background:var(--pink);box-shadow:0 0 12px var(--pink)"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="timeline-item reveal stagger-2">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content hover-trigger">
-                    <p class="timeline-date">Recent</p>
-                    <h4>Linux Systems Hardening</h4>
-                    <h5>Independent Projects</h5>
-                    <p>Building architecture and hardening environments entirely via the command line. Extensive usage
-                        of Nmap, Wireshark, Metasploit, and Burp Suite to audit application security and monitor complex
-                        network integrity.</p>
+            <section id="projects" class="section-padding container">
+                <h2 class="section-title reveal"><span>Selected</span> Projects</h2>
+                <div class="projects-grid">
+
+                    <div class="project-card featured hover-trigger reveal stagger-1">
+                        <div class="project-image-wrap">
+                            <div class="term-anim">
+                                <div class="term-anim-header">
+                                    <span style="background:#ff5f56"></span><span
+                                        style="background:#ffbd2e"></span><span style="background:#27c93f"></span>
+                                </div>
+                                <div class="term-content" id="term-preview"></div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-tags">
+                                    <span>Python</span><span>Bash</span><span>Linux</span><span>Cron</span>
+                                </div>
+                                <h3 class="project-title">Secure Automated Backups</h3>
+                                <p class="project-desc">Engineered a highly reliable Python-based script automating
+                                    crucial data
+                                    backup and retention processes. Implementing this significantly optimized the
+                                    workflow,
+                                    reducing manual administrative effort by over 80% while ensuring zero data loss and
+                                    compliance with security requirements.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kingsleykipkoech" target="_blank"
+                                    class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" style="margin-right:6px">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg> Repository</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card hover-trigger reveal stagger-2">
+                        <div class="project-content">
+                            <div>
+                                <div class="project-tags">
+                                    <span>DevSecOps</span><span>Cryptography</span><span>Auth</span>
+                                </div>
+                                <h3 class="project-title">Secure User Authentication</h3>
+                                <p class="project-desc">Designed and implemented a thoroughly hardened user
+                                    authentication
+                                    system for a complex group project. It successfully passed all rigorous security
+                                    audits
+                                    without exhibiting any vulnerabilities, utilizing modern encryption and salting
+                                    techniques.
+                                </p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger">View
+                                    on
+                                    GitHub &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card hover-trigger reveal stagger-3">
+                        <div class="project-content">
+                            <div>
+                                <div class="project-tags">
+                                    <span>Ubuntu</span><span>Networking</span><span>SysAdmin</span>
+                                </div>
+                                <h3 class="project-title">Ubuntu Network Guide</h3>
+                                <p class="project-desc">Built a comprehensive educational website tailored to guide new
+                                    Ubuntu
+                                    users through intricate manual installations and effectively troubleshooting
+                                    critical
+                                    Network Manager issues.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kingsleykipkoech/Ubunut-25.04-help-c" target="_blank"
+                                    class="hover-trigger">View Project &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card featured hover-trigger reveal stagger-4" style="margin-top: 2.5rem;">
+                        <div class="project-image-wrap"
+                            style="padding: 0; background: #000; overflow: hidden; border-right: 1px solid var(--border);">
+                            <iframe src="https://www.youtube.com/embed/mvykTntqiFI"
+                                style="width: 100%; height: 100%; min-height: 400px; border: none; pointer-events: auto;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen title="Team Project Video">
+                            </iframe>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-tags">
+                                    <span>Team Project</span><span>EdTech</span><span>Offline Learning</span>
+                                </div>
+                                <h3 class="project-title">Knowledge Pack</h3>
+                                <p class="project-desc">Our team collaborated on a comprehensive project to develop an
+                                    adaptive
+                                    offline learning application called Knowledge pack that is set to solve access to
+                                    education
+                                    in marginalised areas.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank"
+                                    class="btn btn-solid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" style="margin-right:6px">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg> View Slide Deck</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+            </section>
 
-            <div class="timeline-item reveal stagger-3">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content hover-trigger">
-                    <p class="timeline-date">Past</p>
-                    <h4>Technology Educator</h4>
-                    <h5>Community Project Initiative</h5>
-                    <p>Participated heavily in a broad community project explicitly focused on educating fellow students
-                        about technology, troubleshooting methodologies, and bringing technical literacy to
-                        underrepresented groups.</p>
+
+
+            <section id="contact" class="contact container reveal">
+                <h2>Open to<br>New Opportunities.</h2>
+                <a href="mailto:kingsleykoech@gmail.com" class="email-link hover-trigger">kingsleykoech@gmail.com</a>
+                <div class="social-links">
+                    <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kingsley-kipkoech-09016a365" target="_blank"
+                        class="hover-trigger">LinkedIn</a>
+                    <a href="https://twitter.com/kingsleykoech" target="_blank" class="hover-trigger">Twitter / X</a>
+                    <a href="https://murray-1.github.io/My--website/" target="_blank" class="hover-trigger">Legacy
+                        Portfolio</a>
+                    <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank"
+                        class="hover-trigger">Knowledge Pack</a>
                 </div>
-            </div>
+            </section>
 
-        </div>
-    </section>
+            <footer>
+                <div class="container">
+                    <p>&copy; 2026 Kingsley Kipkoech. Architected and Secured with passion.</p>
+                </div>
+            </footer>
 
-    <section id="contact" class="contact container reveal">
-        <h2>Open to<br>New Opportunities.</h2>
-        <a href="mailto:kingsleykoech@gmail.com" class="email-link hover-trigger">kingsleykoech@gmail.com</a>
-        <div class="social-links">
-            <a href="https://github.com/kingsleykipkoech" target="_blank" class="hover-trigger">GitHub</a>
-            <a href="https://www.linkedin.com/in/kingsley-kipkoech-09016a365" target="_blank"
-                class="hover-trigger">LinkedIn</a>
-            <a href="https://twitter.com/kingsleykoech" target="_blank" class="hover-trigger">Twitter / X</a>
-            <a href="https://murray-1.github.io/My--website/" target="_blank" class="hover-trigger">Legacy Portfolio</a>
-            <a href="https://gamma.app/docs/KNOWLEDGE-PACK-4nislwc3ik5041d" target="_blank"
-                class="hover-trigger">Knowledge Pack</a>
-        </div>
-    </section>
+            <script>
+                // Custom Cursor Logic
+                const dot = document.querySelector('.cursor-dot');
+                const ring = document.querySelector('.cursor-ring');
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Kingsley Kipkoech. Architected and Secured with passion.</p>
-        </div>
-    </footer>
+                let mouseX = window.innerWidth / 2;
+                let mouseY = window.innerHeight / 2;
+                let ringX = window.innerWidth / 2;
+                let ringY = window.innerHeight / 2;
 
-    <script>
-        // Custom Cursor Logic
-        const dot = document.querySelector('.cursor-dot');
-        const ring = document.querySelector('.cursor-ring');
+                // Hide default cursor completely if screen is wide enough
+                if (window.innerWidth > 600) {
+                    window.addEventListener('mousemove', (e) => {
+                        mouseX = e.clientX;
+                        mouseY = e.clientY;
+                        // Dot follows instantly
+                        dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+                    });
 
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let ringX = window.innerWidth / 2;
-        let ringY = window.innerHeight / 2;
+                    const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
 
-        // Hide default cursor completely if screen is wide enough
-        if (window.innerWidth > 600) {
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                // Dot follows instantly
-                dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-            });
+                    const animateRing = () => {
+                        ringX = lerp(ringX, mouseX, 0.15);
+                        ringY = lerp(ringY, mouseY, 0.15);
+                        ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+                        requestAnimationFrame(animateRing);
+                    };
+                    animateRing();
 
-            const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+                    // Hover effects
+                    const interactables = document.querySelectorAll('a, button, .hover-trigger, .skill-card, .project-card, .timeline-content');
+                    interactables.forEach(el => {
+                        el.addEventListener('mouseenter', () => document.body.classList.add('hover-effect'));
+                        el.addEventListener('mouseleave', () => document.body.classList.remove('hover-effect'));
+                    });
+                }
 
-            const animateRing = () => {
-                ringX = lerp(ringX, mouseX, 0.15);
-                ringY = lerp(ringY, mouseY, 0.15);
-                ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
-                requestAnimationFrame(animateRing);
-            };
-            animateRing();
+                // Scroll Reveal & Animations
+                const revealElms = document.querySelectorAll('.reveal');
 
-            // Hover effects
-            const interactables = document.querySelectorAll('a, button, .hover-trigger, .skill-card, .project-card, .timeline-content');
-            interactables.forEach(el => {
-                el.addEventListener('mouseenter', () => document.body.classList.add('hover-effect'));
-                el.addEventListener('mouseleave', () => document.body.classList.remove('hover-effect'));
-            });
-        }
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
 
-        // Scroll Reveal & Animations
-        const revealElms = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-
-                    // Activate skill bars
-                    if (entry.target.classList.contains('skill-card')) {
-                        const bar = entry.target.querySelector('.skill-bar');
-                        const percent = entry.target.getAttribute('data-percent');
-                        if (bar && percent) {
-                            setTimeout(() => {
-                                bar.style.width = percent + '%';
-                            }, 400);
-                        }
-                    }
-
-                    // Activate stats counter
-                    if (entry.target.classList.contains('stat-item')) {
-                        const countEl = entry.target.querySelector('h3');
-                        if (countEl && !countEl.classList.contains('counted')) {
-                            const target = parseInt(countEl.getAttribute('data-val'));
-                            let count = 0;
-                            const duration = 2000;
-                            const fps = 60;
-                            const increment = target / (duration / (1000 / fps));
-
-                            const updateCount = () => {
-                                count += increment;
-                                if (count < target) {
-                                    countEl.innerText = Math.ceil(count);
-                                    requestAnimationFrame(updateCount);
-                                } else {
-                                    countEl.innerText = target + (target >= 100 ? '%' : '+');
-                                    countEl.classList.add('counted');
+                            // Activate skill bars
+                            if (entry.target.classList.contains('skill-card')) {
+                                const bar = entry.target.querySelector('.skill-bar');
+                                const percent = entry.target.getAttribute('data-percent');
+                                if (bar && percent) {
+                                    setTimeout(() => {
+                                        bar.style.width = percent + '%';
+                                    }, 400);
                                 }
-                            };
-                            updateCount();
+                            }
+
+                            // Activate stats counter
+                            if (entry.target.classList.contains('stat-item')) {
+                                const countEl = entry.target.querySelector('h3');
+                                if (countEl && !countEl.classList.contains('counted')) {
+                                    const target = parseInt(countEl.getAttribute('data-val'));
+                                    let count = 0;
+                                    const duration = 2000;
+                                    const fps = 60;
+                                    const increment = target / (duration / (1000 / fps));
+
+                                    const updateCount = () => {
+                                        count += increment;
+                                        if (count < target) {
+                                            countEl.innerText = Math.ceil(count);
+                                            requestAnimationFrame(updateCount);
+                                        } else {
+                                            countEl.innerText = target + (target >= 100 ? '%' : '+');
+                                            countEl.classList.add('counted');
+                                        }
+                                    };
+                                    updateCount();
+                                }
+                            }
+
+                            observer.unobserve(entry.target);
                         }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: "0px 0px -50px 0px"
+                });
+
+                // Add reveal class to cards without it explicitly set inline
+                revealElms.forEach(el => {
+                    if (!el.classList.contains('active')) { // skip hero which is active on load
+                        revealObserver.observe(el);
                     }
+                });
 
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        });
+                // Terminal animation script
+                const termContent = document.getElementById('term-preview');
+                const termLines = [
+                    "<span style='color:var(--muted)'>$ python3 security-backup.py --init</span>",
+                    "Initializing secure cron job protocol...",
+                    "<span style='color:var(--yellow)'>[WARN] Verifying administrative privileges...</span>",
+                    "Authentication... <span style='color:var(--green)'>[SUCCESS]</span>",
+                    "Encrypting payload via <span style='color:var(--cyan)'>AES-256</span>",
+                    "Establishing tunnel to isolated AWS bucket...",
+                    "Backup transferring... 1.2GB done.",
+                    "<span style='color:var(--pink)'>[SYSTEM] Integrity hash matches origin.</span>",
+                    "<span style='color:var(--muted)'>Process completed in 2.4s. Exiting.</span>"
+                ];
 
-        // Add reveal class to cards without it explicitly set inline
-        revealElms.forEach(el => {
-            if (!el.classList.contains('active')) { // skip hero which is active on load
-                revealObserver.observe(el);
-            }
-        });
+                let currentLine = 0;
+                let currentChar = 0;
+                let htmlBuffer = "";
+                let isTag = false;
 
-        // Terminal animation script
-        const termContent = document.getElementById('term-preview');
-        const termLines = [
-            "<span style='color:var(--muted)'>$ python3 security-backup.py --init</span>",
-            "Initializing secure cron job protocol...",
-            "<span style='color:var(--yellow)'>[WARN] Verifying administrative privileges...</span>",
-            "Authentication... <span style='color:var(--green)'>[SUCCESS]</span>",
-            "Encrypting payload via <span style='color:var(--cyan)'>AES-256</span>",
-            "Establishing tunnel to isolated AWS bucket...",
-            "Backup transferring... 1.2GB done.",
-            "<span style='color:var(--pink)'>[SYSTEM] Integrity hash matches origin.</span>",
-            "<span style='color:var(--muted)'>Process completed in 2.4s. Exiting.</span>"
-        ];
+                const terminalTyping = () => {
+                    if (currentLine < termLines.length) {
+                        const lineStr = termLines[currentLine];
 
-        let currentLine = 0;
-        let currentChar = 0;
-        let htmlBuffer = "";
-        let isTag = false;
+                        if (currentChar === 0) {
+                            htmlBuffer += "<p>";
+                        }
 
-        const terminalTyping = () => {
-            if (currentLine < termLines.length) {
-                const lineStr = termLines[currentLine];
+                        // Handle HTML tags smoothly
+                        const nextChar = lineStr.charAt(currentChar);
+                        if (nextChar === '<') isTag = true;
 
-                if (currentChar === 0) {
-                    htmlBuffer += "<p>";
-                }
+                        htmlBuffer += nextChar;
+                        currentChar++;
 
-                // Handle HTML tags smoothly
-                const nextChar = lineStr.charAt(currentChar);
-                if (nextChar === '<') isTag = true;
+                        if (nextChar === '>') isTag = false;
 
-                htmlBuffer += nextChar;
-                currentChar++;
+                        // Strip the exact previous HTML to prevent cursor bug and append cursor
+                        if (!isTag) {
+                            termContent.innerHTML = htmlBuffer + "<span class='cursor'></span></p>";
 
-                if (nextChar === '>') isTag = false;
-
-                // Strip the exact previous HTML to prevent cursor bug and append cursor
-                if (!isTag) {
-                    termContent.innerHTML = htmlBuffer + "<span class='cursor'></span></p>";
-
-                    if (currentChar >= lineStr.length) {
-                        currentChar = 0;
-                        currentLine++;
-                        htmlBuffer += "</p>";
-                        // Delete cursor from previous line in the buffer
-                        termContent.innerHTML = htmlBuffer + "<p><span class='cursor'></span></p>";
-                        setTimeout(terminalTyping, 600);
+                            if (currentChar >= lineStr.length) {
+                                currentChar = 0;
+                                currentLine++;
+                                htmlBuffer += "</p>";
+                                // Delete cursor from previous line in the buffer
+                                termContent.innerHTML = htmlBuffer + "<p><span class='cursor'></span></p>";
+                                setTimeout(terminalTyping, 600);
+                            } else {
+                                setTimeout(terminalTyping, 25);
+                            }
+                        } else {
+                            terminalTyping(); // proceed instantly through tags
+                        }
                     } else {
-                        setTimeout(terminalTyping, 25);
+                        termContent.innerHTML = htmlBuffer; // Remove cursor at end or leave it
+                        termContent.innerHTML += "<p><span style='color:var(--green)'>admin@base:~$ </span><span class='cursor'></span></p>";
+
+                        // Restart loop after idle
+                        setTimeout(() => {
+                            termContent.innerHTML = "";
+                            currentLine = 0;
+                            currentChar = 0;
+                            htmlBuffer = "";
+                            terminalTyping();
+                        }, 5000);
                     }
-                } else {
-                    terminalTyping(); // proceed instantly through tags
-                }
-            } else {
-                termContent.innerHTML = htmlBuffer; // Remove cursor at end or leave it
-                termContent.innerHTML += "<p><span style='color:var(--green)'>admin@base:~$ </span><span class='cursor'></span></p>";
+                };
 
-                // Restart loop after idle
-                setTimeout(() => {
-                    termContent.innerHTML = "";
-                    currentLine = 0;
-                    currentChar = 0;
-                    htmlBuffer = "";
-                    terminalTyping();
-                }, 5000);
-            }
-        };
+                // Trigger animations once window loaded
+                window.addEventListener('load', () => {
+                    // Trigger terminal
+                    setTimeout(terminalTyping, 1000);
+                });
+            </script>
+        </main>
+    </div> <!-- End split-layout -->
 
-        // Trigger animations once window loaded
-        window.addEventListener('load', () => {
-            // Trigger terminal
-            setTimeout(terminalTyping, 1000);
-        });
-    </script>
 </body>
 
 </html>
