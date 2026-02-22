@@ -1755,6 +1755,133 @@
                     // Trigger terminal
                     setTimeout(terminalTyping, 1000);
                 });
+
+                // --- Pixel Animation Script ---
+                const termCard = document.getElementById('profile-terminal');
+                const termCode = document.getElementById('profile-code');
+                const canvas = document.getElementById('pixelCanvas');
+
+                if (termCard && termCode && canvas) {
+                    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+                    // Fixed dimensions for internal resolution, CSS scales it
+                    canvas.width = 320;
+                    canvas.height = 320;
+
+                    let particles = [];
+                    let animationFrameId;
+                    let imgData;
+                    let isAnimated = false;
+                    let imgW, imgH, imgX, imgY;
+                    let finalOpacity = 0;
+
+                    const img = new Image();
+                    img.src = 'images/me.jpeg';
+                    img.crossOrigin = 'Anonymous';
+
+                    img.onload = () => {
+                        const offCanvas = document.createElement('canvas');
+                        offCanvas.width = canvas.width;
+                        offCanvas.height = canvas.height;
+                        const offCtx = offCanvas.getContext('2d', { willReadFrequently: true });
+
+                        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+                        imgW = img.width * scale;
+                        imgH = img.height * scale;
+                        imgX = (canvas.width - imgW) / 2;
+                        imgY = (canvas.height - imgH) / 2;
+
+                        offCtx.drawImage(img, imgX, imgY, imgW, imgH);
+                        imgData = offCtx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+                        termCard.addEventListener('mouseenter', startPixelAnimation);
+                        termCard.addEventListener('mouseleave', resetTerminal);
+                    };
+
+                    function startPixelAnimation() {
+                        if (isAnimated) return;
+                        isAnimated = true;
+                        finalOpacity = 0;
+
+                        termCode.style.display = 'none';
+                        canvas.style.display = 'block';
+
+                        particles = [];
+                        const step = 6; // Bigger blocks for cooler retro effect
+
+                        for (let y = 0; y < canvas.height; y += step) {
+                            for (let x = 0; x < canvas.width; x += step) {
+                                const index = (y * canvas.width + x) * 4;
+                                const alpha = imgData[index + 3];
+
+                                // Increase brightness threshold if needed, but alpha > 50 works well
+                                if (alpha > 50) {
+                                    const r = imgData[index];
+                                    const g = imgData[index + 1];
+                                    const b = imgData[index + 2];
+
+                                    particles.push({
+                                        targetX: x,
+                                        targetY: y,
+                                        x: x + (Math.random() - 0.5) * 60,
+                                        y: canvas.height + Math.random() * 400 + 50,
+                                        color: `rgba(${r},${g},${b},${alpha / 255})`,
+                                        speed: Math.random() * 0.04 + 0.03,
+                                        size: step - 1 // Slight gap between pixels
+                                    });
+                                }
+                            }
+                        }
+
+                        animate();
+                    }
+
+                    function resetTerminal() {
+                        isAnimated = false;
+                        cancelAnimationFrame(animationFrameId);
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        canvas.style.display = 'none';
+                        termCode.style.display = 'block';
+                    }
+
+                    function animate() {
+                        if (!isAnimated) return;
+
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        let allSettled = true;
+
+                        particles.forEach(p => {
+                            p.x += (p.targetX - p.x) * p.speed;
+                            p.y += (p.targetY - p.y) * p.speed;
+
+                            const dx = p.targetX - p.x;
+                            const dy = p.targetY - p.y;
+                            if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
+                                allSettled = false;
+                            } else {
+                                p.x = p.targetX;
+                                p.y = p.targetY;
+                            }
+
+                            ctx.fillStyle = p.color;
+                            ctx.fillRect(Math.round(p.x), Math.round(p.y), p.size, p.size);
+                        });
+
+                        if (!allSettled) {
+                            animationFrameId = requestAnimationFrame(animate);
+                        } else {
+                            if (finalOpacity < 1) {
+                                finalOpacity += 0.05;
+                                ctx.globalAlpha = finalOpacity;
+                                ctx.drawImage(img, imgX, imgY, imgW, imgH);
+                                ctx.globalAlpha = 1;
+                                animationFrameId = requestAnimationFrame(animate);
+                            } else {
+                                ctx.drawImage(img, imgX, imgY, imgW, imgH);
+                            }
+                        }
+                    }
+                }
             </script>
         </main>
     </div> <!-- End split-layout -->
