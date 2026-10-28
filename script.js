@@ -17,16 +17,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide/show sections on nav click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Hide all sections
-                document.querySelectorAll('.section-box').forEach(section => {
-                    section.classList.add('hidden-section');
-                });
-                // Show the clicked section
                 const targetId = this.getAttribute('href').replace('#', '');
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden-section');
+                
+                if (targetId === 'top' || targetId === 'home-section') {
+                    // Show all sections when Home is clicked
+                    document.querySelectorAll('.section-box').forEach(section => {
+                        section.classList.remove('hidden-section');
+                    });
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    e.preventDefault();
+                    // Hide all sections
+                    document.querySelectorAll('.section-box').forEach(section => {
+                        section.classList.add('hidden-section');
+                    });
+                    // Show the clicked section
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden-section');
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
                 // Close nav on mobile
                 navLinks.classList.remove('show');
